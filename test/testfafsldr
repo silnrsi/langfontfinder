@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+
+import os, sys, argparse
+
+try:
+    from findafont import FaF
+except ImportError:
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
+    from findafont import FaF
+
+import xml.etree.ElementTree as et
+from sldr.ldml import iterate_files
+
+datadir = os.getenv('FAFPATH', os.path.join(os.path.dirname(__file__), '..', 'testdata'))
+rulesfile = os.getenv('FAFRULES', os.path.join(datadir, 'fontrules.json'))
+familiesfile = os.getenv('FAFFONTS', os.path.join(datadir, 'families.json'))
+ltfile = os.getenv('FAFLANGTAGS', os.path.join(datadir, 'langtags.json'))
+sldrdir = os.getenv('FAFSLDR', '/var/lib/sldr/sldr')
+
+silns = "{urn://www.sil.org/ldml/0.1}"
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-s','--sldr',default=sldrdir,help='path to head of ldml files tree')
+parser.add_argument('-r','--rules',default=rulesfile,help='fontrules.json')
+parser.add_argument('-f','--fonts',default=familiesfile,help='families.json')
+parser.add_argument('-l','--langs',default=ltfile,help='langtags.json')
+parser.add_argument('-L','--ltag',action='append',default=[],help='language tag to test. Repeatable')
+args = parser.parse_args()
+
+faf = FaF(args.rules, args.fonts, ltags=args.langs)
+jobs = iterate_files(args.sldr)
+if len(args.ltag):
+    jobs = [x for x in jobs if os.path.splitext(os.path.basename(x))[0] in args.ltag]
+
+for f in jobs:
+    lt = os.path.splitext(os.path.basename(f))[0].replace("_", "-")
+    res = faf.get(lt)
+    if res is None:
+        print(f"Failed to match {lt}")
+        continue
+    doc = et.parse(f)
+    fname = None
+    for e in doc.findall(f'./special/{silns}external-resources/{silns}font'):
+        if 'default' in e.get('types', ""):
+            fname = e.get('name')
+            break
+    rf = res['families'][res['defaultfamily'][0]].get('family', None)
+    if fname != rf:
+        print(f"Failed {f}: {fname=} != {rf}")
+    else:
+        print(f"Passed {f}")
+

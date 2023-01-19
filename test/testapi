@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import sys, os
+from fastapi.testclient import TestClient
+
+try:
+    from findafont.api import fafapp
+except ImportError:
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
+    from findafont.api import fafapp
+
+client = TestClient(fafapp)
+
+def test_lang_en():
+    response = client.get("/lang/en")
+    assert response.status_code == 200
+    res = response.json()
+    assert res['defaultfamily'][0] == 'charissil'
+
+if __name__ == "__main__":
+    test_lang_en()
