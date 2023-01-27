@@ -1,7 +1,8 @@
-#1/usr/bin/python3
+#!/usr/bin/env python3
 
 from langtag import LangTags, LangTag, langtag
 import json
+
 
 class FaF:
     def __init__(self, rfile, ffile, ltags=None):
@@ -10,12 +11,13 @@ class FaF:
             self.fontmap = json.load(inf)
         with open(rfile, encoding="utf-8") as inf:
             rules = json.load(inf)
-        self.varrules = rules['variants']
-        self.lngrules = rules['langs']
-        self.regrules = rules['regions']
-        self.scrrules = rules['scripts'][0]
+        self.varrules = rules["variants"]
+        self.lngrules = rules["langs"]
+        self.regrules = rules["regions"]
+        self.scrrules = rules["scripts"][0]
 
     def getlt(self, txt):
+        """returns a language tag tagset for the given textual language tag"""
         return self.langtags.get(str(txt), default=None)
 
     def _getmatch(self, lng, scr, reg, var, regnum):
@@ -26,19 +28,28 @@ class FaF:
         return res
 
     def match(self, lng, scr, reg, var):
-        res = self._getmatch(lng, scr, reg, var, self.scrrules[1].get(scr, self.scrrules[0]))
+        """Given broken out lang tag components, return the rule result that matches."""
+        res = self._getmatch(
+            lng, scr, reg, var, self.scrrules[1].get(scr, self.scrrules[0])
+        )
         if res is None:
             res = self._getmatch(lng, scr, reg, var, self.scrrules[0])
         return res
 
     def getfamilyresult(self, matchres):
-        familyid = matchres['familyid']
+        """Given a rule result, merge with the fonts family information to give a full result."""
+        familyid = matchres["familyid"]
         family = self.fontmap.get(familyid, {})
         family.update(matchres)
-        res = {'defaultfamily': [familyid], 'apiversion': 0.3, 'families': {familyid: family}}
+        res = {
+            "defaultfamily": [familyid],
+            "apiversion": 0.3,
+            "families": {familyid: family},
+        }
         return res
 
     def get(self, ltag: str):
+        """Given a textual language tag return fully font family information for it."""
         if (lt := self.getlt(ltag)) is None:
             nlt = langtag(ltag)
             if nlt.region is not None:
@@ -56,7 +67,9 @@ class FaF:
                         test = LangTag(nlt.lang, None, None, None, None)
                         tr = self.getlt(str(test))
                 if tr is not None:
-                    lt = LangTag(tr.lang, nlt.script, nlt.region or tr.region, tr.vars, tr.ns)
+                    lt = LangTag(
+                        tr.lang, nlt.script, nlt.region or tr.region, tr.vars, tr.ns
+                    )
             else:
                 lt = nlt
         res = None
@@ -72,19 +85,21 @@ class FaF:
                 res = self.getfamilyresult(res)
         return res
 
+
 def main():
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r","--rules",required=True,help="fontrules.json")
-    parser.add_argument("-f","--fonts",required=True,help="families.json")
-    parser.add_argument("-l","--lang",required=True,help="langtag")
+    parser.add_argument("-r", "--rules", required=True, help="fontrules.json")
+    parser.add_argument("-f", "--fonts", required=True, help="families.json")
+    parser.add_argument("-l", "--lang", required=True, help="langtag")
     args = parser.parse_args()
 
     ruleset = FaF(args.rules, args.fonts)
     res = ruleset.get(args.lang)
     if res is not None:
         print(res)
+
 
 if __name__ == "__main__":
     main()

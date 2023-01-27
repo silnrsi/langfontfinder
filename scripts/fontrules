@@ -8,141 +8,16 @@ from itertools import combinations
 from multiprocessing.pool import Pool
 import xml.etree.ElementTree as et
 
+
 def fontid(s, feat=""):
     return s + "|" + " ".join(sorted([f for f in feat.split() if not f.endswith("=0")]))
 
-class Classifier:
-    def __init__(self, mapdata):
-        self.scripts = [[None, {}]]
-        self.regions = []
-        self.langs = []
-        self.variants = []
-
-    def create_matches(self, mapdata):
-        fields = ('script', 'region', 'lang', 'variant')
-        for k, v in mapdata.items():
-            key = self._splitkey(k)
-            current = 0
-            for i, a in enumerate(fields):
-                rules = getattr(self, a+"s")[current]
-                nrules = getattr(self, fields[i+1]+"s") if i+1 < len(fields) else None 
-                if a in key:
-                    val = key[a]
-                    if val not in rules[1]:
-                        rules[1][val] = len(nrules) if nrules is not None else v
-                        if nrules is not None:
-                            nrules.append([None, {}])
-                    current = rules[1][val]
-                else:
-                    if rules[0] is None:
-                        rules[0] = len(nrules) if nrules is not None else v
-                        if nrules is not None:
-                            nrules.append([None, {}])
-                    current = rules[0]
-        # import pdb; pdb.set_trace()
-        for i, a in enumerate(reversed(fields)):
-            childrules = getattr(self, fields[-i]+"s") if i > 0 else None
-            r, m = self._simplify_matches(getattr(self, a+"s"))
-            setattr(self, a+"s", r)
-            if i+1 < len(fields):
-                self._apply_map(getattr(self, fields[-i-2]+"s"), m, childrules)
-        self._apply_map(self.variants, {}, None)
-        for vm in self.variants:
-            vm[0] = self._makeres(vm[0])
-            vm[1] = {k: self._makeres(v) for k, v in vm[1].items()}
-
-    def _splitkey(self, x):
-        """ Splits according to a language tag. Subclass and override
-            appropriately """
-        l = langtag(x)
-        key = {k: getattr(l, k) for k in ("lang", "script", "region") if getattr(l, k, None) is not None}
-        if key.get("lang", "") == "und":
-            del key['lang']
-        var = []
-        if l.vars is not None and len(l.vars):
-            var.extend(l.vars)
-        if l.ns is not None:
-            for k in sorted(l.ns.keys()):
-                var.extend([k.lower()] + l.ns[k])
-        if len(var):
-            key['variant'] = "-".join(var)
-        return key
-
-    def _simplify_matches(self, matchrules):
-        cache = {}
-        outmap = {}
-        res = []
-        for i, m in enumerate(matchrules):
-            key = []
-            key = [" ".join(sorted(("{}={}".format(k, v) for k, v in m[1].items())))]
-            key.append(m[0])
-            key = tuple(key)
-            curri = len(res)
-            if key not in cache:
-                cache[key] = curri
-                res.append(m)
-            outmap[i] = cache[key]
-        return (res, outmap)
-
-    def _apply_map(self, matchrules, rulemap, childrules):
-        for i, m in enumerate(matchrules):
-            if m[0] is None:
-                scores = {}
-                for k, v in m[1].items():
-                    a = rulemap.get(v, v)
-                    kv = a if childrules is None else childrules[a][0]
-                    s, _ = scores.get(kv, (0, None))
-                    scores[kv] = (s+1, a)
-                m[0] = max(scores.items(), key=lambda x:(x[1], x[0]))[1][1]
-            else:
-                m[0] = rulemap.get(m[0], m[0])
-            m[1] = {k: rulemap.get(v, v) for k, v in m[1].items() if rulemap.get(v, v) != m[0]}
-
-    def _makeres(self, reskey):
-        if reskey is None:
-            return None
-        family, feats = reskey.split("|")
-        res = {'family': family.strip(), 'familyid': family.replace(" ", "").lower()}
-        if feats is not None and len(feats.strip()):
-            res['features'] = feats.strip()
-        return res
-
-    def out_matches(self, fname):
-        with open(fname, "w") as outf:
-            json.dump({'scripts': self.scripts, 'regions': self.regions,
-                       'langs': self.langs, 'variants': self.variants},
-                      outf, indent=2)
-
-
-parser = argparse.ArgumentParser()
-parser.add_argument("indir",help="Directory of files to process")
-parser.add_argument("-f","--families",help="families.json")
-parser.add_argument("-F","--fallbacks",help="fallbacks csv")
-parser.add_argument("-o","--outfile",default="fontrules.json",help="Output fontrules.json")
-parser.add_argument("--intermediate",help="Output interim results")
-parser.add_argument("--min",action="store_true",help="Use a minimal tag rather than maximal")
-parser.add_argument("-R","--resultsort",action="store_true",help="Sort by results, which is inaccurate but helpful for review")
-parser.add_argument("-q","--quiet",action="store_true",help="Minimise output")
-parser.add_argument("-j","--processes",action="store_true",help="Single processor")
-parser.add_argument("-l","--lang",help="Single language to process")
-args=parser.parse_args()
-
-jobs = []
-if os.path.isdir(args.indir):
-    for dp, dn, fn in os.walk(args.indir):
-        for f in fn:
-            if f.endswith('.xml') and (args.lang is None or args.lang == f[:-4]):
-                jobs.append(os.path.join(dp, f))
-    ltagmap = {}
-else:
-    with open(args.indir) as inf:
-        ltagmap = json.load(inf)
-
-if not args.quiet:
-    print(f"{len(jobs)} files to test")
 
 silns = "{urn://www.sil.org/ldml/0.1}"
+
+
 def procdir(j):
+    """Read an LDML file and parse out langtag and font information"""
     l = et.parse(j)
     langn = l.find("identity/language")
     if langn is None:
@@ -187,23 +62,173 @@ def procdir(j):
             res = fallback
     return (ltag if res is not None else None, res)
 
+
+class Classifier:
+    """Convert a list of langtags and fonts with features into hierarchical lookup rules."""
+
+    def __init__(self, mapdata):
+        self.scripts = [[None, {}]]
+        self.regions = []
+        self.langs = []
+        self.variants = []
+
+    def create_matches(self, mapdata):
+        """Convert the langtags + fonts into rules"""
+        fields = ("script", "region", "lang", "variant")
+        for k, v in mapdata.items():
+            key = self._splitkey(k)
+            current = 0
+            for i, a in enumerate(fields):
+                rules = getattr(self, a + "s")[current]
+                nrules = getattr(self, fields[i + 1] + "s") if i + 1 < len(fields) else None
+                if a in key:
+                    val = key[a]
+                    if val not in rules[1]:
+                        rules[1][val] = len(nrules) if nrules is not None else v
+                        if nrules is not None:
+                            nrules.append([None, {}])
+                    current = rules[1][val]
+                else:
+                    if rules[0] is None:
+                        rules[0] = len(nrules) if nrules is not None else v
+                        if nrules is not None:
+                            nrules.append([None, {}])
+                    current = rules[0]
+        for i, a in enumerate(reversed(fields)):
+            childrules = getattr(self, fields[-i] + "s") if i > 0 else None
+            r, m = self._simplify_matches(getattr(self, a + "s"))
+            setattr(self, a + "s", r)
+            if i + 1 < len(fields):
+                self._apply_map(getattr(self, fields[-i - 2] + "s"), m, childrules)
+        self._apply_map(self.variants, {}, None)
+        for vm in self.variants:
+            vm[0] = self._makeres(vm[0])
+            vm[1] = {k: self._makeres(v) for k, v in vm[1].items()}
+
+    def _splitkey(self, x):
+        """Splits according to a language tag. Subclass and override
+        appropriately"""
+        l = langtag(x)
+        key = {
+            k: getattr(l, k)
+            for k in ("lang", "script", "region")
+            if getattr(l, k, None) is not None
+        }
+        if key.get("lang", "") == "und":
+            del key["lang"]
+        var = []
+        if l.vars is not None and len(l.vars):
+            var.extend(l.vars)
+        if l.ns is not None:
+            for k in sorted(l.ns.keys()):
+                var.extend([k.lower()] + l.ns[k])
+        if len(var):
+            key["variant"] = "-".join(var)
+        return key
+
+    def _simplify_matches(self, matchrules):
+        cache = {}
+        outmap = {}
+        res = []
+        for i, m in enumerate(matchrules):
+            key = []
+            key = [" ".join(sorted(("{}={}".format(k, v) for k, v in m[1].items())))]
+            key.append(m[0])
+            key = tuple(key)
+            curri = len(res)
+            if key not in cache:
+                cache[key] = curri
+                res.append(m)
+            outmap[i] = cache[key]
+        return (res, outmap)
+
+    def _apply_map(self, matchrules, rulemap, childrules):
+        for i, m in enumerate(matchrules):
+            if m[0] is None:
+                scores = {}
+                for k, v in m[1].items():
+                    a = rulemap.get(v, v)
+                    kv = a if childrules is None else childrules[a][0]
+                    s, _ = scores.get(kv, (0, None))
+                    scores[kv] = (s + 1, a)
+                m[0] = max(scores.items(), key=lambda x: (x[1], x[0]))[1][1]
+            else:
+                m[0] = rulemap.get(m[0], m[0])
+            m[1] = {k: rulemap.get(v, v) for k, v in m[1].items() if rulemap.get(v, v) != m[0]}
+
+    def _makeres(self, reskey):
+        if reskey is None:
+            return None
+        family, feats = reskey.split("|")
+        res = {"family": family.strip(), "familyid": family.replace(" ", "").lower()}
+        if feats is not None and len(feats.strip()):
+            res["features"] = feats.strip()
+        return res
+
+    def out_matches(self, fname):
+        """spit everything out as json"""
+        with open(fname, "w") as outf:
+            json.dump(
+                {
+                    "scripts": self.scripts,
+                    "regions": self.regions,
+                    "langs": self.langs,
+                    "variants": self.variants,
+                },
+                outf,
+                indent=2,
+            )
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("indir", help="Directory of files to process")
+parser.add_argument("-f", "--families", help="families.json")
+parser.add_argument("-F", "--fallbacks", help="fallbacks csv")
+parser.add_argument("-o", "--outfile", default="fontrules.json", help="Output fontrules.json")
+parser.add_argument("--intermediate", help="Output interim results")
+parser.add_argument("--min", action="store_true", help="Use a minimal tag rather than maximal")
+parser.add_argument(
+    "-R",
+    "--resultsort",
+    action="store_true",
+    help="Sort by results, which is inaccurate but helpful for review",
+)
+parser.add_argument("-q", "--quiet", action="store_true", help="Minimise output")
+parser.add_argument("-j", "--processes", action="store_true", help="Single processor")
+parser.add_argument("-l", "--lang", help="Single language to process")
+args = parser.parse_args()
+
+jobs = []
+if os.path.isdir(args.indir):
+    for dp, dn, fn in os.walk(args.indir):
+        for f in fn:
+            if f.endswith(".xml") and (args.lang is None or args.lang == f[:-4]):
+                jobs.append(os.path.join(dp, f))
+    ltagmap = {}
+else:
+    with open(args.indir) as inf:
+        ltagmap = json.load(inf)
+
+if not args.quiet:
+    print(f"{len(jobs)} files to test")
+
 if not args.processes or len(jobs) == 1:
     ltagmap = dict(procdir(j) for j in jobs)
 else:
     p = Pool()
     ltagmap = dict(p.map_async(procdir, jobs).get())
-ltagmap = {k:v for k,v in ltagmap.items() if v is not None}
+ltagmap = {k: v for k, v in ltagmap.items() if v is not None}
 
 if args.fallbacks:
     with open(args.fallbacks, encoding="utf-8") as inf:
         cr = csv.DictReader(inf)
         for r in cr:
-            s = r['Code']
+            s = r["Code"]
             if not len(s):
                 continue
-            v = fontid(r['Default Font'], r['Default Features'])
-            if r['Region']:
-                regs = re.split(r",\s*", r['Region'])
+            v = fontid(r["Default Font"], r["Default Features"])
+            if r["Region"]:
+                regs = re.split(r",\s*", r["Region"])
                 for i in regs:
                     lt = f"und-{s}-{i}"
                     ltagmap[lt] = v
@@ -216,11 +241,10 @@ if args.intermediate:
     with open(args.intermediate, "w") as outf:
         json.dump(ltagmap, outf)
 
-#invltagmap = {}
-#for k, v in ltagmap.items():
+# invltagmap = {}
+# for k, v in ltagmap.items():
 #    invltagmap.setdefault(v, []).append(k)
-#print(invltagmap)
+# print(invltagmap)
 c = Classifier(ltagmap)
 c.create_matches(ltagmap)
 c.out_matches(args.outfile)
-
