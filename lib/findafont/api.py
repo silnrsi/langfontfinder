@@ -9,6 +9,8 @@ except ImportError:
     sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'lib'))
     from findafont import FaF
 
+version = "0.1"
+
 datadir = os.getenv('FAFPATH', os.path.join(os.path.dirname(__file__), '..', '..', 'testdata'))
 rulesfile = os.getenv('FAFRULES', os.path.join(datadir, 'fontrules.json'))
 familiesfile = os.getenv('FAFFONTS', os.path.join(datadir, 'families.json'))
@@ -29,6 +31,11 @@ async def getfromlt(ltag: str, response: Response):
     res = ruleset.get(ltag)
     if res is None:
         response.status_code = 404
+    return res
+
+@fafapp.get("/status")
+async def getstatus():
+    res = {'version': version}
     return res
 
 if __name__ == "__main__":
