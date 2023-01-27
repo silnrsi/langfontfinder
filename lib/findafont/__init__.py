@@ -10,61 +10,25 @@ class FaF:
             self.fontmap = json.load(inf)
         with open(rfile, encoding="utf-8") as inf:
             rules = json.load(inf)
-        self.scripts = [{}, [{}, [{}, None]]]
-        for r in rules:
-            m = r.get('match', None)
-            if m is None:
-                continue
-            o = r.get('result', None)
-
-            s = m.get('scr', None)
-            if s is None:
-                regrules = [self.scripts[1]]
-            elif isinstance(s, list):
-                regrules = [self.scripts[0].setdefault(x, [{}, [{}, None]]) for x in s]
-            else:
-                regrules = [self.scripts[0].setdefault(s, [{}, [{}, None]])]
-
-            reg = m.get('reg', None)
-            if reg is None:
-                langrules = [x[1] for x in regrules]
-            elif isinstance(reg, list):
-                langrules = []
-                for x in reg:
-                    t = [y[0].setdefault(x, [{}, None]) for y in regrules]
-                    langrules.extend(t)
-            else:
-                langrules = [x[0].setdefault(reg, [{}, None]) for x in regrules]
-
-            lng = m.get('lang', None)
-            if lng is None:
-                for x in langrules:
-                    if x[1] is None:
-                        x[1] = o
-            elif isinstance(lng, list):
-                for l in lng:
-                    for lr in langrules:
-                        lr[0][l] = o
-            else:
-                for lr in langrules:
-                    lr[0][lng] = o
+        self.varrules = rules['variants']
+        self.lngrules = rules['langs']
+        self.regrules = rules['regions']
+        self.scrrules = rules['scripts'][0]
 
     def getlt(self, txt):
         return self.langtags.get(str(txt), default=None)
 
-    def _getmatch(self, lng, scr, reg, regrules):
-        lngrules = regrules[0].get(reg, regrules[1])
-        res = lngrules[0].get(lng, lngrules[1])
-        if res is None:
-            lngrules = regrules[1]
-            if lngrules is not None:
-                res = lngrules[0].get(lng, lngrules[1])
+    def _getmatch(self, lng, scr, reg, var, regnum):
+        regrules = self.regrules[regnum]
+        lngrules = self.lngrules[regrules[1].get(reg, regrules[0])]
+        varrules = self.varrules[lngrules[1].get(lng, lngrules[0])]
+        res = varrules[1].get(var, varrules[0])
         return res
 
-    def match(self, lng, scr, reg):
-        res = self._getmatch(lng, scr, reg, self.scripts[0].get(scr, self.scripts[1]))
+    def match(self, lng, scr, reg, var):
+        res = self._getmatch(lng, scr, reg, var, self.scrrules[1].get(scr, self.scrrules[0]))
         if res is None:
-            res = self._getmatch(lng, scr, reg, self.scripts[1])
+            res = self._getmatch(lng, scr, reg, var, self.scrrules[0])
         return res
 
     def getfamilyresult(self, matchres):
@@ -84,7 +48,7 @@ class FaF:
                     lt = LangTag(tr.lang, tr.script, nlt.region, tr.vars, tr.ns)
             if lt is None and nlt.script is not None:
                 test = LangTag(nlt.lang, None, nlt.region, nlt.vars, nlt.ns)
-                tr = self.get(str(test))
+                tr = self.getlt(str(test))
                 if tr is None:
                     test = LangTag(nlt.lang, None, None, nlt.vars, nlt.ns)
                     tr = self.getlt(str(test))
@@ -93,9 +57,17 @@ class FaF:
                         tr = self.getlt(str(test))
                 if tr is not None:
                     lt = LangTag(tr.lang, nlt.script, nlt.region or tr.region, tr.vars, tr.ns)
+            else:
+                lt = nlt
         res = None
         if lt is not None:
-            res = self.match(lt.lang, lt.script, lt.region)
+            var = []
+            if lt.vars is not None and len(lt.vars):
+                var.extend(lt.vars)
+            if lt.ns is not None:
+                for k in sorted(lt.ns.keys()):
+                    var.extend([k.lower()] + lt.ns[k])
+            res = self.match(lt.lang, lt.script, lt.region, "-".join(var) or None)
             if res is not None:
                 res = self.getfamilyresult(res)
         return res

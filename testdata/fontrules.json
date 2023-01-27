@@ -1,149 +1,4086 @@
-[
-{"result": {"familyid": "Annapurna SIL", "features": "ss01=1 ss08=1 ss09=1 ss10=1 ss12=1"}, "match": {"lang": "lif", "reg": "NP", "scr": "Deva"}},
-{"result": {"familyid": "Annapurna SIL Kham"}, "match": {"lang": "kjl", "reg": "NP", "scr": "Deva"}},
-{"result": {"familyid": "Badami"}, "match": {"lang": "kfa", "reg": "IN", "scr": "Knda"}},
-{"result": {"familyid": "Doulos SIL"}, "match": {"lang": "mdm", "reg": "CD", "scr": "Latn"}},
-{"result": {"familyid": "Doulos SIL"}, "match": {"lang": "sor", "reg": "TD", "scr": "Latn"}},
-{"result": {"familyid": "Gentium Plus"}, "match": {"lang": "xbi", "reg": "PG", "scr": "Latn"}},
-{"result": {"familyid": "Harmattan"}, "match": {"lang": "fuv", "reg": "NG", "scr": "Latn"}},
-{"result": {"familyid": "Harmattan", "features": "cv12=1 cv70=2 cv74=1"}, "match": {"lang": "wo", "reg": "SN", "scr": "Arab"}},
-{"result": {"familyid": "Noto Serif Devanagari"}, "match": {"lang": ["xsr", "nwx", "taj"], "reg": "NP", "scr": "Deva"}},
-{"result": {"familyid": "Scheherazade New"}, "match": {"lang": "brh", "reg": "PK", "scr": "Arab"}},
-{"result": {"familyid": "ShiShan LPO"}, "match": {"lang": "lpo", "reg": "CN", "scr": "Plrd"}},
-{"result": {"familyid": "ThiruValluvar"}, "match": {"lang": "pcg", "reg": "IN", "scr": "Taml"}},
-{"result": {"familyid": "andika"}, "match": {"lang": ["chq", "ctp", "nsu", "tpp", "miy", "zpt", "cta", "ngu", "cso", "nhx"], "reg": "MX", "scr": "Latn"}},
-{"result": {"familyid": "andika"}, "match": {"lang": ["mti", "ons", "zia", "uvh", "yle"], "reg": "PG", "scr": "Latn"}},
-{"result": {"familyid": "andika"}, "match": {"lang": ["ifk", "clu", "bps", "tbl", "ebk", "ify", "cbk", "kqe", "abp", "dgc", "bkd", "krj", "bgs", "blw", "cgc", "apf", "mta", "tbw", "suc"], "reg": "PH", "scr": "Latn"}},
-{"result": {"familyid": "andika"}, "match": {"lang": ["ziw", "ndj", "kdc", "cwe", "vid", "ssc", "poy", "nnq", "ngp"], "reg": "TZ", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv43=2"}, "match": {"lang": "cnt", "reg": "MX", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv43=2"}, "match": {"lang": "kpw", "reg": "PG", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"}, "match": {"lang": "tpx", "reg": "MX", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"}, "match": {"lang": "bds", "reg": "TZ", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv46=1"}, "match": {"lang": "dnj", "reg": "CI", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv46=1"}, "match": {"lang": ["lip", "hag", "naw"], "reg": "GH", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv46=1"}, "match": {"lang": "kmy", "reg": "NG", "scr": "Latn"}},
-{"result": {"familyid": "andika", "features": "cv90=1"}, "match": {"lang": ["chz", "cco"], "reg": "MX", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": "ln", "reg": "AO", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["gna", "ff", "mos", "fr"], "reg": "BF", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["cbj", "ife", "yo", "beh", "ica", "idd", "mkl", "fr", "ijj"], "reg": "BJ", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["mif", "fr", "mlr", "lns", "mqb", "kot", "yam", "dbq", "nhu", "bmo", "mfh", "gyi", "xed", "bkm", "bbk", "bmv", "gnd", "fub", "bcw", "en", "jbu", "pny", "lmp", "pbi", "yko", "mua", "ff", "meq", "nza"], "reg": "CM", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["sev", "fr"], "reg": "CI", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["ff", "fr"], "reg": "GN", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["lef", "bwu", "en", "kma", "gaa", "ha", "dga", "lig", "kus", "tcd", "ff"], "reg": "GH", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["grb", "en", "ff", "dnj"], "reg": "LR", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["nhi", "mfy", "zpi", "amu", "xtn", "npl", "tos", "huv", "nhe", "cya", "mxt", "mim", "ote", "var", "zpo", "jmx", "toj", "zad", "es", "zpl", "zae", "xtd", "zar", "mil", "zab", "mks", "mza", "poi", "mxv", "zas", "trq", "ztq", "xtm"], "reg": "MX", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["en", "ff"], "reg": "SL", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["fr", "moz", "lln", "shu", "mge", "mmy"], "reg": "TD", "scr": "Latn"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": ["ee", "fr", "gng"], "reg": "TG", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2"}, "match": {"lang": "kzr", "reg": "CM", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2"}, "match": {"lang": "gjn", "reg": "GH", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2"}, "match": {"lang": ["cpa", "cle"], "reg": "MX", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2"}, "match": {"lang": ["mna", "buk", "mcr", "ssd", "agg", "boj", "tgo", "rao", "geb", "spl", "mlh", "ipi", "nif", "tgu", "taw", "nca", "agm", "naf", "gai", "iou", "bon", "mtf", "urt", "spm", "aak", "adz", "kpf", "kgf", "nop", "tmy", "hot", "buo", "enq", "mgl", "dah", "tuc", "ksr", "bmu", "mbq", "tbc", "tmd", "nnk", "xsi"], "reg": "PG", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 cv46=1"}, "match": {"lang": "bum", "reg": "CM", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 cv68=1"}, "match": {"lang": "daa", "reg": "TD", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"}, "match": {"lang": ["bkq", "apu", "mav", "myu", "kgp", "apn", "pab", "kbc"], "reg": "BR", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"}, "match": {"lang": "es", "reg": "ES", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1"}, "match": {"lang": "khq", "reg": "ML", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1"}, "match": {"lang": "kqp", "reg": "TD", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1"}, "match": {"lang": ["box", "dyu"], "reg": "BF", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1"}, "match": {"lang": ["boz", "spp", "myk", "bm", "ses"], "reg": "ML", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"}, "match": {"lang": "ken", "reg": "CM", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"}, "match": {"lang": "nyb", "reg": "GH", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"}, "match": {"lang": "zga", "reg": "TZ", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv68=1"}, "match": {"lang": "fuf", "reg": "GN", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv68=1"}, "match": {"lang": "ffm", "reg": "ML", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv46=1"}, "match": {"lang": ["loq", "ngb", "mdj", "buu", "lu", "nga", "niy", "ln", "bhy", "kmw"], "reg": "CD", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv46=1"}, "match": {"lang": ["gkp", "kqs"], "reg": "GN", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv46=1"}, "match": {"lang": ["jen", "mda", "ich", "agc", "idu", "mfo", "dbd", "bcn", "utr", "kez", "etu", "mzm", "yba", "ldb", "yo", "bqp"], "reg": "NG", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv46=1 cv68=1"}, "match": {"lang": "kyq", "reg": "TD", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv68=1"}, "match": {"lang": "fue", "reg": "BJ", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv68=1"}, "match": {"lang": "mfi", "reg": "CM", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv68=1"}, "match": {"lang": "bsp", "reg": "GN", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "ss01=1"}, "match": {"lang": "muy", "reg": "CM", "scr": "Latn"}},
-{"result": {"familyid": "lateef", "features": "cv44=1 cv62=1 cv82=1"}, "match": {"lang": "sd", "reg": "PK", "scr": "Arab"}},
-{"result": {"familyid": "Annapurna SIL"}, "match": {"lang": "esg", "reg": "IN"}},
-{"result": {"familyid": "Annapurna SIL", "features": "ss01=1 ss08=1 ss09=1 ss10=1"}, "match": {"lang": "mai", "scr": "Deva"}},
-{"result": {"familyid": "Annapurna SIL", "features": "ss01=1 ss08=1 ss09=1 ss10=1"}, "match": {"reg": "NP", "scr": "Deva"}},
-{"result": {"familyid": "Awami Nastaliq"}, "match": {"reg": "PK", "scr": "Arab"}},
-{"result": {"familyid": "BJCree UNI"}, "match": {"lang": ["crl", "nsk"], "reg": "CA"}},
-{"result": {"familyid": "Doulos SIL"}, "match": {"lang": ["xtc", "cje"], "scr": "Latn"}},
-{"result": {"familyid": "Harmattan"}, "match": {"lang": "snk", "scr": "Arab"}},
-{"result": {"familyid": "Harmattan"}, "match": {"reg": ["CM", "NE", "GN", "NG", "SN"], "scr": "Arab"}},
-{"result": {"familyid": "Khmer Barkaew"}, "match": {"lang": "tpu", "scr": "Khmr"}},
-{"result": {"familyid": "Khmer Dakdam"}, "match": {"lang": "cmo", "scr": "Khmr"}},
-{"result": {"familyid": "Khmer Mondulkiri", "features": "tamp=1"}, "match": {"lang": "brb", "scr": "Khmr"}},
-{"result": {"familyid": "LisuTzimu"}, "match": {"reg": "CN", "scr": "Lisu"}},
-{"result": {"familyid": "Namdhinggo SIL"}, "match": {"lang": "lif", "reg": "IN"}},
-{"result": {"familyid": "Noto Sans Gurmukhi"}, "match": {"lang": "pa", "reg": "IN"}},
-{"result": {"familyid": "Noto Sans Mongolian"}, "match": {"lang": "mn", "reg": "CN"}},
-{"result": {"familyid": "Noto Sans Oriya"}, "match": {"reg": "IN", "scr": "Orya"}},
-{"result": {"familyid": "Noto Sans Sundanese"}, "match": {"reg": "ID", "scr": "Sund"}},
-{"result": {"familyid": "Noto Sans Syriac"}, "match": {"lang": "syr", "scr": "Syrc"}},
-{"result": {"familyid": "Noto Sans Tai Le"}, "match": {"lang": "tdd", "reg": "CN"}},
-{"result": {"familyid": "Noto Sans Tamil"}, "match": {"reg": "IN", "scr": "Taml"}},
-{"result": {"familyid": "Noto Sans Thai"}, "match": {"lang": "nod", "scr": "Thai"}},
-{"result": {"familyid": "Noto Sans Tibetan"}, "match": {"lang": "lbj", "scr": "Tibt"}},
-{"result": {"familyid": "Noto Serif Bengali"}, "match": {"reg": "IN", "scr": "Beng"}},
-{"result": {"familyid": "Noto Serif Kannada"}, "match": {"reg": "IN", "scr": "Knda"}},
-{"result": {"familyid": "Noto Serif Malayalam"}, "match": {"reg": "IN", "scr": "Mlym"}},
-{"result": {"familyid": "Noto Serif Thai"}, "match": {"lang": "th", "scr": "Thai"}},
-{"result": {"familyid": "Nuosu SIL"}, "match": {"lang": "ii", "reg": "CN"}},
-{"result": {"familyid": "Scheherazade New", "features": "cv54=1"}, "match": {"lang": "ky", "scr": "Arab"}},
-{"result": {"familyid": "Scheherazade New", "features": "cv62=1"}, "match": {"lang": "tk", "scr": "Arab"}},
-{"result": {"familyid": "Scheherazade New", "features": "cv62=1 cv72=1 cv82=4"}, "match": {"lang": "rhg", "scr": "Arab"}},
-{"result": {"familyid": "ShiShan HMD"}, "match": {"reg": "CN", "scr": "Plrd"}},
-{"result": {"familyid": "Surma"}, "match": {"lang": "syl", "scr": "Beng"}},
-{"result": {"familyid": "andika"}, "match": {"lang": ["pma", "vif", "blr", "ptu", "ycl", "aly", "bzj", "iyx", "amx", "auu", "zza", "gul"], "scr": "Latn"}},
-{"result": {"familyid": "andika"}, "match": {"lang": "rif", "scr": "Tfng"}},
-{"result": {"familyid": "charissil"}, "match": {"lang": "crj", "reg": "CA"}},
-{"result": {"familyid": "charissil", "features": "cv43=2"}, "match": {"lang": ["gnn", "dhg", "gof", "fi", "ik"], "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"}, "match": {"lang": ["kog", "cbt", "jic", "ura", "guh", "hub", "hop", "auc", "arn", "ign", "sja", "pio"], "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"}, "match": {"reg": ["IC", "EA", "MX"], "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv43=2 ss01=1"}, "match": {"lang": "mot", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1"}, "match": {"lang": "dje", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1"}, "match": {"reg": "GN", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"}, "match": {"lang": "dig", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv46=1"}, "match": {"lang": ["mur", "ksp", "mas", "suq", "aeb", "din", "lgg", "mym", "gba", "guk", "mhi", "man", "bex", "ln", "nus"], "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv46=1"}, "match": {"reg": ["LR", "SL", "TD", "BF", "TG", "BJ", "CM", "CI", "GH"], "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv49=1"}, "match": {"lang": "srr", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv62=1"}, "match": {"lang": "fuh", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv68=1"}, "match": {"lang": ["bsc", "fuq", "snf"], "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv75=1"}, "match": {"lang": "blt", "scr": "Latn"}},
-{"result": {"familyid": "charissil", "features": "cv80=1"}, "match": {"reg": "MN", "scr": "Cyrl"}},
-{"result": {"familyid": "lateef"}, "match": {"lang": "glk", "scr": "Arab"}},
-{"result": {"familyid": "mingzat"}, "match": {"reg": "IN", "scr": "Lepc"}},
-{"result": {"familyid": "Abyssinica SIL"}, "match": {"scr": "Ethi"}},
-{"result": {"familyid": "Annapurna SIL"}, "match": {"scr": "Deva"}},
-{"result": {"familyid": "Dai Banna SIL"}, "match": {"reg": "CN"}},
-{"result": {"familyid": "Dukor"}, "match": {"scr": "Vaii"}},
-{"result": {"familyid": "East Syriac Marcus"}, "match": {"scr": "Syrc"}},
-{"result": {"familyid": "Ezra SIL"}, "match": {"scr": "Hebr"}},
-{"result": {"familyid": "Galatia SIL"}, "match": {"scr": "Grek"}},
-{"result": {"familyid": "Khmer Mondulkiri"}, "match": {"scr": "Khmr"}},
-{"result": {"familyid": "Noto Sans Bengali"}, "match": {"scr": "Beng"}},
-{"result": {"familyid": "Noto Sans Canadian Aboriginal"}, "match": {"reg": "CA"}},
-{"result": {"familyid": "Noto Sans Chakma"}, "match": {"reg": "BD"}},
-{"result": {"familyid": "Noto Sans Cherokee"}, "match": {"lang": "chr"}},
-{"result": {"familyid": "Noto Sans Coptic"}, "match": {"scr": "Copt"}},
-{"result": {"familyid": "Noto Sans Georgian"}, "match": {"reg": "GE"}},
-{"result": {"familyid": "Noto Sans Gujarati"}, "match": {"reg": "IN"}},
-{"result": {"familyid": "Noto Sans Javanese"}, "match": {"reg": "ID"}},
-{"result": {"familyid": "Noto Sans Thaana"}, "match": {"reg": "MV"}},
-{"result": {"familyid": "Noto Sans Tifinagh"}, "match": {"scr": "Tfng"}},
-{"result": {"familyid": "Noto Serif Armenian"}, "match": {"scr": "Armn"}},
-{"result": {"familyid": "Noto Serif JP"}, "match": {"scr": "Jpan"}},
-{"result": {"familyid": "Noto Serif KR"}, "match": {"scr": "Kore"}},
-{"result": {"familyid": "Noto Serif SC"}, "match": {"scr": "Hans"}},
-{"result": {"familyid": "Noto Serif Sinhala"}, "match": {"reg": "LK"}},
-{"result": {"familyid": "Noto Serif TC"}, "match": {"scr": "Hant"}},
-{"result": {"familyid": "Noto Serif Telugu"}, "match": {"scr": "Telu"}},
-{"result": {"familyid": "Noto Serif Tibetan"}, "match": {"scr": "Tibt"}},
-{"result": {"familyid": "Padauk"}, "match": {"scr": "Mymr"}},
-{"result": {"familyid": "Payap Lanna"}, "match": {"lang": "nod"}},
-{"result": {"familyid": "Saysettha MX"}, "match": {"reg": "LA"}},
-{"result": {"familyid": "Scheherazade New"}, "match": {"scr": "Arab"}},
-{"result": {"familyid": "TH SarabunPSK"}, "match": {"scr": "Thai"}},
-{"result": {"familyid": "Tai Heritage Pro"}, "match": {"scr": "Tavt"}},
-{"result": {"familyid": "ThiruValluvar"}, "match": {"scr": "Taml"}},
-{"result": {"familyid": "charissil"}, "match": {"scr": ["Cyrl", "Latn"]}}
-]
+{
+  "scripts": [
+    [
+      10,
+      {
+        "Latn": 0,
+        "Ethi": 1,
+        "Tale": 2,
+        "Thai": 3,
+        "Taml": 4,
+        "Tagb": 5,
+        "Deva": 6,
+        "Cyrl": 7,
+        "Khmr": 8,
+        "Arab": 9,
+        "Telu": 11,
+        "Guru": 12,
+        "Orya": 13,
+        "Jpan": 14,
+        "Limb": 15,
+        "Plrd": 16,
+        "Laoo": 17,
+        "Lepc": 18,
+        "Tibt": 19,
+        "Lisu": 20,
+        "Hans": 21,
+        "Tfng": 22,
+        "Hant": 23,
+        "Grek": 24,
+        "Gonm": 25,
+        "Gujr": 26,
+        "Hebr": 27,
+        "Kali": 28,
+        "Knda": 29,
+        "Geor": 30,
+        "Kore": 31,
+        "Talu": 32,
+        "Copt": 33,
+        "Tavt": 34,
+        "Beng": 35,
+        "Syrc": 36,
+        "Vaii": 37,
+        "Java": 38,
+        "Sund": 39,
+        "Sylo": 40,
+        "Sinh": 41,
+        "Mymr": 42,
+        "Yiii": 43,
+        "Cans": 44,
+        "Mong": 45,
+        "Mlym": 46,
+        "Cher": 47,
+        "Cakm": 48,
+        "Armn": 49,
+        "Lana": 50,
+        "Thaa": 51,
+        "Adlm": 52,
+        "Afak": 53,
+        "Aghb": 54,
+        "Ahom": 55,
+        "Aran": 56,
+        "Armi": 57,
+        "Avst": 58,
+        "Bali": 59,
+        "Bamu": 60,
+        "Bass": 61,
+        "Batk": 62,
+        "Bhks": 63,
+        "Blis": 53,
+        "Bopo": 53,
+        "Brah": 64,
+        "Brai": 53,
+        "Bugi": 65,
+        "Buhd": 66,
+        "Cari": 67,
+        "Cham": 68,
+        "Chrs": 53,
+        "Cirt": 53,
+        "Cpmn": 53,
+        "Cprt": 69,
+        "Cyrs": 53,
+        "Diak": 53,
+        "Dogr": 53,
+        "Dsrt": 70,
+        "Dupl": 71,
+        "Egyd": 53,
+        "Egyh": 53,
+        "Egyp": 72,
+        "Elba": 73,
+        "Elym": 53,
+        "Geok": 53,
+        "Glag": 74,
+        "Gong": 75,
+        "Goth": 76,
+        "Gran": 77,
+        "Hanb": 78,
+        "Hang": 79,
+        "Hani": 80,
+        "Hano": 81,
+        "Hatr": 82,
+        "Hira": 80,
+        "Hluw": 83,
+        "Hmng": 84,
+        "Hmnp": 53,
+        "Hrkt": 80,
+        "Hung": 85,
+        "Inds": 53,
+        "Ital": 86,
+        "Jamo": 79,
+        "Jurc": 53,
+        "Kana": 80,
+        "Kawi": 53,
+        "Khar": 87,
+        "Khoj": 88,
+        "Kitl": 53,
+        "Kits": 53,
+        "Kpel": 53,
+        "Kthi": 89,
+        "Latf": 53,
+        "Latg": 53,
+        "Leke": 90,
+        "Lina": 91,
+        "Linb": 92,
+        "Loma": 53,
+        "Lyci": 93,
+        "Lydi": 94,
+        "Mahj": 95,
+        "Maka": 53,
+        "Mand": 96,
+        "Mani": 97,
+        "Marc": 98,
+        "Maya": 53,
+        "Medf": 53,
+        "Mend": 99,
+        "Merc": 100,
+        "Mero": 101,
+        "Modi": 102,
+        "Moon": 53,
+        "Mroo": 103,
+        "Mtei": 104,
+        "Mult": 105,
+        "Nagm": 53,
+        "Nand": 106,
+        "Narb": 107,
+        "Nbat": 108,
+        "Newa": 109,
+        "Nkdb": 53,
+        "Nkgb": 53,
+        "Nkoo": 110,
+        "Nshu": 53,
+        "Ogam": 111,
+        "Olck": 112,
+        "Orkh": 113,
+        "Osge": 114,
+        "Osma": 115,
+        "Ougr": 53,
+        "Palm": 116,
+        "Pauc": 117,
+        "Pcun": 53,
+        "Perm": 118,
+        "Phag": 119,
+        "Phli": 120,
+        "Phlp": 121,
+        "Phlv": 53,
+        "Phnx": 122,
+        "Piqd": 53,
+        "Prti": 123,
+        "Psin": 53,
+        "Qaaa": 53,
+        "Qabx": 53,
+        "Ranj": 53,
+        "Rjng": 124,
+        "Rohg": 53,
+        "Roro": 53,
+        "Runr": 125,
+        "Samr": 126,
+        "Sara": 53,
+        "Sarb": 127,
+        "Saur": 128,
+        "Sgnw": 53,
+        "Shaw": 53,
+        "Shrd": 53,
+        "Shui": 129,
+        "Sidd": 130,
+        "Sind": 131,
+        "Sogd": 132,
+        "Sogo": 53,
+        "Sora": 133,
+        "Soyo": 134,
+        "Syre": 53,
+        "Syrj": 135,
+        "Syrn": 53,
+        "Takr": 136,
+        "Tang": 137,
+        "Teng": 53,
+        "Tglg": 138,
+        "Tnsa": 139,
+        "Tirh": 140,
+        "Toto": 141,
+        "Ugar": 142,
+        "Visp": 53,
+        "Vith": 143,
+        "Wara": 144,
+        "Wcho": 145,
+        "Wole": 53,
+        "Xpeo": 146,
+        "Xsux": 147,
+        "Yezi": 148,
+        "Zanb": 53,
+        "Zinh": 53,
+        "Zmth": 53,
+        "Zsye": 53,
+        "Zsym": 53,
+        "Zxxx": 53,
+        "Zyyy": 53,
+        "Zzzz": 53
+      }
+    ]
+  ],
+  "regions": [
+    [
+      3,
+      {
+        "CO": 0,
+        "TD": 1,
+        "VN": 2,
+        "PG": 4,
+        "MX": 5,
+        "UG": 6,
+        "NG": 8,
+        "GH": 13,
+        "SS": 14,
+        "BR": 15,
+        "CI": 16,
+        "GT": 17,
+        "VU": 18,
+        "BJ": 19,
+        "CM": 21,
+        "KE": 22,
+        "NE": 25,
+        "PH": 26,
+        "BO": 27,
+        "AU": 30,
+        "ML": 31,
+        "GN": 34,
+        "TR": 35,
+        "DZ": 36,
+        "SL": 37,
+        "US": 38,
+        "TG": 39,
+        "SN": 40,
+        "TZ": 41,
+        "BF": 43,
+        "ET": 44,
+        "PE": 46,
+        "EC": 49,
+        "HN": 52,
+        "CD": 54,
+        "SD": 55,
+        "CF": 57,
+        "CG": 62,
+        "CN": 63,
+        "ES": 68,
+        "IC": 69,
+        "BZ": 71,
+        "FI": 72,
+        "EA": 69,
+        "LR": 74,
+        "CL": 76,
+        "TN": 94
+      }
+    ],
+    [
+      7,
+      {}
+    ],
+    [
+      9,
+      {}
+    ],
+    [
+      53,
+      {
+        "TH": 10
+      }
+    ],
+    [
+      11,
+      {
+        "IN": 24
+      }
+    ],
+    [
+      209,
+      {
+        "PH": 3
+      }
+    ],
+    [
+      75,
+      {
+        "NP": 12,
+        "IN": 83
+      }
+    ],
+    [
+      3,
+      {
+        "MN": 106
+      }
+    ],
+    [
+      153,
+      {
+        "KH": 20
+      }
+    ],
+    [
+      28,
+      {
+        "IR": 23,
+        "AF": 32,
+        "PK": 33,
+        "SN": 42,
+        "CN": 50,
+        "NG": 78,
+        "NE": 78,
+        "ML": 90,
+        "EG": 92,
+        "GN": 78,
+        "MM": 101,
+        "CM": 78
+      }
+    ],
+    [
+      45,
+      {
+        "PG": 3,
+        "US": 73
+      }
+    ],
+    [
+      214,
+      {
+        "IN": 29
+      }
+    ],
+    [
+      47,
+      {}
+    ],
+    [
+      184,
+      {
+        "IN": 48
+      }
+    ],
+    [
+      144,
+      {
+        "JP": 51
+      }
+    ],
+    [
+      159,
+      {
+        "IN": 56
+      }
+    ],
+    [
+      194,
+      {
+        "CN": 58
+      }
+    ],
+    [
+      59,
+      {}
+    ],
+    [
+      60,
+      {}
+    ],
+    [
+      87,
+      {
+        "IN": 61
+      }
+    ],
+    [
+      64,
+      {}
+    ],
+    [
+      142,
+      {
+        "CN": 65,
+        "HK": 65,
+        "MO": 65,
+        "SG": 65
+      }
+    ],
+    [
+      66,
+      {}
+    ],
+    [
+      146,
+      {
+        "MO": 67,
+        "HK": 67,
+        "TW": 67
+      }
+    ],
+    [
+      141,
+      {
+        "GR": 70,
+        "CY": 70
+      }
+    ],
+    [
+      113,
+      {
+        "IN": 75
+      }
+    ],
+    [
+      77,
+      {}
+    ],
+    [
+      79,
+      {}
+    ],
+    [
+      80,
+      {}
+    ],
+    [
+      155,
+      {
+        "IN": 81
+      }
+    ],
+    [
+      82,
+      {}
+    ],
+    [
+      143,
+      {
+        "KR": 84,
+        "KP": 84
+      }
+    ],
+    [
+      211,
+      {
+        "CN": 85
+      }
+    ],
+    [
+      131,
+      {
+        "EG": 86,
+        "SD": 86
+      }
+    ],
+    [
+      213,
+      {
+        "VN": 88
+      }
+    ],
+    [
+      91,
+      {
+        "BD": 89
+      }
+    ],
+    [
+      208,
+      {
+        "IQ": 93
+      }
+    ],
+    [
+      95,
+      {}
+    ],
+    [
+      96,
+      {}
+    ],
+    [
+      97,
+      {}
+    ],
+    [
+      98,
+      {}
+    ],
+    [
+      204,
+      {
+        "LK": 99
+      }
+    ],
+    [
+      100,
+      {}
+    ],
+    [
+      102,
+      {}
+    ],
+    [
+      128,
+      {
+        "CA": 103
+      }
+    ],
+    [
+      104,
+      {}
+    ],
+    [
+      171,
+      {
+        "IN": 105
+      }
+    ],
+    [
+      107,
+      {}
+    ],
+    [
+      108,
+      {}
+    ],
+    [
+      118,
+      {
+        "AM": 109
+      }
+    ],
+    [
+      157,
+      {
+        "TH": 110
+      }
+    ],
+    [
+      111,
+      {}
+    ],
+    [
+      112,
+      {
+        "GN": 3,
+        "MR": 3
+      }
+    ],
+    [
+      113,
+      {}
+    ],
+    [
+      114,
+      {}
+    ],
+    [
+      115,
+      {}
+    ],
+    [
+      116,
+      {}
+    ],
+    [
+      117,
+      {}
+    ],
+    [
+      119,
+      {}
+    ],
+    [
+      120,
+      {}
+    ],
+    [
+      121,
+      {}
+    ],
+    [
+      122,
+      {}
+    ],
+    [
+      123,
+      {}
+    ],
+    [
+      124,
+      {}
+    ],
+    [
+      125,
+      {}
+    ],
+    [
+      126,
+      {}
+    ],
+    [
+      127,
+      {}
+    ],
+    [
+      129,
+      {}
+    ],
+    [
+      130,
+      {}
+    ],
+    [
+      132,
+      {}
+    ],
+    [
+      133,
+      {}
+    ],
+    [
+      134,
+      {}
+    ],
+    [
+      135,
+      {}
+    ],
+    [
+      136,
+      {}
+    ],
+    [
+      137,
+      {}
+    ],
+    [
+      138,
+      {}
+    ],
+    [
+      139,
+      {}
+    ],
+    [
+      140,
+      {}
+    ],
+    [
+      142,
+      {}
+    ],
+    [
+      143,
+      {}
+    ],
+    [
+      144,
+      {}
+    ],
+    [
+      145,
+      {}
+    ],
+    [
+      147,
+      {}
+    ],
+    [
+      148,
+      {}
+    ],
+    [
+      149,
+      {}
+    ],
+    [
+      150,
+      {}
+    ],
+    [
+      151,
+      {}
+    ],
+    [
+      152,
+      {}
+    ],
+    [
+      154,
+      {}
+    ],
+    [
+      156,
+      {}
+    ],
+    [
+      158,
+      {}
+    ],
+    [
+      160,
+      {}
+    ],
+    [
+      161,
+      {}
+    ],
+    [
+      162,
+      {}
+    ],
+    [
+      163,
+      {}
+    ],
+    [
+      164,
+      {}
+    ],
+    [
+      165,
+      {}
+    ],
+    [
+      166,
+      {}
+    ],
+    [
+      167,
+      {}
+    ],
+    [
+      168,
+      {}
+    ],
+    [
+      169,
+      {}
+    ],
+    [
+      170,
+      {}
+    ],
+    [
+      172,
+      {}
+    ],
+    [
+      173,
+      {}
+    ],
+    [
+      174,
+      {}
+    ],
+    [
+      175,
+      {}
+    ],
+    [
+      176,
+      {}
+    ],
+    [
+      177,
+      {}
+    ],
+    [
+      178,
+      {}
+    ],
+    [
+      179,
+      {}
+    ],
+    [
+      180,
+      {}
+    ],
+    [
+      181,
+      {}
+    ],
+    [
+      182,
+      {}
+    ],
+    [
+      183,
+      {}
+    ],
+    [
+      185,
+      {}
+    ],
+    [
+      186,
+      {}
+    ],
+    [
+      187,
+      {}
+    ],
+    [
+      188,
+      {}
+    ],
+    [
+      189,
+      {}
+    ],
+    [
+      190,
+      {}
+    ],
+    [
+      191,
+      {}
+    ],
+    [
+      192,
+      {}
+    ],
+    [
+      193,
+      {}
+    ],
+    [
+      195,
+      {}
+    ],
+    [
+      196,
+      {}
+    ],
+    [
+      197,
+      {}
+    ],
+    [
+      198,
+      {}
+    ],
+    [
+      199,
+      {}
+    ],
+    [
+      200,
+      {}
+    ],
+    [
+      201,
+      {}
+    ],
+    [
+      202,
+      {}
+    ],
+    [
+      203,
+      {}
+    ],
+    [
+      205,
+      {}
+    ],
+    [
+      206,
+      {}
+    ],
+    [
+      207,
+      {}
+    ],
+    [
+      208,
+      {}
+    ],
+    [
+      210,
+      {}
+    ],
+    [
+      212,
+      {}
+    ],
+    [
+      215,
+      {}
+    ],
+    [
+      216,
+      {}
+    ],
+    [
+      217,
+      {}
+    ],
+    [
+      218,
+      {}
+    ],
+    [
+      219,
+      {}
+    ],
+    [
+      220,
+      {}
+    ],
+    [
+      221,
+      {}
+    ],
+    [
+      222,
+      {}
+    ],
+    [
+      223,
+      {}
+    ],
+    [
+      224,
+      {}
+    ],
+    [
+      225,
+      {}
+    ]
+  ],
+  "langs": [
+    [
+      0,
+      {
+        "pio": 4,
+        "guh": 4,
+        "kog": 4,
+        "sja": 4,
+        "mot": 105
+      }
+    ],
+    [
+      1,
+      {
+        "lln": 0,
+        "kyq": 55,
+        "kqp": 60,
+        "sor": 69,
+        "shu": 0,
+        "moz": 0,
+        "mge": 0,
+        "mmy": 0,
+        "daa": 127,
+        "fr": 0
+      }
+    ],
+    [
+      0,
+      {
+        "pac": 25,
+        "blt": 72,
+        "cje": 69
+      }
+    ],
+    [
+      0,
+      {}
+    ],
+    [
+      0,
+      {
+        "tmd": 9,
+        "tuc": 12,
+        "tgo": 9,
+        "taw": 9,
+        "tmy": 9,
+        "tbc": 9,
+        "tgu": 9,
+        "ons": 18,
+        "urt": 9,
+        "ubu": 29,
+        "uvh": 18,
+        "zia": 18,
+        "enq": 9,
+        "geb": 9,
+        "gai": 9,
+        "yle": 18,
+        "ksr": 9,
+        "knv": 58,
+        "kpf": 9,
+        "kpw": 65,
+        "kgf": 9,
+        "xsi": 9,
+        "buo": 9,
+        "bmu": 9,
+        "buk": 9,
+        "boj": 9,
+        "bon": 9,
+        "aoj": 81,
+        "ape": 84,
+        "aak": 9,
+        "agm": 9,
+        "adz": 9,
+        "agg": 9,
+        "spm": 9,
+        "snp": 92,
+        "spl": 9,
+        "ssd": 9,
+        "rwo": 97,
+        "rao": 9,
+        "ipi": 9,
+        "iou": 9,
+        "mna": 9,
+        "mtf": 9,
+        "mcr": 9,
+        "mlh": 9,
+        "mti": 18,
+        "mbq": 9,
+        "mgl": 9,
+        "hot": 9,
+        "nnk": 9,
+        "naf": 9,
+        "nif": 9,
+        "nca": 9,
+        "nop": 9,
+        "dah": 9
+      }
+    ],
+    [
+      4,
+      {
+        "tzo": 2,
+        "tpx": 14,
+        "trq": 0,
+        "tos": 0,
+        "tpp": 18,
+        "toj": 0,
+        "poi": 0,
+        "ote": 0,
+        "jmx": 0,
+        "zpl": 0,
+        "zab": 0,
+        "zpo": 0,
+        "zae": 0,
+        "zpt": 18,
+        "ztq": 0,
+        "zad": 0,
+        "zar": 0,
+        "zpi": 0,
+        "zas": 0,
+        "es": 0,
+        "xtd": 0,
+        "xtm": 0,
+        "xtn": 0,
+        "amu": 0,
+        "var": 0,
+        "mza": 0,
+        "miy": 18,
+        "mil": 0,
+        "mfy": 0,
+        "mxv": 0,
+        "mim": 0,
+        "mks": 0,
+        "mxt": 0,
+        "ctu": 110,
+        "cta": 18,
+        "cya": 0,
+        "ctp": 18,
+        "cnt": 65,
+        "cle": 9,
+        "cco": 116,
+        "chz": 116,
+        "chq": 18,
+        "cpa": 9,
+        "cso": 18,
+        "huv": 0,
+        "nhe": 0,
+        "nsu": 18,
+        "npl": 0,
+        "nhi": 0,
+        "ngu": 18,
+        "nhx": 18
+      }
+    ],
+    [
+      0,
+      {
+        "lgg": 1,
+        "mhi": 1
+      }
+    ],
+    [
+      3,
+      {}
+    ],
+    [
+      0,
+      {
+        "utr": 1,
+        "jen": 1,
+        "ldb": 1,
+        "eka": 45,
+        "etu": 1,
+        "yo": 1,
+        "yba": 1,
+        "kez": 1,
+        "kmy": 33,
+        "bcn": 1,
+        "bqp": 1,
+        "agc": 1,
+        "idu": 1,
+        "ich": 1,
+        "mfo": 1,
+        "mzm": 1,
+        "mda": 1,
+        "dbd": 1,
+        "fuv": 74
+      }
+    ],
+    [
+      5,
+      {}
+    ],
+    [
+      122,
+      {
+        "th": 6,
+        "bzi": 32
+      }
+    ],
+    [
+      7,
+      {}
+    ],
+    [
+      151,
+      {
+        "thl": 8,
+        "tdh": 8,
+        "taj": 22,
+        "lif": 38,
+        "loy": 8,
+        "gvr": 8,
+        "kjl": 57,
+        "xsr": 22,
+        "bap": 8,
+        "suz": 8,
+        "ne": 8,
+        "nwx": 22,
+        "new": 8,
+        "dus": 8
+      }
+    ],
+    [
+      1,
+      {
+        "tcd": 0,
+        "lip": 33,
+        "lig": 0,
+        "lef": 0,
+        "en": 0,
+        "gjn": 9,
+        "gaa": 0,
+        "kma": 0,
+        "kus": 0,
+        "bwu": 0,
+        "hag": 33,
+        "ha": 0,
+        "naw": 33,
+        "nyb": 44,
+        "dga": 0,
+        "ff": 0
+      }
+    ],
+    [
+      0,
+      {
+        "bex": 1,
+        "mur": 1,
+        "nus": 1,
+        "din": 1
+      }
+    ],
+    [
+      0,
+      {
+        "pab": 4,
+        "jaa": 30,
+        "kgp": 4,
+        "kbc": 4,
+        "bkq": 4,
+        "apn": 4,
+        "apu": 4,
+        "myu": 4,
+        "mav": 4
+      }
+    ],
+    [
+      1,
+      {
+        "sev": 0,
+        "dnj": 33,
+        "fr": 0
+      }
+    ],
+    [
+      0,
+      {
+        "tzj": 10,
+        "acr": 85,
+        "ixl": 99,
+        "cak": 111
+      }
+    ],
+    [
+      0,
+      {
+        "pma": 18
+      }
+    ],
+    [
+      1,
+      {
+        "yo": 0,
+        "beh": 0,
+        "ica": 0,
+        "idd": 0,
+        "ife": 0,
+        "ijj": 0,
+        "mkl": 0,
+        "cbj": 0,
+        "fue": 74,
+        "fr": 0
+      }
+    ],
+    [
+      118,
+      {
+        "tpu": 11,
+        "km": 59,
+        "brb": 71
+      }
+    ],
+    [
+      1,
+      {
+        "pbi": 0,
+        "pny": 0,
+        "jbu": 0,
+        "lns": 0,
+        "lmp": 0,
+        "en": 0,
+        "gyi": 0,
+        "gnd": 0,
+        "yko": 0,
+        "yam": 0,
+        "kzr": 9,
+        "ken": 44,
+        "kot": 0,
+        "xed": 0,
+        "bbk": 0,
+        "bcw": 0,
+        "bum": 78,
+        "bmv": 0,
+        "bkm": 0,
+        "bmo": 0,
+        "mif": 0,
+        "mua": 0,
+        "mfh": 0,
+        "mqb": 0,
+        "meq": 0,
+        "muy": 108,
+        "mlr": 0,
+        "mfi": 74,
+        "nhu": 0,
+        "nza": 0,
+        "dbq": 0,
+        "fub": 0,
+        "fr": 0,
+        "ff": 0
+      }
+    ],
+    [
+      0,
+      {
+        "mas": 1,
+        "dig": 44
+      }
+    ],
+    [
+      16,
+      {
+        "tk": 13,
+        "glk": 49
+      }
+    ],
+    [
+      15,
+      {
+        "pcg": 7
+      }
+    ],
+    [
+      0,
+      {
+        "dje": 60,
+        "fuh": 130,
+        "fuq": 74
+      }
+    ],
+    [
+      0,
+      {
+        "tbl": 18,
+        "tbw": 18,
+        "ebk": 18,
+        "krj": 18,
+        "blw": 18,
+        "bgs": 18,
+        "bkd": 18,
+        "bps": 18,
+        "apf": 18,
+        "abp": 18,
+        "suc": 18,
+        "ify": 18,
+        "ifk": 18,
+        "mta": 18,
+        "cbk": 18,
+        "cgc": 18,
+        "clu": 18,
+        "dgc": 18
+      }
+    ],
+    [
+      0,
+      {
+        "ign": 4
+      }
+    ],
+    [
+      16,
+      {}
+    ],
+    [
+      17,
+      {}
+    ],
+    [
+      0,
+      {
+        "gnn": 9,
+        "aly": 18,
+        "amx": 18,
+        "dhg": 9
+      }
+    ],
+    [
+      0,
+      {
+        "khq": 60,
+        "bm": 20,
+        "boz": 20,
+        "spp": 20,
+        "ses": 20,
+        "myk": 20,
+        "ffm": 131
+      }
+    ],
+    [
+      16,
+      {
+        "tk": 13
+      }
+    ],
+    [
+      19,
+      {
+        "brh": 16,
+        "bal": 79,
+        "sd": 90
+      }
+    ],
+    [
+      20,
+      {
+        "gkp": 1,
+        "kqs": 1,
+        "bsp": 74,
+        "man": 1,
+        "fuf": 131,
+        "ff": 0,
+        "fr": 0
+      }
+    ],
+    [
+      0,
+      {
+        "zza": 18
+      }
+    ],
+    [
+      0,
+      {
+        "thv": 21
+      }
+    ],
+    [
+      1,
+      {
+        "en": 0,
+        "ff": 0
+      }
+    ],
+    [
+      0,
+      {
+        "gul": 18,
+        "ik": 9,
+        "hop": 4
+      }
+    ],
+    [
+      1,
+      {
+        "ee": 0,
+        "gng": 0,
+        "fr": 0
+      }
+    ],
+    [
+      0,
+      {
+        "bsc": 74,
+        "snf": 74,
+        "srr": 96
+      }
+    ],
+    [
+      0,
+      {
+        "poy": 18,
+        "ziw": 18,
+        "zga": 44,
+        "kdc": 18,
+        "bds": 80,
+        "vid": 18,
+        "ssc": 18,
+        "cwe": 18,
+        "nnq": 18,
+        "ngp": 18,
+        "ndh": 126,
+        "ndj": 18
+      }
+    ],
+    [
+      51,
+      {
+        "wo": 23
+      }
+    ],
+    [
+      1,
+      {
+        "gna": 0,
+        "box": 20,
+        "mos": 0,
+        "dyu": 20,
+        "fr": 0,
+        "ff": 0
+      }
+    ],
+    [
+      0,
+      {
+        "guk": 1,
+        "gof": 9,
+        "suq": 1,
+        "mym": 1
+      }
+    ],
+    [
+      129,
+      {
+        "wed": 24,
+        "quc": 28,
+        "kqe": 62,
+        "kmh": 66,
+        "xbi": 68,
+        "acr": 86,
+        "ixl": 101,
+        "mam": 106,
+        "cak": 112,
+        "ctu": 113,
+        "hus": 120,
+        "nhx": 124,
+        "noa": 125
+      }
+    ],
+    [
+      0,
+      {
+        "ura": 4,
+        "cbt": 4,
+        "hub": 4
+      }
+    ],
+    [
+      26,
+      {}
+    ],
+    [
+      27,
+      {}
+    ],
+    [
+      0,
+      {
+        "auc": 4
+      }
+    ],
+    [
+      16,
+      {
+        "ky": 53
+      }
+    ],
+    [
+      31,
+      {}
+    ],
+    [
+      0,
+      {
+        "jic": 4
+      }
+    ],
+    [
+      32,
+      {}
+    ],
+    [
+      1,
+      {
+        "lik": 0,
+        "log": 0,
+        "les": 0,
+        "led": 0,
+        "zne": 0,
+        "sw": 0,
+        "swc": 0,
+        "mnh": 0,
+        "mdm": 69,
+        "fr": 0,
+        "flr": 0
+      }
+    ],
+    [
+      0,
+      {
+        "xtc": 69,
+        "nus": 1
+      }
+    ],
+    [
+      34,
+      {}
+    ],
+    [
+      0,
+      {
+        "ln": 1,
+        "gba": 1,
+        "ksp": 1
+      }
+    ],
+    [
+      121,
+      {
+        "lpo": 35
+      }
+    ],
+    [
+      36,
+      {}
+    ],
+    [
+      37,
+      {}
+    ],
+    [
+      73,
+      {
+        "lbj": 39
+      }
+    ],
+    [
+      18,
+      {
+        "ln": 1,
+        "mkw": 0,
+        "fr": 0
+      }
+    ],
+    [
+      0,
+      {
+        "ycl": 18
+      }
+    ],
+    [
+      40,
+      {}
+    ],
+    [
+      41,
+      {}
+    ],
+    [
+      42,
+      {
+        "rif": 0
+      }
+    ],
+    [
+      43,
+      {}
+    ],
+    [
+      0,
+      {
+        "es": 4,
+        "ca": 114
+      }
+    ],
+    [
+      4,
+      {}
+    ],
+    [
+      46,
+      {}
+    ],
+    [
+      0,
+      {
+        "bzj": 18
+      }
+    ],
+    [
+      0,
+      {
+        "fi": 9
+      }
+    ],
+    [
+      47,
+      {}
+    ],
+    [
+      1,
+      {
+        "en": 0,
+        "grb": 0,
+        "dnj": 0,
+        "ff": 0
+      }
+    ],
+    [
+      48,
+      {}
+    ],
+    [
+      0,
+      {
+        "arn": 4
+      }
+    ],
+    [
+      50,
+      {}
+    ],
+    [
+      51,
+      {}
+    ],
+    [
+      52,
+      {}
+    ],
+    [
+      54,
+      {}
+    ],
+    [
+      63,
+      {
+        "kn": 56
+      }
+    ],
+    [
+      61,
+      {}
+    ],
+    [
+      48,
+      {
+        "mai": 8
+      }
+    ],
+    [
+      64,
+      {}
+    ],
+    [
+      67,
+      {}
+    ],
+    [
+      70,
+      {}
+    ],
+    [
+      73,
+      {}
+    ],
+    [
+      75,
+      {}
+    ],
+    [
+      76,
+      {}
+    ],
+    [
+      16,
+      {
+        "snk": 51
+      }
+    ],
+    [
+      77,
+      {}
+    ],
+    [
+      16,
+      {
+        "arb": 83
+      }
+    ],
+    [
+      88,
+      {
+        "aii": 82
+      }
+    ],
+    [
+      1,
+      {
+        "fr": 0
+      }
+    ],
+    [
+      87,
+      {}
+    ],
+    [
+      89,
+      {}
+    ],
+    [
+      91,
+      {}
+    ],
+    [
+      93,
+      {}
+    ],
+    [
+      94,
+      {}
+    ],
+    [
+      95,
+      {}
+    ],
+    [
+      98,
+      {}
+    ],
+    [
+      100,
+      {}
+    ],
+    [
+      109,
+      {
+        "iu": 102,
+        "cr": 102
+      }
+    ],
+    [
+      103,
+      {}
+    ],
+    [
+      104,
+      {}
+    ],
+    [
+      107,
+      {}
+    ],
+    [
+      115,
+      {}
+    ],
+    [
+      117,
+      {}
+    ],
+    [
+      119,
+      {}
+    ],
+    [
+      123,
+      {}
+    ],
+    [
+      128,
+      {}
+    ],
+    [
+      132,
+      {}
+    ],
+    [
+      133,
+      {}
+    ],
+    [
+      134,
+      {}
+    ],
+    [
+      135,
+      {}
+    ],
+    [
+      19,
+      {}
+    ],
+    [
+      136,
+      {}
+    ],
+    [
+      137,
+      {}
+    ],
+    [
+      138,
+      {}
+    ],
+    [
+      139,
+      {}
+    ],
+    [
+      140,
+      {}
+    ],
+    [
+      141,
+      {}
+    ],
+    [
+      142,
+      {}
+    ],
+    [
+      143,
+      {}
+    ],
+    [
+      144,
+      {}
+    ],
+    [
+      145,
+      {}
+    ],
+    [
+      146,
+      {}
+    ],
+    [
+      102,
+      {}
+    ],
+    [
+      147,
+      {}
+    ],
+    [
+      148,
+      {}
+    ],
+    [
+      149,
+      {}
+    ],
+    [
+      150,
+      {}
+    ],
+    [
+      152,
+      {}
+    ],
+    [
+      153,
+      {}
+    ],
+    [
+      154,
+      {}
+    ],
+    [
+      155,
+      {}
+    ],
+    [
+      156,
+      {}
+    ],
+    [
+      157,
+      {}
+    ],
+    [
+      158,
+      {}
+    ],
+    [
+      159,
+      {}
+    ],
+    [
+      160,
+      {}
+    ],
+    [
+      161,
+      {}
+    ],
+    [
+      162,
+      {}
+    ],
+    [
+      163,
+      {}
+    ],
+    [
+      164,
+      {}
+    ],
+    [
+      165,
+      {}
+    ],
+    [
+      166,
+      {}
+    ],
+    [
+      167,
+      {}
+    ],
+    [
+      168,
+      {}
+    ],
+    [
+      169,
+      {}
+    ],
+    [
+      170,
+      {}
+    ],
+    [
+      171,
+      {}
+    ],
+    [
+      59,
+      {}
+    ],
+    [
+      172,
+      {}
+    ],
+    [
+      63,
+      {}
+    ],
+    [
+      173,
+      {}
+    ],
+    [
+      174,
+      {}
+    ],
+    [
+      175,
+      {}
+    ],
+    [
+      176,
+      {}
+    ],
+    [
+      177,
+      {}
+    ],
+    [
+      178,
+      {}
+    ],
+    [
+      179,
+      {}
+    ],
+    [
+      180,
+      {}
+    ],
+    [
+      181,
+      {}
+    ],
+    [
+      182,
+      {}
+    ],
+    [
+      183,
+      {}
+    ],
+    [
+      184,
+      {}
+    ],
+    [
+      185,
+      {}
+    ],
+    [
+      186,
+      {}
+    ],
+    [
+      187,
+      {}
+    ],
+    [
+      188,
+      {}
+    ],
+    [
+      189,
+      {}
+    ],
+    [
+      190,
+      {}
+    ],
+    [
+      191,
+      {}
+    ],
+    [
+      192,
+      {}
+    ],
+    [
+      193,
+      {}
+    ],
+    [
+      194,
+      {}
+    ],
+    [
+      195,
+      {}
+    ],
+    [
+      196,
+      {}
+    ],
+    [
+      197,
+      {}
+    ],
+    [
+      198,
+      {}
+    ],
+    [
+      199,
+      {}
+    ],
+    [
+      200,
+      {}
+    ],
+    [
+      201,
+      {}
+    ],
+    [
+      202,
+      {}
+    ],
+    [
+      203,
+      {}
+    ],
+    [
+      204,
+      {}
+    ],
+    [
+      205,
+      {}
+    ],
+    [
+      206,
+      {}
+    ],
+    [
+      207,
+      {}
+    ],
+    [
+      208,
+      {}
+    ],
+    [
+      209,
+      {}
+    ],
+    [
+      210,
+      {}
+    ],
+    [
+      211,
+      {}
+    ],
+    [
+      212,
+      {}
+    ],
+    [
+      213,
+      {}
+    ],
+    [
+      214,
+      {}
+    ],
+    [
+      215,
+      {}
+    ],
+    [
+      216,
+      {}
+    ],
+    [
+      217,
+      {}
+    ],
+    [
+      218,
+      {}
+    ],
+    [
+      219,
+      {}
+    ],
+    [
+      220,
+      {}
+    ],
+    [
+      221,
+      {}
+    ],
+    [
+      222,
+      {}
+    ],
+    [
+      223,
+      {}
+    ],
+    [
+      224,
+      {}
+    ],
+    [
+      88,
+      {}
+    ],
+    [
+      225,
+      {}
+    ],
+    [
+      226,
+      {}
+    ],
+    [
+      227,
+      {}
+    ],
+    [
+      228,
+      {}
+    ],
+    [
+      229,
+      {}
+    ],
+    [
+      230,
+      {}
+    ],
+    [
+      231,
+      {}
+    ],
+    [
+      232,
+      {}
+    ],
+    [
+      233,
+      {}
+    ],
+    [
+      234,
+      {}
+    ],
+    [
+      235,
+      {}
+    ],
+    [
+      236,
+      {}
+    ],
+    [
+      237,
+      {}
+    ],
+    [
+      238,
+      {}
+    ],
+    [
+      239,
+      {}
+    ],
+    [
+      240,
+      {}
+    ],
+    [
+      241,
+      {}
+    ]
+  ],
+  "variants": [
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv46=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {
+        "x-zinacntn": {
+          "family": "Charis SIL",
+          "familyid": "charissil"
+        },
+        "x-sanandre": {
+          "family": "Charis SIL",
+          "familyid": "charissil"
+        }
+      }
+    ],
+    [
+      {
+        "family": "Abyssinica SIL",
+        "familyid": "abyssinicasil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tai Le",
+        "familyid": "notosanstaile"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Thai",
+        "familyid": "notoserifthai"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "ThiruValluvar",
+        "familyid": "thiruvalluvar"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Annapurna SIL",
+        "familyid": "annapurnasil",
+        "features": "ss01=1 ss08=1 ss09=1 ss10=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Khmer Barkaew",
+        "familyid": "khmerbarkaew"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2"
+      },
+      {
+        "x-tuam": {
+          "family": "Doulos SIL",
+          "familyid": "doulossil"
+        },
+        "x-oov": {
+          "family": "Doulos SIL",
+          "familyid": "doulossil"
+        }
+      }
+    ],
+    [
+      {
+        "family": "Scheherazade New",
+        "familyid": "scheherazadenew",
+        "features": "cv62=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tamil",
+        "familyid": "notosanstamil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Scheherazade New",
+        "familyid": "scheherazadenew"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Telugu",
+        "familyid": "notoseriftelugu"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Awami Nastaliq",
+        "familyid": "awaminastaliq"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv44=1 cv46=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika"
+      },
+      {
+        "x-ahaggar": {
+          "family": "Charis SIL",
+          "familyid": "charissil"
+        }
+      }
+    ],
+    [
+      {
+        "family": "Noto Serif Devanagari",
+        "familyid": "notoserifdevanagari"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Harmattan",
+        "familyid": "harmattan",
+        "features": "cv12=1 cv70=2 cv74=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Gurmukhi",
+        "familyid": "notosansgurmukhi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Oriya",
+        "familyid": "notosansoriya"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif JP",
+        "familyid": "notoserifjp"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "TH SarabunPSK",
+        "familyid": "thsarabunpsk"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika",
+        "features": "cv46=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Namdhinggo SIL",
+        "familyid": "namdhinggosil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "ShiShan LPO",
+        "familyid": "shishanlpo"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Saysettha MX",
+        "familyid": "saysetthamx"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Mingzat",
+        "familyid": "mingzat"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Annapurna SIL",
+        "familyid": "annapurnasil",
+        "features": "ss01=1 ss08=1 ss09=1 ss10=1 ss12=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tibetan",
+        "familyid": "notosanstibetan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "LisuTzimu",
+        "familyid": "lisutzimu"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif SC",
+        "familyid": "notoserifsc"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tifinagh",
+        "familyid": "notosanstifinagh"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif TC",
+        "familyid": "notoseriftc"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Galatia SIL",
+        "familyid": "galatiasil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Annapurna SIL",
+        "familyid": "annapurnasil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Lateef",
+        "familyid": "lateef"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Gujarati",
+        "familyid": "notosansgujarati"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Harmattan",
+        "familyid": "harmattan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Ezra SIL",
+        "familyid": "ezrasil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Scheherazade New",
+        "familyid": "scheherazadenew",
+        "features": "cv54=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Kayahli",
+        "familyid": "kayahli"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv46=1 cv68=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Kannada",
+        "familyid": "notoserifkannada"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Annapurna SIL Kham",
+        "familyid": "annapurnasilkham"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Khmer Mondulkiri",
+        "familyid": "khmermondulkiri"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv44=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Georgian",
+        "familyid": "notosansgeorgian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Badami",
+        "familyid": "badami"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif KR",
+        "familyid": "notoserifkr"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika",
+        "features": "cv43=2"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Dai Banna SIL",
+        "familyid": "daibannasil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Gentium Plus",
+        "familyid": "gentiumplus"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Doulos SIL",
+        "familyid": "doulossil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Coptic",
+        "familyid": "notosanscoptic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Khmer Mondulkiri",
+        "familyid": "khmermondulkiri",
+        "features": "tamp=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv75=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Tibetan",
+        "familyid": "notoseriftibetan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv68=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tai Viet",
+        "familyid": "notosanstaiviet"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Bengali",
+        "familyid": "notosansbengali"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Bengali",
+        "familyid": "notoserifbengali"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv46=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Lateef",
+        "familyid": "lateef",
+        "features": "cv62=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika",
+        "features": "cv44=1 cv46=1 cv49=1 cv68=1 cv77=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "East Syriac Marcus",
+        "familyid": "eastsyriacmarcus"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Naskh Arabic UI",
+        "familyid": "notonaskharabicui"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {
+        "x-rabinal": {
+          "family": "Andika",
+          "familyid": "andika"
+        },
+        "x-cubulco": {
+          "family": "Andika",
+          "familyid": "andika"
+        }
+      }
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Dukor",
+        "familyid": "dukor"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Syriac",
+        "familyid": "notosanssyriac"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Javanese",
+        "familyid": "notosansjavanese"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Lateef",
+        "familyid": "lateef",
+        "features": "cv44=1 cv62=1 cv82=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Sundanese",
+        "familyid": "notosanssundanese"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Surma",
+        "familyid": "surma"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Sinhala",
+        "familyid": "notoserifsinhala"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Padauk",
+        "familyid": "padauk"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv49=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Scheherazade New",
+        "familyid": "scheherazadenew",
+        "features": "cv62=1 cv72=1 cv82=4"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Nuosu SIL",
+        "familyid": "nuosusil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Canadian Aboriginal",
+        "familyid": "notosanscanadianaboriginal"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Mongolian",
+        "familyid": "notosansmongolian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Malayalam",
+        "familyid": "notoserifmalayalam"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 ss01=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv80=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "ss01=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "BJCree UNI",
+        "familyid": "bjcreeuni"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {
+        "x-xenacoj": {
+          "family": "Charis SIL",
+          "familyid": "charissil"
+        }
+      }
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {
+        "x-solola": {
+          "family": "Charis SIL",
+          "familyid": "charissil",
+          "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+        }
+      }
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Cherokee",
+        "familyid": "notosanscherokee"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika",
+        "features": "cv90=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Chakma",
+        "familyid": "notosanschakma"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Khmer Dakdam",
+        "familyid": "khmerdakdam"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Armenian",
+        "familyid": "notoserifarmenian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1 cv77=1 cv90=1 ss04=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "ShiShan HMD",
+        "familyid": "shishanhmd"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Thai",
+        "familyid": "notosansthai"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Payap Lanna",
+        "familyid": "payaplanna"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Andika",
+        "familyid": "andika"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "ss02=1 ss03=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv43=2 cv68=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Thaana",
+        "familyid": "notosansthaana"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv62=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Charis SIL",
+        "familyid": "charissil",
+        "features": "cv44=1 cv68=1"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Adlam",
+        "familyid": "notosansadlam"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "",
+        "familyid": ""
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Caucasian Albanian",
+        "familyid": "notosanscaucasianalbanian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Ahom",
+        "familyid": "notoserifahom"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Imperial Aramaic",
+        "familyid": "notosansimperialaramaic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Armenian",
+        "familyid": "notosansarmenian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Avestan",
+        "familyid": "notosansavestan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Balinese",
+        "familyid": "notosansbalinese"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Bamum",
+        "familyid": "notosansbamum"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Bassa Vah",
+        "familyid": "notosansbassavah"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Batak",
+        "familyid": "notosansbatak"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Bhaiksuki",
+        "familyid": "notosansbhaiksuki"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Brahmi",
+        "familyid": "notosansbrahmi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Buginese",
+        "familyid": "notosansbuginese"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Buhid",
+        "familyid": "notosansbuhid"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Carian",
+        "familyid": "notosanscarian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Cham",
+        "familyid": "notosanscham"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Coptic",
+        "familyid": "notosanscoptic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Cypriot",
+        "familyid": "notosanscypriot"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Annapurna SIL Nepal",
+        "familyid": "annapurnasilnepal"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Deseret",
+        "familyid": "notosansdeseret"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Duployan",
+        "familyid": "notosansduployan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Egyptian Hieroglyphs",
+        "familyid": "notosansegyptianhieroglyphs"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Elbasan",
+        "familyid": "notosanselbasan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Glagolitic",
+        "familyid": "notosansglagolitic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Narnoor",
+        "familyid": "narnoor"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Gothic",
+        "familyid": "notosansgothic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Grantha",
+        "familyid": "notosansgrantha"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Gentium Plus",
+        "familyid": "gentiumplus"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans SC",
+        "familyid": "notosanssc"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans KR",
+        "familyid": "notosanskr"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans JP",
+        "familyid": "notosansjp"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Hanunoo",
+        "familyid": "notosanshanunoo"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans TC",
+        "familyid": "notosanstc"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Hatran",
+        "familyid": "notosanshatran"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Anatolian Hieroglyphs",
+        "familyid": "notosansanatolianhieroglyphs"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Pahawh Hmong",
+        "familyid": "notosanspahawhhmong"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old Hungarian",
+        "familyid": "notosansoldhungarian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old Italic",
+        "familyid": "notosansolditalic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Kharoshthi",
+        "familyid": "notosanskharoshthi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Khojki",
+        "familyid": "notosanskhojki"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Kaithi",
+        "familyid": "notosanskaithi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tai Tham",
+        "familyid": "notosanstaitham"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Leke",
+        "familyid": "notosansleke"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Namdhinggo",
+        "familyid": "namdhinggo"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Linear A",
+        "familyid": "notosanslineara"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Linear B",
+        "familyid": "notosanslinearb"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Lycian",
+        "familyid": "notosanslycian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Lydian",
+        "familyid": "notosanslydian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Mahajani",
+        "familyid": "notosansmahajani"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Mandaic",
+        "familyid": "notosansmandaic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Manichaean",
+        "familyid": "notosansmanichaean"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Marchen",
+        "familyid": "notosansmarchen"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Mende Kikakui",
+        "familyid": "notosansmendekikakui"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Meroitic Cursive",
+        "familyid": "notosansmeroiticcursive"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Meroitic",
+        "familyid": "notosansmeroitic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Malayalam",
+        "familyid": "notosansmalayalam"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Modi",
+        "familyid": "notosansmodi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Mro",
+        "familyid": "notosansmro"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Meetei Mayek",
+        "familyid": "notosansmeeteimayek"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Multani",
+        "familyid": "notosansmultani"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Nandinagari",
+        "familyid": "notosansnandinagari"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old North Arabian",
+        "familyid": "notosansoldnortharabian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Nabataean",
+        "familyid": "notosansnabataean"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Newa",
+        "familyid": "notosansnewa"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans NKo",
+        "familyid": "notosansnko"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Ogham",
+        "familyid": "notosansogham"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Ol Chiki",
+        "familyid": "notosansolchiki"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old Turkic",
+        "familyid": "notosansoldturkic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Japa Sans Oriya",
+        "familyid": "japasansoriya"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Osage",
+        "familyid": "notosansosage"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Osmanya",
+        "familyid": "notosansosmanya"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Palmyrene",
+        "familyid": "notosanspalmyrene"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Pau Cin Hau",
+        "familyid": "notosanspaucinhau"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old Permic",
+        "familyid": "notosansoldpermic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Phags Pa",
+        "familyid": "notosansphagspa"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Inscriptional Pahlavi",
+        "familyid": "notosansinscriptionalpahlavi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Psalter Pahlavi",
+        "familyid": "notosanspsalterpahlavi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Phoenician",
+        "familyid": "notosansphoenician"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Shimenkan",
+        "familyid": "shimenkan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Inscriptional Parthian",
+        "familyid": "notosansinscriptionalparthian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Rejang",
+        "familyid": "notosansrejang"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Runic",
+        "familyid": "notosansrunic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Samaritan",
+        "familyid": "notosanssamaritan"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old South Arabian",
+        "familyid": "notosansoldsoutharabian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Saurashtra",
+        "familyid": "notosanssaurashtra"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Shuishu",
+        "familyid": "notosansshuishu"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Siddham",
+        "familyid": "notosanssiddham"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Khudawadi",
+        "familyid": "notosanskhudawadi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Sinhala",
+        "familyid": "notosanssinhala"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Sogdian",
+        "familyid": "notosanssogdian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Sora Sompeng",
+        "familyid": "notosanssorasompeng"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Soyombo",
+        "familyid": "notosanssoyombo"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tagbanwa",
+        "familyid": "notosanstagbanwa"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Takri",
+        "familyid": "notosanstakri"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Nokyung",
+        "familyid": "nokyung"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tangut",
+        "familyid": "notosanstangut"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Tai Heritage Pro",
+        "familyid": "taiheritagepro"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Telugu",
+        "familyid": "notosanstelugu"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tagalog",
+        "familyid": "notosanstagalog"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tangsa",
+        "familyid": "notosanstangsa"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Tirhuta",
+        "familyid": "notosanstirhuta"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Toto",
+        "familyid": "notoseriftoto"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Ugaritic",
+        "familyid": "notosansugaritic"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Vithkuqi",
+        "familyid": "notosansvithkuqi"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Warang Citi",
+        "familyid": "notosanswarangciti"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Wancho",
+        "familyid": "notosanswancho"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Old Persian",
+        "familyid": "notosansoldpersian"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Sans Cuneiform",
+        "familyid": "notosanscuneiform"
+      },
+      {}
+    ],
+    [
+      {
+        "family": "Noto Serif Yezidi",
+        "familyid": "notoserifyezidi"
+      },
+      {}
+    ]
+  ]
+}

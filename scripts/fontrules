@@ -1,185 +1,217 @@
 #!/usr/bin/python3
 
-import argparse, os, json, sys
-from sldr.ldml import Ldml
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.tree import DecisionTreeClassifier
+import argparse, os, json, sys, csv, re, json
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from langtag import lookup, langtag
 from itertools import combinations
+from multiprocessing.pool import Pool
+import xml.etree.ElementTree as et
 
 def fontid(s, feat=""):
-    #return s.replace(" ", "").lower() + "|" + " ".join(sorted([f for f in feat.split() if not f.endswith("=0")]))
     return s + "|" + " ".join(sorted([f for f in feat.split() if not f.endswith("=0")]))
 
 class Classifier:
-    """ Creates a decision tree from a dict of key values. The key is split
-        into feature values. """
     def __init__(self, mapdata):
-        self.mapdata = mapdata
-        self.X, self.Y = zip(*map(self._splitkey, mapdata.items()))
-        self.ohe = OneHotEncoder()
-        self.ohe.fit(self.X)
-        self.X_ohe = self.ohe.transform(self.X).toarray()
-        self.feat_names = self.ohe.get_feature_names(["lang", "scr", "reg"])
-        self.clf = DecisionTreeClassifier()
-        self.clf.fit(self.X_ohe, self.Y)
-        indices = self.clf.apply(self.X_ohe)
-        self.values = {indices[i]: self.Y[i] for i in range(len(self.X_ohe))}
+        self.scripts = [[None, {}]]
+        self.regions = []
+        self.langs = []
+        self.variants = []
+
+    def create_matches(self, mapdata):
+        fields = ('script', 'region', 'lang', 'variant')
+        for k, v in mapdata.items():
+            key = self._splitkey(k)
+            current = 0
+            for i, a in enumerate(fields):
+                rules = getattr(self, a+"s")[current]
+                nrules = getattr(self, fields[i+1]+"s") if i+1 < len(fields) else None 
+                if a in key:
+                    val = key[a]
+                    if val not in rules[1]:
+                        rules[1][val] = len(nrules) if nrules is not None else v
+                        if nrules is not None:
+                            nrules.append([None, {}])
+                    current = rules[1][val]
+                else:
+                    if rules[0] is None:
+                        rules[0] = len(nrules) if nrules is not None else v
+                        if nrules is not None:
+                            nrules.append([None, {}])
+                    current = rules[0]
+        # import pdb; pdb.set_trace()
+        for i, a in enumerate(reversed(fields)):
+            childrules = getattr(self, fields[-i]+"s") if i > 0 else None
+            r, m = self._simplify_matches(getattr(self, a+"s"))
+            setattr(self, a+"s", r)
+            if i+1 < len(fields):
+                self._apply_map(getattr(self, fields[-i-2]+"s"), m, childrules)
+        self._apply_map(self.variants, {}, None)
+        for vm in self.variants:
+            vm[0] = self._makeres(vm[0])
+            vm[1] = {k: self._makeres(v) for k, v in vm[1].items()}
 
     def _splitkey(self, x):
         """ Splits according to a language tag. Subclass and override
             appropriately """
-        l = langtag(x[0])
-        k = [l.lang or "", l.script or "", l.region or ""]
-        return (k[:3], x[1])
+        l = langtag(x)
+        key = {k: getattr(l, k) for k in ("lang", "script", "region") if getattr(l, k, None) is not None}
+        if key.get("lang", "") == "und":
+            del key['lang']
+        var = []
+        if l.vars is not None and len(l.vars):
+            var.extend(l.vars)
+        if l.ns is not None:
+            for k in sorted(l.ns.keys()):
+                var.extend([k.lower()] + l.ns[k])
+        if len(var):
+            key['variant'] = "-".join(var)
+        return key
 
-    def treerules(self, node, feats):
-        """ Yields (dict value, list of features) for each leaf in the tree """
-        newfeat = self.clf.tree_.feature[node]
-        left = self.clf.tree_.children_left[node]
-        right = self.clf.tree_.children_right[node]
-        val = self.values.get(node, None)
-        if left == -1:
-                yield ((val, feats))
-        else:
-            yield from self.treerules(left, feats)
-        if left == right:
-            return
-        #newf = self.ohe.inverse_transform([self.X_ohe[newfeat]])
-        feats = feats[:] + [self.feat_names[newfeat]]
-        if right == -1:
-                yield ((val, feats))
-        else:
-            yield from self.treerules(right, feats)
+    def _simplify_matches(self, matchrules):
+        cache = {}
+        outmap = {}
+        res = []
+        for i, m in enumerate(matchrules):
+            key = []
+            key = [" ".join(sorted(("{}={}".format(k, v) for k, v in m[1].items())))]
+            key.append(m[0])
+            key = tuple(key)
+            curri = len(res)
+            if key not in cache:
+                cache[key] = curri
+                res.append(m)
+            outmap[i] = cache[key]
+        return (res, outmap)
 
-    def simplerules(self):
-        """ Convert a decision tree into a set of rules that test features and
-            values. dict(result: list(match)) each match is a
-            dict(feature: list(values)). """
-        already = {}
-        vals = {}
-        skipcount = 0
-        for v, s in self.treerules(0, []):
-            f = [a for a in s if a.split("_")[1] != ""]
-            x = frozenset(f)
-            # test to see if this or a lesser rule gives the same result
-            skipme = None
-            for i in range(len(f)-1, 0, -1):
-                for y in combinations(f, i):
-                    curr = already.get(frozenset(y), None)
-                    if curr == v:
-                        skipme = False if skipme is False else True
-                    elif curr is not None:
-                        skipme = False
-                if skipme is False:
-                    break
-            if skipme:
-                skipcount += 1
-                continue
-            already[x] = v
+    def _apply_map(self, matchrules, rulemap, childrules):
+        for i, m in enumerate(matchrules):
+            if m[0] is None:
+                scores = {}
+                for k, v in m[1].items():
+                    a = rulemap.get(v, v)
+                    kv = a if childrules is None else childrules[a][0]
+                    s, _ = scores.get(kv, (0, None))
+                    scores[kv] = (s+1, a)
+                m[0] = max(scores.items(), key=lambda x:(x[1], x[0]))[1][1]
+            else:
+                m[0] = rulemap.get(m[0], m[0])
+            m[1] = {k: rulemap.get(v, v) for k, v in m[1].items() if rulemap.get(v, v) != m[0]}
 
-            # can we merge this rule with another giving the same result?
-            if v in vals:
-                best = None
-                bestscore = -1
-                for k in vals[v]:
-                    # different length so clearly can't match
-                    if len(f) != len(k):
-                        continue
-                    # find the key that has a list of match values
-                    mindex = None
-                    for i, kx in k.items():
-                        if len(kx) > 1:
-                            mindex = i
-                            break
-                    # how many match values align?
-                    score = 0
-                    for vl in f:
-                        i, vv = vl.split("_")
-                        if i == mindex:
-                            if vv in k[i]:
-                                score += 1
-                        elif i not in k:
-                            score = -1
-                            break
-                        elif vv == k[i][0]:
-                            score += 1
-                        elif mindex is None:
-                            mindex = i
-                        else:
-                            score = -1
-                            break
-                    # if one difference or perfect match then keep the score
-                    if score < len(k) - 1:
-                        score = -1
-                    if score > bestscore:
-                        bestscore = score
-                        best = k
-                # found a rule worth merging into
-                if bestscore > -1:
-                    for i, vv in dict((x.split("_") for x in f)).items():
-                        if vv not in best[i] and vv != "":
-                            best[i].append(vv)
-                    continue
-            # add a new rule for this result
-            vals.setdefault(v, []).append({vv.split("_")[0]:[vv.split("_")[1]] for vv in f})
-        print(f"Skipped {skipcount}")
-        return vals
+    def _makeres(self, reskey):
+        if reskey is None:
+            return None
+        family, feats = reskey.split("|")
+        res = {'family': family.strip(), 'familyid': family.replace(" ", "").lower()}
+        if feats is not None and len(feats.strip()):
+            res['features'] = feats.strip()
+        return res
+
+    def out_matches(self, fname):
+        with open(fname, "w") as outf:
+            json.dump({'scripts': self.scripts, 'regions': self.regions,
+                       'langs': self.langs, 'variants': self.variants},
+                      outf, indent=2)
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("indir",help="Directory of files to process")
 parser.add_argument("-f","--families",help="families.json")
+parser.add_argument("-F","--fallbacks",help="fallbacks csv")
 parser.add_argument("-o","--outfile",default="fontrules.json",help="Output fontrules.json")
 parser.add_argument("--intermediate",help="Output interim results")
 parser.add_argument("--min",action="store_true",help="Use a minimal tag rather than maximal")
 parser.add_argument("-R","--resultsort",action="store_true",help="Sort by results, which is inaccurate but helpful for review")
-parser.add_argument("-L","--literal",action="store_true",help="Unsorted straight from the tree")
+parser.add_argument("-q","--quiet",action="store_true",help="Minimise output")
+parser.add_argument("-s","--single",action="store_true",help="Single processor")
+parser.add_argument("-l","--lang",help="Single language to process")
 args=parser.parse_args()
 
 jobs = []
 if os.path.isdir(args.indir):
     for dp, dn, fn in os.walk(args.indir):
         for f in fn:
-            if f.endswith('.xml'):
+            if f.endswith('.xml') and (args.lang is None or args.lang == f[:-4]):
                 jobs.append(os.path.join(dp, f))
     ltagmap = {}
 else:
     with open(args.indir) as inf:
         ltagmap = json.load(inf)
 
-print(f"{len(jobs)} files to test")
-for j in jobs:
-    l = Ldml(j)
+if not args.quiet:
+    print(f"{len(jobs)} files to test")
+
+silns = "{urn://www.sil.org/ldml/0.1}"
+def procdir(j):
+    l = et.parse(j)
     langn = l.find("identity/language")
     if langn is None:
-        continue
+        return (None, None)
     lang = langn.get("type", None)
-    inf = l.find("identity/special/sil:identity")
+    inf = l.find(f"identity/special/{silns}identity")
     if inf is None:
-        continue
-    script = inf.get("script")
-    region = inf.get("defaultRegion")
+        return (None, None)
+    scriptn = l.find("identity/script")
+    if scriptn is not None:
+        script = scriptn.get("type", None)
+    else:
+        script = inf.get("script")
+    regionn = l.find("identity/territory")
+    if regionn is not None:
+        region = regionn.get("type", None)
+    else:
+        region = inf.get("defaultRegion")
+    var = l.find("identity/variant")
+    if var is not None:
+        var = var.get("type", None)
     ltag = "{}-{}-{}".format(lang, script, region).lower().replace("-none", "")
+    if var is not None:
+        ltag += "-" + var
     try:
         ltagset = lookup(ltag)
+        ltag = str(ltagset.tag if args.min else ltagset.full).lower()
     except KeyError:
-        continue
-    ltag = str(ltagset.tag if args.min else ltagset.full).lower()
+        pass
 
+    res = None
     fallback = None
-    for f in l.findall("special/sil:external-resources/sil:font"):
+    for f in l.findall(f"special/{silns}external-resources/{silns}font"):
         t = f.get("types", "")
         if t == "":
             fallback = fontid(f.get("name"), f.get("features", ""))
         elif "default" in t:
-            ltagmap[ltag] = fontid(f.get("name"), f.get("features", ""))
+            res = fontid(f.get("name"), f.get("features", ""))
             break
     else:
         if fallback is not None:
-            ltagmap[ltag] = fallback
+            res = fallback
+    return (ltag if res is not None else None, res)
 
-print(f"Found {len(ltagmap)} entries")
+if args.single or len(jobs) == 1:
+    ltagmap = dict(procdir(j) for j in jobs)
+else:
+    p = Pool()
+    ltagmap = dict(p.map_async(procdir, jobs).get())
+ltagmap = {k:v for k,v in ltagmap.items() if v is not None}
+
+if args.fallbacks:
+    with open(args.fallbacks, encoding="utf-8") as inf:
+        cr = csv.DictReader(inf)
+        for r in cr:
+            s = r['Code']
+            if not len(s):
+                continue
+            v = fontid(r['Default Font'], r['Default Features'])
+            if r['Region']:
+                regs = re.split(r",\s*", r['Region'])
+                for i in regs:
+                    lt = f"und-{s}-{i}"
+                    ltagmap[lt] = v
+            else:
+                ltagmap[f"und-{s}"] = v
+
+if not args.quiet:
+    print(f"Found {len(ltagmap)} entries")
 if args.intermediate:
     with open(args.intermediate, "w") as outf:
         json.dump(ltagmap, outf)
@@ -189,48 +221,6 @@ if args.intermediate:
 #    invltagmap.setdefault(v, []).append(k)
 #print(invltagmap)
 c = Classifier(ltagmap)
-vals = c.simplerules()
-
-if args.literal:
-    for v, r in reversed(list(c.treerules(0, []))):
-        print(f"{v} -> {r}")
-    sys.exit(0)
-
-families = {}
-if args.families is not None:
-    with open(args.families) as inf:
-        familydata = json.load(inf)
-        for k, v in familydata.items():
-            if 'family' in v:
-                families[v['family']] = k
-
-rules = []
-for k, v in vals.items():
-    for r in v:
-        results = k.split("|")
-        rule = { "result" : {"familyid": families.get(results[0], results[0])}, "match": {}}
-        if len(results) > 1 and len(results[1]):
-            rule["result"]["features"] = results[1]
-        for b, vals in sorted(r.items()):
-            if not len(vals) or len(vals) == 1 and vals[0] == "":
-                continue
-            rule["match"][b] = vals if len(vals) > 1 else vals[0]
-        if len(rule["match"]):
-            rules.append(rule)
-
-if args.resultsort:
-    rules.sort(key=lambda x: (x["result"]["familyid"], x["result"].get("features", ""), -len(x["match"]),
-                              x["match"].get("scr", [""])[0], x["match"].get("reg", [""])[0]))
-else:
-    rules.sort(key=lambda x: (-len(x["match"]), x["result"]["familyid"], x["result"].get("features", ""),
-                              x["match"].get("scr", [""])[0], x["match"].get("reg", [""])[0]))
-
-print(f"{len(rules)} rules")
-if args.outfile:
-    with open(args.outfile, "w", encoding="utf-8") as outf:
-        outf.write("[\n")
-        for i, r in enumerate(rules):
-            json.dump(r, outf, ensure_ascii=False)
-            outf.write("\n" if i == len(rules) - 1 else ",\n")
-        outf.write("]\n")
+c.create_matches(ltagmap)
+c.out_matches(args.outfile)
 
