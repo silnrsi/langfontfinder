@@ -20,4 +20,8 @@ http://127.0.0.1:8000/lang/en
 
 There are standalone testing programs in the test/ directory.
 
+Other endpoints are:
+
+status/     Returns a simple version as a JSON object
+docs/       FastAPI OpenAPI base documentation
 
