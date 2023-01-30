@@ -18,21 +18,20 @@ datadir = os.getenv(
 )
 rulesfile = os.getenv("FAFRULES", os.path.join(datadir, "fontrules.json"))
 familiesfile = os.getenv("FAFFONTS", os.path.join(datadir, "families.json"))
-ltfile = os.getenv("FAFLANGTAGS", os.path.join(datadir, "langtags.json"))
 
 # parser = argparse.ArgumentParser()
 # parser.add_argument('-r','--rules',default=rulesfile,help='fontrules.json')
 # parser.add_argument('-f','--fonts',default=familiesfile,help='families.json')
-# parser.add_argument('-l','--langs',default=ltfile,help='langtags.json')
 # args = parser.parse_args()
 
-ruleset = FaF(rulesfile, familiesfile, ltags=ltfile)
+ruleset = FaF(rulesfile, familiesfile)
 
 fafapp = FastAPI()
 
 
 @fafapp.get("/lang/{ltag}")
-async def getfromlt(ltag: str, response: Response):
+async def langtag(ltag: str, response: Response, summary="Find a font"):
+    """ Given a language tag, returns font location information. """
     res = ruleset.get(ltag)
     if res is None:
         response.status_code = 404
@@ -40,7 +39,7 @@ async def getfromlt(ltag: str, response: Response):
 
 
 @fafapp.get("/status")
-async def getstatus():
+async def status():
     res = {"version": version}
     return res
 

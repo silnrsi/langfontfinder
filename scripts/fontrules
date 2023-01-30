@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 
-import argparse, os, json, sys, csv, re, json
-from sklearn.feature_extraction import DictVectorizer
-from sklearn.tree import DecisionTreeClassifier, export_graphviz
+import argparse, os, json, sys, csv, re
 from langtag import lookup, langtag
-from itertools import combinations
 from multiprocessing.pool import Pool
 import xml.etree.ElementTree as et
 
@@ -12,9 +9,7 @@ import xml.etree.ElementTree as et
 def fontid(s, feat=""):
     return s + "|" + " ".join(sorted([f for f in feat.split() if not f.endswith("=0")]))
 
-
 silns = "{urn://www.sil.org/ldml/0.1}"
-
 
 def procdir(j):
     """Read an LDML file and parse out langtag and font information"""
@@ -182,16 +177,12 @@ class Classifier:
 
 parser = argparse.ArgumentParser()
 parser.add_argument("indir", help="Directory of files to process")
-parser.add_argument("-f", "--families", help="families.json")
-parser.add_argument("-F", "--fallbacks", help="fallbacks csv")
+parser.add_argument("-f", "--fallbacks", help="fallbacks csv")
 parser.add_argument("-o", "--outfile", default="fontrules.json", help="Output fontrules.json")
 parser.add_argument("--intermediate", help="Output interim results")
 parser.add_argument("--min", action="store_true", help="Use a minimal tag rather than maximal")
-parser.add_argument(
-    "-R",
-    "--resultsort",
-    action="store_true",
-    help="Sort by results, which is inaccurate but helpful for review",
+parser.add_argument("-R", "--resultsort", action="store_true",
+                    help="Sort by results, which is inaccurate but helpful for review",
 )
 parser.add_argument("-q", "--quiet", action="store_true", help="Minimise output")
 parser.add_argument("-j", "--processes", action="store_true", help="Single processor")
@@ -241,10 +232,6 @@ if args.intermediate:
     with open(args.intermediate, "w") as outf:
         json.dump(ltagmap, outf)
 
-# invltagmap = {}
-# for k, v in ltagmap.items():
-#    invltagmap.setdefault(v, []).append(k)
-# print(invltagmap)
 c = Classifier(ltagmap)
 c.create_matches(ltagmap)
 c.out_matches(args.outfile)
