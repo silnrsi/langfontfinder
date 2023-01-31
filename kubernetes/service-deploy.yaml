@@ -64,24 +64,11 @@ spec:
             topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 60
       containers:
-      - name: service-api
-        image: tiangolo/uvicorn-gunicorn-fastapi:python3.9-alpine3.14
+      - name: service
+        image: findafont
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
-        env:
-        - { name: FAFPATH, value: /svc/data }
-        - { name: MODULE_NAME, value: findafont.api }
-        - { name: VARIABLE_NAME, value: fafapp }
-        volumeMounts:
-        - name: findafont
-          mountPath: /svc/data
-          subPath: data
-          readOnly: true
-        - name: findafont
-          mountPath: /app
-          subPath: app
-          readOnly: true
         readinessProbe:
           httpGet:
             path: /status
@@ -121,31 +108,8 @@ spec:
         - name: webhooks
           mountPath: /webhooks
           readOnly: true
-        - name: findafont
-          mountPath: /mnt
-
-      initContainers:
-      - name: init-site-repo
-        image: busybox
-        imagePullPolicy: IfNotPresent
-        command: ['sh', '-c']
-        args:
-        - |
-          test -e /mnt/data && test -e /mnt/app && exit 0
-          rm -rf /mnt/data /mnt/app
-          wget https://github.com/silnrsi/findafont/archive/refs/heads/main.zip -O - | unzip -
-          wget https://github.com/silnrsi/langtags/archive/refs/heads/master.zip -O - | unzip -
-          mv findafont-main/testdata /mnt/data
-          mkdir -p /mnt/app
-          mv findafont-main/lib/findafont langtags-master/lib/langtag /mnt/app/
-        volumeMounts:
-        - name: findafont
-          mountPath: /mnt
 
       volumes:
-      - name: findafont
-        emptyDir:
-          sizeLimit: 16Mi
       - name: webhooks
         configMap:
           name: findafont
