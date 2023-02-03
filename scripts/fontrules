@@ -182,8 +182,7 @@ parser.add_argument("-o", "--outfile", default="fontrules.json", help="Output fo
 parser.add_argument("--intermediate", help="Output interim results")
 parser.add_argument("--min", action="store_true", help="Use a minimal tag rather than maximal")
 parser.add_argument("-R", "--resultsort", action="store_true",
-                    help="Sort by results, which is inaccurate but helpful for review",
-)
+                    help="Sort by results, which is inaccurate but helpful for review")
 parser.add_argument("-q", "--quiet", action="store_true", help="Minimise output")
 parser.add_argument("-j", "--processes", action="store_true", help="Single processor")
 parser.add_argument("-l", "--lang", help="Single language to process")

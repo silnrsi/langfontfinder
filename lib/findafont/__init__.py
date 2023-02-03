@@ -5,10 +5,13 @@ import json
 
 
 class FaF:
-    def __init__(self, rfile, ffile, ltags=None):
+    def __init__(self, rfile, ffile=None, ltags=None):
         self.langtags = LangTags(fname=ltags)
-        with open(ffile, encoding="utf-8") as inf:
-            self.fontmap = json.load(inf)
+        if ffile is not None:
+            with open(ffile, encoding="utf-8") as inf:
+                self.fontmap = json.load(inf)
+        else:
+            self.fontmap = {}
         with open(rfile, encoding="utf-8") as inf:
             rules = json.load(inf)
         self.varrules = rules["variants"]

@@ -1,0 +1,53 @@
+#!/usr/bin/python3
+
+import argparse, os, sys
+try:
+    from findafont import FaF
+except ImportError:
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
+    from findafont import FaF
+from langtag import LangTag
+from itertools import product
+
+def mklangtag(*a):
+    return LangTag(a[2] or "unk", a[0] or None, a[1] or None, [a[3]] if a[3] else None, None)
+
+def nonmatchingkeys(d, m):
+    t = set([x[1] for x in m])
+    res = [k for k, v in d.items() if v not in t]
+    return res if len(res) else [""]
+
+parser = argparse.ArgumentParser()
+parser.add_argument("familyid",help="Family id to reverse match")
+parser.add_argument("-r", "--rules", required=True, help="fontrules.json")
+args = parser.parse_args()
+
+ruleset = FaF(args.rules)
+
+matches = []
+for i, r in enumerate(ruleset.varrules):
+    if r[0]['familyid'] == args.familyid:
+        matches.append(([""], i, [list(r[1].keys()) or [""]]))
+    for k, v in r[1].items():
+        if v['familyid'] == args.familyid:
+            matches.append(([k], i, [[""]]))
+
+for a in (ruleset.lngrules, ruleset.regrules, [ruleset.scrrules]):
+    currmatches = []
+    for i, r in enumerate(a):
+        for j, m, x in matches:
+            if r[0] == m:
+                currmatches.append(([""] + j, i, x + [nonmatchingkeys(r[1], matches)]))
+        for k, v in r[1].items():
+            for j, m, x in matches:
+                if v == m:
+                    currmatches.append(([k] + j, i, x + [[""]]))
+    matches = currmatches
+
+for v, i, x in matches:
+    m = mklangtag(*v)
+    excl = []
+    for p in product(*x):
+        if any(p):
+            excl.append(mklangtag(*reversed(p)))
+    print("{} {} {}".format(str(m), "but not:" if len(excl) else "", " ".join(str(x) for x in excl)))
