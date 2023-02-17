@@ -42,6 +42,8 @@ def procdir(j):
         ltag = str(ltagset.tag if args.min else ltagset.full).lower()
     except KeyError:
         pass
+    except SyntaxError:
+        return (None, None)
 
     res = None
     fallback = None
