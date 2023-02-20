@@ -21,7 +21,10 @@ class FaF:
 
     def getlt(self, txt):
         """returns a language tag tagset for the given textual language tag"""
-        return self.langtags.get(str(txt), default=None)
+        try:
+            return self.langtags.get(str(txt), default=None)
+        except SyntaxError:
+            return None
 
     def _getmatch(self, lng, scr, reg, var, regnum):
         regrules = self.regrules[regnum]
@@ -54,7 +57,10 @@ class FaF:
     def get(self, ltag: str):
         """Given a textual language tag return fully font family information for it."""
         if (lt := self.getlt(ltag)) is None:
-            nlt = langtag(ltag)
+            try:
+                nlt = langtag(ltag)
+            except SyntaxError:
+                return None
             if nlt.region is not None:
                 test = LangTag(nlt.lang, nlt.script, None, nlt.vars, nlt.ns)
                 tr = self.getlt(str(test))
@@ -76,7 +82,7 @@ class FaF:
             else:
                 lt = nlt
         res = None
-        if lt is not None:
+        if lt is not None and lt.lang is not None:
             var = []
             if lt.vars is not None and len(lt.vars):
                 var.extend(lt.vars)

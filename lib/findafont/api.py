@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys, os, argparse
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, Path
 from fastapi.testclient import TestClient
 import uvicorn
 
@@ -29,9 +29,9 @@ ruleset = FaF(rulesfile, familiesfile)
 fafapp = FastAPI()
 
 
-@fafapp.get("/lang/{ltag}")
-async def langtag(ltag: str, response: Response, summary="Find a font"):
-    """ Given a language tag, returns font location information. """
+@fafapp.get("/lang/{ltag}", summary="lang/{ltag}")
+async def lang(response: Response, ltag: str = Path("", description="Language tag")):
+    """ Given a language tag, returns font location information as json object. """
     res = ruleset.get(ltag)
     if res is None:
         response.status_code = 404
