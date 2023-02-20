@@ -26,10 +26,10 @@ familiesfile = os.getenv("FAFFONTS", os.path.join(datadir, "families.json"))
 
 ruleset = FaF(rulesfile, familiesfile)
 
-fafapp = FastAPI()
+fafapp = FastAPI(version=version)
 
 
-@fafapp.get("/lang/{ltag}", summary="lang/{ltag}")
+@fafapp.get("/lang/{ltag}", summary="lang/{ltag}", name="lang")
 async def lang(response: Response, ltag: str = Path("", description="Language tag")):
     """ Given a language tag, returns font location information as json object. """
     res = ruleset.get(ltag)

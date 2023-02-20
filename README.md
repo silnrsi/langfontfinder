@@ -7,12 +7,13 @@ language tag.
 ## Usage
 
 The service has the following endpoints available:
-| --- Endpoint | Description ------------------------------ |
+| Endpoint | Description                                    |
 | ------------ | ------------------------------------------ |
-| lang/<langtag> | Returns a json object of the font for the langtag |
+| lang/_langtag_ | Returns a json object of the font for the langtag |
 | status/ |    Returns a simple version as a JSON object    |
-| docs/   |    FastAPI OpenAPI base documentation           |
-| redoc/  |    Prettier OpenAPI base documentation          |
+| docs/   |    FastAPI OpenAPI base documentation (Swagger) |
+| redoc/  |    Prettier OpenAPI base documentation (ReDoc)  |
+| openapi.json | OpenAPI schema in JSON                     |
 
 
 ## Startup
