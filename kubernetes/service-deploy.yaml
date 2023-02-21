@@ -65,8 +65,8 @@ spec:
       terminationGracePeriodSeconds: 60
       containers:
       - name: service
-        image: findafont
-        imagePullPolicy: IfNotPresent
+        image: ghcr.io/silnrsi/findafont
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         readinessProbe:
