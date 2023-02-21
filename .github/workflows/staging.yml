@@ -65,9 +65,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: staging
-      url: https://faf.languagetechnology.org
+    environment: staging
+      # name: staging
+      # url: https://faf.languagetechnology.org/status
     steps:
       - name: Deploy to ${{ secrets.DEPLOY_WEBHOOK_URL }}
         uses: navied/secure-webhook@0.2.1
@@ -76,6 +76,6 @@ jobs:
           hmacSecret: ${{ secrets.DEPLOY_KEY }}
           data: >-
             {
-              "action" : "push"
+              "action" : "push",
               "ref" : "${{ github.ref }}"
             }
