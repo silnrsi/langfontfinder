@@ -70,12 +70,12 @@ jobs:
       # url: https://faf.languagetechnology.org/status
     steps:
       - name: Deploy to ${{ secrets.DEPLOY_WEBHOOK_URL }}
-        uses: navied/secure-webhook@0.2.1
+        uses: drlove2002/secure-github-webhook@0.3.0
         with:
           url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
           hmacSecret: ${{ secrets.DEPLOY_KEY }}
-          # data: >-
-          #   {
-          #     "action" : "push",
-          #     "ref" : "${{ github.ref }}"
-          #   }
+          data: >-
+            {
+              "action" : "push",
+              "ref" : "${{ github.ref }}"
+            }
