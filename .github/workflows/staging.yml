@@ -70,7 +70,7 @@ jobs:
       url: https://faf.languagetechnology.org
     steps:
       - name: Deploy to ${{ secrets.DEPLOY_WEBHOOK_URL }}
-        uses: navied/secure-actions-webhook@0.2
+        uses: navied/secure-webhook@0.2.1
         with:
           url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
           hmacSecret: ${{ secrets.DEPLOY_KEY }}
