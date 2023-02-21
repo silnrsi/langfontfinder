@@ -53,6 +53,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v4
         with:
+          platforms: linux/amd64
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
@@ -65,11 +66,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment: staging
-      # name: staging
-      # url: https://faf.languagetechnology.org/status
+    environment:
+      name: staging
+      url: https://faf.languagetechnology.org/docs
     steps:
-      - name: Deploy to ${{ secrets.DEPLOY_WEBHOOK_URL }}
+      - name: Deploy to staging
         uses: drlove2002/secure-github-webhook@0.3.0
         with:
           url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
