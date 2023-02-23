@@ -1,9 +1,12 @@
-name: Find a font 
+name: Build Find a font service image
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths-ignore:
+    - kubernetes/**
+    - test/**
+    - testdata/**
+    - README.md
   repository_dispatch:
     types: 
     - langtags-deployed

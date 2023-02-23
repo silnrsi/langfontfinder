@@ -36,6 +36,9 @@ metadata:
     app: findafont
 spec:
   replicas: 1
+  minReadySeconds: 5
+  progressDeadlineSeconds: 30
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: findafont
