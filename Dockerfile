@@ -31,4 +31,4 @@ LABEL org.opencontainers.image.licenses=MIT
 ADD --link --chmod=755 https://raw.githubusercontent.com/silnrsi/fonts/main/families.json /svc/data/
 COPY --link --chmod=755 --from=build-fontrules /src/findafont/lib /app
 COPY --link --chmod=755 --from=build-fontrules /src/findafont/data/ /svc/data/
-ENV FAFPATH='/svc/data/' MODULE_NAME='findafont.api' VARIABLE_NAME='fafapp'
+ENV FAFPATH='/svc/data/' MODULE_NAME='findafont.api' VARIABLE_NAME='fafapp' LANGTAGSPATH=/app/langtag/langtags.json
