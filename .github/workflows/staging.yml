@@ -4,7 +4,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  repository_dispatch:
+    types: 
+    - langtags-deployed
+    - families-updated
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
