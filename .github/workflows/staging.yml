@@ -46,7 +46,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          flavour: latest=true
           tags: |
             type=raw,value={{date 'GGWWEHHmm'}}
             type=raw,value=latest
