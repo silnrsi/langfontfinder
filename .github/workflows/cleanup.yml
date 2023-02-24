@@ -1,7 +1,8 @@
 name: Prune images
 on:
-  registry_package:
-    types: [updated]
+  workflow_run:
+    workflows: [Staging]
+    types: [completed]
 
 jobs:
   prune:
