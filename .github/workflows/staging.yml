@@ -1,4 +1,4 @@
-name: Build Find a font service image
+name: Staging
 on:
   push:
     branches: [ "main" ]
