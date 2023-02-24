@@ -1,7 +1,7 @@
 name: Prune images
 on:
   registry_package:
-    types: [published]
+    types: [updated]
 
 jobs:
   prune:
