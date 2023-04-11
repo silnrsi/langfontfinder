@@ -4,6 +4,8 @@ This project provides a micro service responder when passed language tag will
 return information on a possible font to use for the orthography for that
 language tag.
 
+Details of the returned JSON object may be found [here](docs/results.md).
+
 ## Usage
 
 The service has the following endpoints available:
