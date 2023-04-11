@@ -4,7 +4,7 @@
 The returned result is a JSON object. The primary component of the result is a font record. But the basic structure allows for multiple records to be returned. At its top level it has the fields:
 
 | Field     | Value                                                             |
-| --------- | ----------------------------------------------------------------- |
+| :-------- | :---------------------------------------------------------------- |
 | defaultfamily | An array of familyid values for the default result |
 | roles     | \[opt\] An object whose keys are roles. The value for each role is a list of familyid values in preference order. |
 | families  | An object in which each key is a familyid. The value for each key is the corresponding font record |
@@ -15,7 +15,7 @@ The returned result is a JSON object. The primary component of the result is a f
 A family record has the following JSON object structure:
 
 | Field     | Description                                                     |
-| --------- | --------------------------------------------------------------- |
+| :-------- | :-------------------------------------------------------------- |
 | familyid  | A unique identifier for the font family described in this object. This may be used by a font service to access information on the font. |
 | fallback  | \[opt\] A font family id for an alternative font family to use. This is often used if there is no defaultttf, etc. due to, say, copyright reasons. Also used when a family is deprecated to indicate which family to use instead. |
 | family    | Common family name, however Windows ID1 may differ for non-RIBBI weights (see Files structure later) |
@@ -37,7 +37,7 @@ A family record has the following JSON object structure:
 The files field is an object whose keys are filenames without any path. For each filename, there is an object of information with the following fields:
 
 | Field     | Description                                                       |
-| --------- | ----------------------------------------------------------------- |
+| :-------- | :---------------------------------------------------------------- |
 | altfamily | \[opt\] An alternative family name if different from the family field in the main font family description. This is typically used by legacy RIBBI-only applications to provide access to multi-weight font families, particularly on Windows. |
 | url       | \[opt\] A direct download URL to this font file |
 | flourl    | \[opt\] If the font file exists on FLO, this field gives the URL. |
@@ -50,7 +50,7 @@ The rest of the fields in a font file axes object have exactly 4 letter keys and
 The axes object may take any 4 letter key. Common ones are:
 
 | Dimension | Description                                                       |
-| --------- | ----------------------------------------------------------------- |
+| :-------- | :---------------------------------------------------------------- |
 | wght      | \[opt\] Font weight. This is a number between 0 and 999. Each multiple of 100 signifies an industry-standard weight name from 100 to 900: Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, Black. |
 | ital      | \[opt\] 0 for upright, 1 for italic. |
 
@@ -59,7 +59,7 @@ The axes object may take any 4 letter key. Common ones are:
 There are various default files entries:
 
 | Field     | Description                                                       |
-| --------- | ----------------------------------------------------------------- |
+| :-------- | :---------------------------------------------------------------- |
 | ttf       | \[opt\] Key in files to the default TTF font file. |
 | woff      | \[opt\] Key in files to the default WOFF font file. |
 | woff2     | \[opt\] Key in files to the default WOFF2 font file. |
@@ -71,7 +71,7 @@ The source field is used by the font production team for the management of famil
 While the source field may take any value, the following values are recognised as having potentially useful meaning:
 
 | Value     | Description                                                       |
-| --------- | ----------------------------------------------------------------- |
+| :-------- | :---------------------------------------------------------------- |
 | Google    | Font is free/open and is available through the Google Fonts service |
 | Microsoft | Font is not freely available and cannot be redistributed. It may be available on Microsoft OSes or through MS Office distributions. |
 | NLCI      | Font is free/open and maintained on behalf of New Life Computer Institute |
@@ -82,7 +82,7 @@ While the source field may take any value, the following values are recognised a
 The googlefonts field is a sub object containing these fields: (note that this is extremely preliminary and may change considerably)
 
 | Field     | Parameter                                                         |
-| --------- | ----------------------------------------------------------------- |
+| :-------- | :---------------------------------------------------------------- |
 | defaulthref | href for the single default face |
 | fullhref  | href for the full set of fonts |
 | version   | The version that is currently in Google Fonts |
