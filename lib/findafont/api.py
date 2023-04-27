@@ -37,6 +37,13 @@ async def lang(response: Response, ltag: str = Path("", description="Language ta
         response.status_code = 404
     return res
 
+@fafapp.get("/family/{familyid}", summary="family/{familyid}", name="family")
+async def family(response:Response, familyid: str = Path("", description="Font family id")):
+    """ Given a familyid returns the font family json object. """
+    res = ruleset.getfamily(familyid)
+    if res is None:
+        response.status_code = 404
+    return res
 
 @fafapp.get("/status")
 async def status():

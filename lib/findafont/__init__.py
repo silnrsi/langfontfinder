@@ -54,6 +54,9 @@ class FaF:
         }
         return res
 
+    def getfamily(self, familyid):
+        return self.fontmap.get(familyid, None)
+
     def get(self, ltag: str):
         """Given a textual language tag return fully font family information for it."""
         if (lt := self.getlt(ltag)) is None:
