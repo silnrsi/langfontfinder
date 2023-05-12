@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: findafont
+  name: langfontfinder
   namespace: wstech
 data:
   # This key is for local testing, or development of k8s yaml files 
@@ -14,8 +14,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: findafont
-  name: findafont
+    run: langfontfinder
+  name: langfontfinder
   namespace: wstech
 spec:
   type: NodePort
@@ -29,4 +29,4 @@ spec:
     protocol: TCP
     nodePort: 30900
   selector:
-    app: findafont
+    app: langfontfinder

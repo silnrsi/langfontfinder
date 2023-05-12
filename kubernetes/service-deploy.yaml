@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: findafont
+  name: langfontfinder
   namespace: wstech
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -21,7 +21,7 @@ metadata:
   namespace: wstech
 subjects:
 - kind: ServiceAccount
-  name: findafont
+  name: langfontfinder
 roleRef:
   kind: Role
   name: deployer
@@ -30,10 +30,10 @@ roleRef:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: findafont
+  name: langfontfinder
   namespace: wstech
   labels:
-    app: findafont
+    app: langfontfinder
 spec:
   replicas: 1
   minReadySeconds: 5
@@ -41,7 +41,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: findafont
+      app: langfontfinder
   strategy:
     rollingUpdate:
       maxSurge: 2
@@ -50,11 +50,11 @@ spec:
   template:
     metadata:
       labels:
-        app: findafont
-      name: findafont
+        app: langfontfinder
+      name: langfontfinder
       namespace: wstech
     spec:
-      serviceAccountName: findafont
+      serviceAccountName: langfontfinder
       affinity:
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -63,12 +63,12 @@ spec:
               - key: app
                 operator: In
                 values:
-                - findafont
+                - langfontfinder
             topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 60
       containers:
       - name: service
-        image: ghcr.io/silnrsi/findafont
+        image: ghcr.io/silnrsi/langfontfinder
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -89,12 +89,12 @@ spec:
         - name: DEPLOY_KEY
           valueFrom:
             secretKeyRef:
-              name: findafont
+              name: langfontfinder
               key: deploy_key
         - name: SITE_GIT_BRANCH
           valueFrom:
             configMapKeyRef:
-              name: findafont
+              name: langfontfinder
               key: site-branch
         command: ["sh", "-c"]
         args: 
@@ -115,7 +115,7 @@ spec:
       volumes:
       - name: webhooks
         configMap:
-          name: findafont
+          name: langfontfinder
           items:
           - key: deployer
             path: deploy.sh
@@ -126,7 +126,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: findafont
+  name: langfontfinder
   namespace: wstech
 data:
   site-branch: main
@@ -137,7 +137,7 @@ data:
     DEPLOYMENTS="https://kubernetes.default.svc/apis/apps/v1/namespaces/$NAMESPACE/deployments"
     TOKEN=$(cat $SERVICEACCOUNT/token)
     NOW=$(date -Is)
-    curl --location --request PATCH "$DEPLOYMENTS/findafont?fieldManager=kubectl-rollout" \
+    curl --location --request PATCH "$DEPLOYMENTS/langfontfinder?fieldManager=kubectl-rollout" \
     --cacert $SERVICEACCOUNT/ca.crt \
     --header 'Content-Type: application/strategic-merge-patch+json' \
     --header "Authorization: Bearer $TOKEN" \

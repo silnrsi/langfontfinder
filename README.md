@@ -26,7 +26,7 @@ The API is built on top of FastAPI and runs using uvicorn.
 To run:
 
 ```
-python3 lib/findafont/api.py
+python3 lib/langfontfinder/api.py
 ```
 
 There are standalone testing programs in the test/ directory.

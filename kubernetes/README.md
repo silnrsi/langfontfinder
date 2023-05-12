@@ -1,4 +1,4 @@
-## How to run findafont locally with Docker Desktop's Kubernetes singlenode cluster
+## How to run the language font finder locally with Docker Desktop's Kubernetes singlenode cluster
 
 For testing Kubernetes deployment there are yaml files under `kubernetes`, that cover local developer testing. 
 

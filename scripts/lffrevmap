@@ -2,10 +2,11 @@
 
 import argparse, os, sys
 try:
-    from findafont import FaF
+    from langfontfinder import LFF
 except ImportError:
     sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
-    from findafont import FaF
+    from langfontfinder import LFF
+
 from langtag import LangTag
 from itertools import product
 

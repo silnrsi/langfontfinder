@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: findafont
-  name: findafont
+    run: langfontfinder
+  name: langfontfinder
   namespace: wstech
 spec:
   type: NodePort
@@ -15,29 +15,29 @@ spec:
     port: 9000
     protocol: TCP
   selector:
-    app: findafont
+    app: langfontfinder
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: findafont
+  name: langfontfinder
   namespace: wstech
 spec:
   rules:
-  - host: faf.api.localhost
+  - host: lff.api.localhost
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: findafont
+            name: langfontfinder
             port:
               name: http
       - path: /api/deploy
         pathType: Exact
         backend:
           service:
-            name: findafont
+            name: langfontfinder
             port:
               name: api

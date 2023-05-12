@@ -15,7 +15,7 @@ ADD --link https://github.com/silnrsi/sldr/archive/refs/heads/master.zip sldr.zi
 RUN python3 -m zipfile -e sldr.zip ./ && mv sldr-master/sldr unflat
 ADD --link https://ldml.api.sil.org/langtags.json lib/langtag/
 # Generate fontrules.json
-ENV PYTHONPATH=/src/findafont/lib
+ENV PYTHONPATH=/src/langfontfinder/lib
 RUN <<EOT
     python3 scripts/fontrules \
         unflat/ \
@@ -29,6 +29,6 @@ LABEL org.opencontainers.image.description="Language-Font-Finder REST API endpoi
 LABEL org.opencontainers.image.licenses=MIT
 # Download or copy service static data.
 ADD --link --chmod=755 https://raw.githubusercontent.com/silnrsi/fonts/main/families.json /svc/data/
-COPY --link --chmod=755 --from=build-fontrules /src/findafont/lib /app
-COPY --link --chmod=755 --from=build-fontrules /src/findafont/data/ /svc/data/
+COPY --link --chmod=755 --from=build-fontrules /src/langfontfinder/lib /app
+COPY --link --chmod=755 --from=build-fontrules /src/langfontfinder/data/ /svc/data/
 ENV LFFPATH='/svc/data/' MODULE_NAME='langfontfinder.api' VARIABLE_NAME='lffapp' LANGTAGSPATH=/app/langtag/langtags.json
