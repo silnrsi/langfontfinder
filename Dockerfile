@@ -2,7 +2,7 @@
 ARG base=tiangolo/uvicorn-gunicorn-fastapi:python3.11-slim
 
 FROM ${base} AS build-fontrules
-WORKDIR /src/findafont
+WORKDIR /src/langfontfinder
 # Bring in selected context.
 COPY --link scripts scripts
 COPY --link lib lib
@@ -24,11 +24,11 @@ RUN <<EOT
 EOT
 
 FROM ${base} AS runtime
-LABEL org.opencontainers.image.source=https://github.com/silnrsi/findafont
-LABEL org.opencontainers.image.description="Find-a-Font REST API endpoint service"
+LABEL org.opencontainers.image.source=https://github.com/silnrsi/langfontfinder
+LABEL org.opencontainers.image.description="Language-Font-Finder REST API endpoint service"
 LABEL org.opencontainers.image.licenses=MIT
 # Download or copy service static data.
 ADD --link --chmod=755 https://raw.githubusercontent.com/silnrsi/fonts/main/families.json /svc/data/
 COPY --link --chmod=755 --from=build-fontrules /src/findafont/lib /app
 COPY --link --chmod=755 --from=build-fontrules /src/findafont/data/ /svc/data/
-ENV FAFPATH='/svc/data/' MODULE_NAME='findafont.api' VARIABLE_NAME='fafapp' LANGTAGSPATH=/app/langtag/langtags.json
+ENV LFFPATH='/svc/data/' MODULE_NAME='langfontfinder.api' VARIABLE_NAME='lffapp' LANGTAGSPATH=/app/langtag/langtags.json

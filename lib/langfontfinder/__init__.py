@@ -4,7 +4,7 @@ from langtag import LangTags, LangTag, langtag
 import json
 
 
-class FaF:
+class LFF:
     def __init__(self, rfile, ffile=None, ltags=None):
         self.langtags = LangTags(fname=ltags)
         if ffile is not None:
@@ -107,7 +107,7 @@ def main():
     parser.add_argument("-l", "--lang", required=True, help="langtag")
     args = parser.parse_args()
 
-    ruleset = FaF(args.rules, args.fonts)
+    ruleset = LFF(args.rules, args.fonts)
     res = ruleset.get(args.lang)
     if res is not None:
         print(res)

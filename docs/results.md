@@ -30,7 +30,7 @@ A family record has the following JSON object structure:
 | distributable | Boolean to indicate whether the font is likely to be freely distributable. |
 | source    | \[opt\] The source of this font, if known: SIL, Google, NLCI, Microsoft, etc. The list of values is an open set and so may take any value beyond those listed later. (see below) |
 | googlefonts | \[opt\] This sub object contains information on how to access the font family via Google Fonts. The structure of the object is described below. |
-| features  | \[opt\] \[FAF\] A CSS-style features string describing how the font features should be set to appropriately style text in this font for this language. This field is only returned by the Find a Font service, if at all. |
+| features  | \[opt\] \[LFF\] A CSS-style features string describing how the font features should be set to appropriately style text in this font for this language. This field is only returned by the Language Font Finder service, if at all. |
 
 ### Files Structure
 

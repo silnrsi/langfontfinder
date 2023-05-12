@@ -3,19 +3,19 @@
 import os, sys, argparse
 
 try:
-    from findafont import FaF
+    from langfontfinder import LFF
 except ImportError:
     sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
-    from findafont import FaF
+    from langfontfinder import LFF
 
 import xml.etree.ElementTree as et
 from sldr.ldml import iterate_files
 
-datadir = os.getenv('FAFPATH', os.path.join(os.path.dirname(__file__), '..', 'testdata'))
-rulesfile = os.getenv('FAFRULES', os.path.join(datadir, 'fontrules.json'))
-familiesfile = os.getenv('FAFFONTS', os.path.join(datadir, 'families.json'))
-ltfile = os.getenv('FAFLANGTAGS', os.path.join(datadir, 'langtags.json'))
-sldrdir = os.getenv('FAFSLDR', '/var/lib/sldr/sldr')
+datadir = os.getenv('LFFPATH', os.path.join(os.path.dirname(__file__), '..', 'testdata'))
+rulesfile = os.getenv('LFFRULES', os.path.join(datadir, 'fontrules.json'))
+familiesfile = os.getenv('LFFFONTS', os.path.join(datadir, 'families.json'))
+ltfile = os.getenv('LFFLANGTAGS', os.path.join(datadir, 'langtags.json'))
+sldrdir = os.getenv('LFFSLDR', '/var/lib/sldr/sldr')
 
 silns = "{urn://www.sil.org/ldml/0.1}"
 
@@ -28,15 +28,18 @@ parser.add_argument('-L','--ltag',action='append',default=[],help='language tag 
 parser.add_argument('-q','--quiet',action='store_true',help="Only report real fails")
 args = parser.parse_args()
 
-faf = FaF(args.rules, args.fonts, ltags=args.langs)
+lff = LFF(args.rules, args.fonts, ltags=args.langs)
 jobs = iterate_files(args.sldr)
 if len(args.ltag):
     ltags = [x.replace("-", "_") for x in args.ltag]
     jobs = [x for x in jobs if os.path.splitext(os.path.basename(x))[0] in ltags]
 
+if not args.quiet:
+    print(f"{len(jobs)} jobs to run")
+
 for f in jobs:
     lt = os.path.splitext(os.path.basename(f))[0].replace("_", "-")
-    res = faf.get(lt)
+    res = lff.get(lt)
     if res is None:
         print(f"Failed to match {lt}")
         continue
