@@ -23,7 +23,7 @@ parser.add_argument("familyid",help="Family id to reverse match")
 parser.add_argument("-r", "--rules", required=True, help="fontrules.json")
 args = parser.parse_args()
 
-ruleset = FaF(args.rules)
+ruleset = LFF(args.rules)
 
 matches = []
 for i, r in enumerate(ruleset.varrules):

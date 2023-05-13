@@ -3,7 +3,7 @@
 For testing Kubernetes deployment there are yaml files under `kubernetes`, that cover local developer testing. 
 
 ### Pre-requisites
-On the host machine, install [Docker](https://docs.docker.com/get-docker/), then enable Kubernetes in the settings. Ensure you have built a help-keyman-app Docker image, and either tag it `docker.dallas.languagetechnology.org/keyman/help-keyman-app` or modify the `app-php` containers `image:` value to match you local copy's name. Other single node kubernetes apps are available too.
+On the host machine, install [Docker](https://docs.docker.com/get-docker/), then enable Kubernetes in the settings. Ensure you have built a langfontfinder Docker image, and either tag it `ghcr.io/silnrsi/langfontfinder` or modify the `service` containers `image:` value to match you local copy's name. Other single node kubernetes apps are available too.
 
 ### Deploying to a desktop cluster
 To deploy the dev version to the cluster do the following:
@@ -11,13 +11,13 @@ To deploy the dev version to the cluster do the following:
 ```bash
 $> kubectl config use-context docker-desktop
 ```
-2. Create a keyman namespace if it does not already exist:
+2. Create a `wstech` namespace if it does not already exist:
 ```bash
 $> kubectl create ns wstech
 ```
 3. Apply the configs for the resources and start the pod:
 ```bash
-$> kubectl --namespace wstech apply \
+$> kubectl --namespace=wstech apply \
        -f kubernetes/development-resources.yaml \
        -f kubernetes/service-deploy.yaml 
 ```
@@ -36,9 +36,9 @@ This simulates enough of a GitHub webhook push event to pass validation on the r
 
 To remove the k8s deployment and resources, and delete everything do:
 ```bash
-$> kubectl --namespace=keyman delete {svc,deploy,cm,secret,pvc}/help-keyman-com
+$> kubectl --namespace=wstech delete {svc,deploy,cm,secret}/langfontfinder
 ```
 Or just restart the deployment for further testing
 ```bash
-$> kubectl --namespace=keyman rollout restart deploy/help-keyman-com
+$> kubectl --namespace=wstech rollout restart deploy/langfontfinder
 ```
