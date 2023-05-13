@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: staging
-      url: https://faf.languagetechnology.org/docs
+      url: https://lff.languagetechnology.org/docs
     steps:
       - name: Deploy to staging
         uses: drlove2002/secure-github-webhook@0.3.0

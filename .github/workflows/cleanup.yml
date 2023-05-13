@@ -13,7 +13,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         organization: silnrsi
-        container: findafont
+        container: langfontfinder
         dry-run: false
         keep-younger-than: 7
         keep-last: 6
