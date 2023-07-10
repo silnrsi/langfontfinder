@@ -1,4 +1,4 @@
-name: Staging
+name: Build and deploy
 on:
   push:
     branches: [ "main", "release" ]
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && 'production' || 'staging' }}
-      url: https://lff.languagetechnology.org/docs
+      url: https://lff${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && '.api' || '' }}.languagetechnology.org/docs
     steps:
       - name: Deploy to ${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && 'production' || 'staging' }}
         uses: drlove2002/secure-github-webhook@0.3.0
