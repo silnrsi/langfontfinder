@@ -1,7 +1,7 @@
 name: Staging
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "release" ]
     paths-ignore:
     - kubernetes/**
     - test/**
@@ -69,10 +69,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: staging
+      name: ${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && 'production' || 'staging' }}
       url: https://lff.languagetechnology.org/docs
     steps:
-      - name: Deploy to staging
+      - name: Deploy to ${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && 'production' || 'staging' }}
         uses: drlove2002/secure-github-webhook@0.3.0
         with:
           url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
