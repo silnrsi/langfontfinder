@@ -10,6 +10,11 @@ The returned result is a JSON object. The primary component of the result is a f
 | families  | An object in which each key is a familyid. The value for each key is the corresponding font record |
 | apiversion | A semantic version number string for the file format. Currently “0.3” |
 
+The following "Font family records" section needs to be kept in sync with the corresponding section in 
+[families.md in the GitHub fonts repository](https://github.com/silnrsi/fonts/blob/main/documentation/families.md)
+
+Following that section in the referenced file there is an "Example font family records" section containing examples of font family records.
+
 ## Font family records
 
 The metadata for a font family is in a *font family record* JSON object identified by *familyid*. The object contains the following fields, most of which are optional. Required fields are in bold:
