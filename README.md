@@ -28,6 +28,10 @@ The service has the following endpoints available:
 
 [https://lff.api.languagetechnology.org/family/notoseriftibetan](https://lff.api.languagetechnology.org/family/notoseriftibetan) returns a JSON object with information about the Noto Serif Tibetan font family.
 
+[https://lff.api.languagetechnology.org/lang/und-Bali](https://lff.api.languagetechnology.org/lang/und-Bali) could be used to find font information suitable for the Balinese script (Bali). 
+The language tag uses the special "und" ("Undetermined") language code and the Balinese script code ("Bali"). 
+It returns a JSON object with information about the Noto Sans Balinese font family.
+
 ## Startup
 
 The API is built on top of FastAPI and runs using uvicorn.
