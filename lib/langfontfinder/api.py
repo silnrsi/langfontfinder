@@ -30,7 +30,7 @@ lffapp = FastAPI(version=version)
 
 
 @lffapp.get("/lang/{ltag}", summary="lang/{ltag}", name="lang")
-async def lang(response: Response, ltag: str = Path("", description="Language tag")):
+async def lang(response: Response, ltag: str = Path(description="Language tag")):
     """ Given a language tag, returns font location information as json object. """
     res = ruleset.get(ltag)
     if res is None:
@@ -38,7 +38,7 @@ async def lang(response: Response, ltag: str = Path("", description="Language ta
     return res
 
 @lffapp.get("/family/{familyid}", summary="family/{familyid}", name="family")
-async def family(response:Response, familyid: str = Path("", description="Font family id")):
+async def family(response:Response, familyid: str = Path(description="Font family id")):
     """ Given a familyid returns the font family json object. """
     res = ruleset.getfamily(familyid)
     if res is None:
