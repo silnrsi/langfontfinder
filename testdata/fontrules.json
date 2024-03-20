@@ -3615,13 +3615,6 @@
     ],
     [
       {
-        "family": "Noto Sans Leke",
-        "familyid": "notosansleke"
-      },
-      {}
-    ],
-    [
-      {
         "family": "Namdhinggo",
         "familyid": "namdhinggo"
       },
@@ -3911,13 +3904,6 @@
       {
         "family": "Noto Sans Saurashtra",
         "familyid": "notosanssaurashtra"
-      },
-      {}
-    ],
-    [
-      {
-        "family": "Noto Sans Shuishu",
-        "familyid": "notosansshuishu"
       },
       {}
     ],
