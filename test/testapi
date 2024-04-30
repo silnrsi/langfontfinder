@@ -17,5 +17,17 @@ def test_lang_en():
     res = response.json()
     assert res['defaultfamily'][0] == 'charissil'
 
+def test_bad_script():
+    response = client.get("/lang/en-Fred")
+    assert response.status_code == 404
+
+def test_unknown_script():
+    response = client.get("/lang/en-Latf")
+    assert response.status_code == 200
+    res = response.json()
+    assert res['defaultfamily'][0] == ''
+
 if __name__ == "__main__":
     test_lang_en()
+    test_bad_script()
+    test_unknown_script()

@@ -35,6 +35,8 @@ class LFF:
 
     def match(self, lng, scr, reg, var):
         """Given broken out lang tag components, return the rule result that matches."""
+        if scr is not None and len(scr) and scr not in self.scrrules[1]:
+            return None         # bail on unknown script
         res = self._getmatch(
             lng, scr, reg, var, self.scrrules[1].get(scr, self.scrrules[0])
         )
