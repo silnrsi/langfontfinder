@@ -1,7 +1,7 @@
 name: Build and deploy
 on:
   push:
-    branches: [ "main", "release" ]
+    branches: [ "main", "release", "fix/workflow-deploy-webhook" ]
     paths-ignore:
     - kubernetes/**
     - test/**
@@ -17,7 +17,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -73,12 +72,7 @@ jobs:
       url: https://lff${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && '.api' || '' }}.languagetechnology.org/docs
     steps:
       - name: Deploy to ${{ (github.event.client_payload.release || endsWith(github.ref, '/release')) && 'production' || 'staging' }}
-        uses: drlove2002/secure-github-webhook@0.3.0
+        uses: distributhor/workflow-webhook@v3.0.7
         with:
-          url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
-          hmacSecret: ${{ secrets.DEPLOY_KEY }}
-          data: >-
-            {
-              "action" : "push",
-              "ref" : "${{ github.ref }}"
-            }
+          webhook_url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.DEPLOY_KEY }}
