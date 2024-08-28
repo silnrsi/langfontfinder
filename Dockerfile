@@ -19,7 +19,7 @@ ENV PYTHONPATH=/src/langfontfinder/lib
 RUN <<EOT
     python3 scripts/fontrules \
         unflat/ \
-        --fallbacks=data/script2font.csv \
+        --fallbacks=data/fallback.json \
         --outfile=data/fontrules.json
 EOT
 

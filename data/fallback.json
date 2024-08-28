@@ -1,0 +1,1595 @@
+{
+    "Adlm": [
+        {
+            "roles": {
+                "default": [
+                    "notosansadlam"
+                ]
+            }
+        }
+    ],
+    "Aghb": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscaucasianalbanian"
+                ]
+            }
+        }
+    ],
+    "Ahom": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifahom"
+                ]
+            }
+        }
+    ],
+    "Arab": [
+        {
+            "regions": [
+                "CM",
+                "GN",
+                "SN",
+                "NG",
+                "NE"
+            ],
+            "roles": {
+                "default": [
+                    "harmattan"
+                ]
+            }
+        },
+        {
+            "regions": [
+                "PK"
+            ],
+            "roles": {
+                "default": [
+                    "awaminastaliq"
+                ]
+            }
+        },
+        {
+            "roles": {
+                "default": [
+                    "scheherazadenew",
+                    "notosansarabic"
+                ]
+            }
+        }
+    ],
+    "Aran": [
+        {
+            "roles": {
+                "default": [
+                    "awaminastaliq",
+                    "notonastaliqurdu"
+                ]
+            }
+        }
+    ],
+    "Armi": [
+        {
+            "roles": {
+                "default": [
+                    "notosansimperialaramaic"
+                ]
+            }
+        }
+    ],
+    "Armn": [
+        {
+            "roles": {
+                "default": [
+                    "notosansarmenian",
+                    "notoserifarmenian"
+                ]
+            }
+        }
+    ],
+    "Avst": [
+        {
+            "roles": {
+                "default": [
+                    "notosansavestan"
+                ]
+            }
+        }
+    ],
+    "Bali": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbalinese"
+                ]
+            }
+        }
+    ],
+    "Bamu": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbamum"
+                ]
+            }
+        }
+    ],
+    "Bass": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbassavah"
+                ]
+            }
+        }
+    ],
+    "Batk": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbatak"
+                ]
+            }
+        }
+    ],
+    "Beng": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifbengali",
+                    "notosansbengali"
+                ]
+            }
+        }
+    ],
+    "Bhks": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbhaiksuki"
+                ]
+            }
+        }
+    ],
+    "Brah": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbrahmi"
+                ]
+            }
+        }
+    ],
+    "Bugi": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbuginese"
+                ]
+            }
+        }
+    ],
+    "Buhd": [
+        {
+            "roles": {
+                "default": [
+                    "notosansbuhid"
+                ]
+            }
+        }
+    ],
+    "Cakm": [
+        {
+            "roles": {
+                "default": [
+                    "notosanschakma"
+                ]
+            }
+        }
+    ],
+    "Cans": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscanadianaboriginal"
+                ]
+            }
+        }
+    ],
+    "Cari": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscarian"
+                ]
+            }
+        }
+    ],
+    "Cham": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscham"
+                ]
+            }
+        }
+    ],
+    "Cher": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscherokee"
+                ]
+            }
+        }
+    ],
+    "Chrs": [
+        {
+            "roles": {
+                "default": [
+                    "notosanschorasmian"
+                ]
+            }
+        }
+    ],
+    "Copt": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscoptic",
+                    "sophianubian"
+                ]
+            }
+        }
+    ],
+    "Cpmn": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscyprominoan"
+                ]
+            }
+        }
+    ],
+    "Cprt": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscypriot"
+                ]
+            }
+        }
+    ],
+    "Cyrl": [
+        {
+            "roles": {
+                "default": [
+                    "charissil",
+                    "notosans",
+                    "notoserif"
+                ]
+            }
+        }
+    ],
+    "Deva": [
+        {
+            "features": {
+                "annapurnasil": "ss01=1 ss08=1 ss09=1 ss10=1"
+            },
+            "regions": [
+                "NP"
+            ],
+            "roles": {
+                "default": [
+                    "annapurnasil",
+                    "notosansdevanagari",
+                    "notoserifdevanagari"
+                ]
+            }
+        },
+        {
+            "roles": {
+                "default": [
+                    "annapurnasil",
+                    "notosansdevanagari",
+                    "notoserifdevanagari"
+                ]
+            }
+        }
+    ],
+    "Dogr": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifdogra"
+                ]
+            }
+        }
+    ],
+    "Dsrt": [
+        {
+            "roles": {
+                "default": [
+                    "notosansdeseret"
+                ]
+            }
+        }
+    ],
+    "Dupl": [
+        {
+            "roles": {
+                "default": [
+                    "notosansduployan"
+                ]
+            }
+        }
+    ],
+    "Egyp": [
+        {
+            "roles": {
+                "default": [
+                    "notosansegyptianhieroglyphs"
+                ]
+            }
+        }
+    ],
+    "Elba": [
+        {
+            "roles": {
+                "default": [
+                    "notosanselbasan"
+                ]
+            }
+        }
+    ],
+    "Elym": [
+        {
+            "roles": {
+                "default": [
+                    "notosanselymaic"
+                ]
+            }
+        }
+    ],
+    "Ethi": [
+        {
+            "roles": {
+                "default": [
+                    "abyssinicasil",
+                    "notosansethiopic",
+                    "notoserifethiopic"
+                ]
+            }
+        }
+    ],
+    "Geor": [
+        {
+            "roles": {
+                "default": [
+                    "notosansgeorgian",
+                    "notoserifgeorgian"
+                ]
+            }
+        }
+    ],
+    "Glag": [
+        {
+            "roles": {
+                "default": [
+                    "notosansglagolitic"
+                ]
+            }
+        }
+    ],
+    "Gong": [
+        {
+            "roles": {
+                "default": [
+                    "narnoor"
+                ]
+            }
+        }
+    ],
+    "Gonm": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmasaramgondi"
+                ]
+            }
+        }
+    ],
+    "Goth": [
+        {
+            "roles": {
+                "default": [
+                    "notosansgothic"
+                ]
+            }
+        }
+    ],
+    "Gran": [
+        {
+            "roles": {
+                "default": [
+                    "notosansgrantha"
+                ]
+            }
+        }
+    ],
+    "Grek": [
+        {
+            "roles": {
+                "default": [
+                    "gentiumplus"
+                ]
+            }
+        }
+    ],
+    "Gujr": [
+        {
+            "roles": {
+                "default": [
+                    "notosansgujarati",
+                    "notoserifgujarati"
+                ]
+            }
+        }
+    ],
+    "Guru": [
+        {
+            "roles": {
+                "default": [
+                    "notosansgurmukhi",
+                    "notoserifgurmukhi"
+                ]
+            }
+        }
+    ],
+    "Hanb": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssc",
+                    "notoserifsc"
+                ]
+            }
+        }
+    ],
+    "Hang": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskr",
+                    "notoserifkr"
+                ]
+            }
+        }
+    ],
+    "Hani": [
+        {
+            "roles": {
+                "default": [
+                    "notosansjp",
+                    "notoserifjp"
+                ]
+            }
+        }
+    ],
+    "Hano": [
+        {
+            "roles": {
+                "default": [
+                    "notosanshanunoo"
+                ]
+            }
+        }
+    ],
+    "Hans": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssc",
+                    "notoserifsc"
+                ]
+            }
+        }
+    ],
+    "Hant": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstc",
+                    "notoseriftc"
+                ]
+            }
+        }
+    ],
+    "Hatr": [
+        {
+            "roles": {
+                "default": [
+                    "notosanshatran"
+                ]
+            }
+        }
+    ],
+    "Hebr": [
+        {
+            "roles": {
+                "default": [
+                    "ezrasil",
+                    "notosanshebrew",
+                    "notoserifhebrew"
+                ]
+            }
+        }
+    ],
+    "Hira": [
+        {
+            "roles": {
+                "default": [
+                    "notosansjp",
+                    "notoserifjp"
+                ]
+            }
+        }
+    ],
+    "Hluw": [
+        {
+            "roles": {
+                "default": [
+                    "notosansanatolianhieroglyphs"
+                ]
+            }
+        }
+    ],
+    "Hmng": [
+        {
+            "roles": {
+                "default": [
+                    "notosanspahawhhmong"
+                ]
+            }
+        }
+    ],
+    "Hmnp": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifnphmong"
+                ]
+            }
+        }
+    ],
+    "Hrkt": [
+        {
+            "roles": {
+                "default": [
+                    "notosansjp",
+                    "notoserifjp"
+                ]
+            }
+        }
+    ],
+    "Hung": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldhungarian"
+                ]
+            }
+        }
+    ],
+    "Ital": [
+        {
+            "roles": {
+                "default": [
+                    "notosansolditalic"
+                ]
+            }
+        }
+    ],
+    "Jamo": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskr",
+                    "notoserifkr"
+                ]
+            }
+        }
+    ],
+    "Java": [
+        {
+            "roles": {
+                "default": [
+                    "notosansjavanese"
+                ]
+            }
+        }
+    ],
+    "Jpan": [
+        {
+            "roles": {
+                "default": [
+                    "notosansjp",
+                    "notoserifjp"
+                ]
+            }
+        }
+    ],
+    "Kali": [
+        {
+            "roles": {
+                "default": [
+                    "kayahli",
+                    "notosanskayahli"
+                ]
+            }
+        }
+    ],
+    "Kana": [
+        {
+            "roles": {
+                "default": [
+                    "notosansjp",
+                    "notoserifjp"
+                ]
+            }
+        }
+    ],
+    "Khar": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskharoshthi"
+                ]
+            }
+        }
+    ],
+    "Khmr": [
+        {
+            "roles": {
+                "default": [
+                    "khmermondulkiri",
+                    "notosanskhmer",
+                    "notoserifkhmer"
+                ]
+            }
+        }
+    ],
+    "Khoj": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskhojki"
+                ]
+            }
+        }
+    ],
+    "Kits": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifkhitansmallscript"
+                ]
+            }
+        }
+    ],
+    "Knda": [
+        {
+            "roles": {
+                "default": [
+                    "badami",
+                    "notosanskannada",
+                    "notoserifkannada"
+                ]
+            }
+        }
+    ],
+    "Kore": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskr",
+                    "notoserifkr"
+                ]
+            }
+        }
+    ],
+    "Krai": [
+        {
+            "roles": {
+                "default": [
+                    "kanchenjunga"
+                ]
+            }
+        }
+    ],
+    "Kthi": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskaithi"
+                ]
+            }
+        }
+    ],
+    "Lana": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstaitham"
+                ]
+            }
+        }
+    ],
+    "Laoo": [
+        {
+            "roles": {
+                "default": [
+                    "saysetthamx",
+                    "notosanslao",
+                    "notoseriflao"
+                ]
+            }
+        }
+    ],
+    "Latn": [
+        {
+            "roles": {
+                "default": [
+                    "charissil",
+                    "notosans",
+                    "notoserif"
+                ]
+            }
+        }
+    ],
+    "Lepc": [
+        {
+            "roles": {
+                "default": [
+                    "mingzat",
+                    "notosanslepcha"
+                ]
+            }
+        }
+    ],
+    "Limb": [
+        {
+            "roles": {
+                "default": [
+                    "namdhinggo",
+                    "notosanslimbu"
+                ]
+            }
+        }
+    ],
+    "Lina": [
+        {
+            "roles": {
+                "default": [
+                    "notosanslineara"
+                ]
+            }
+        }
+    ],
+    "Linb": [
+        {
+            "roles": {
+                "default": [
+                    "notosanslinearb"
+                ]
+            }
+        }
+    ],
+    "Lisu": [
+        {
+            "roles": {
+                "default": [
+                    "lisutzimu",
+                    "notosanslisu"
+                ]
+            }
+        }
+    ],
+    "Lyci": [
+        {
+            "roles": {
+                "default": [
+                    "notosanslycian"
+                ]
+            }
+        }
+    ],
+    "Lydi": [
+        {
+            "roles": {
+                "default": [
+                    "notosanslydian"
+                ]
+            }
+        }
+    ],
+    "Mahj": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmahajani"
+                ]
+            }
+        }
+    ],
+    "Maka": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifmakasar"
+                ]
+            }
+        }
+    ],
+    "Mand": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmandaic"
+                ]
+            }
+        }
+    ],
+    "Mani": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmanichaean"
+                ]
+            }
+        }
+    ],
+    "Marc": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmarchen"
+                ]
+            }
+        }
+    ],
+    "Medf": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmedefaidrin"
+                ]
+            }
+        }
+    ],
+    "Mend": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmendekikakui"
+                ]
+            }
+        }
+    ],
+    "Merc": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmeroitic"
+                ]
+            }
+        }
+    ],
+    "Mero": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmeroitic"
+                ]
+            }
+        }
+    ],
+    "Mlym": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmalayalam",
+                    "notoserifmalayalam"
+                ]
+            }
+        }
+    ],
+    "Modi": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmodi"
+                ]
+            }
+        }
+    ],
+    "Mong": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmongolian"
+                ]
+            }
+        }
+    ],
+    "Mroo": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmro"
+                ]
+            }
+        }
+    ],
+    "Mtei": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmeeteimayek"
+                ]
+            }
+        }
+    ],
+    "Mult": [
+        {
+            "roles": {
+                "default": [
+                    "notosansmultani"
+                ]
+            }
+        }
+    ],
+    "Mymr": [
+        {
+            "roles": {
+                "default": [
+                    "padauk",
+                    "notosansmyanmar",
+                    "notoserifmyanmar"
+                ]
+            }
+        }
+    ],
+    "Nagm": [
+        {
+            "roles": {
+                "default": [
+                    "notosansnagmundari"
+                ]
+            }
+        }
+    ],
+    "Nand": [
+        {
+            "roles": {
+                "default": [
+                    "notosansnandinagari"
+                ]
+            }
+        }
+    ],
+    "Narb": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldnortharabian"
+                ]
+            }
+        }
+    ],
+    "Nbat": [
+        {
+            "roles": {
+                "default": [
+                    "notosansnabataean"
+                ]
+            }
+        }
+    ],
+    "Newa": [
+        {
+            "roles": {
+                "default": [
+                    "notosansnewa"
+                ]
+            }
+        }
+    ],
+    "Nkoo": [
+        {
+            "roles": {
+                "default": [
+                    "notosansnko"
+                ]
+            }
+        }
+    ],
+    "Ogam": [
+        {
+            "roles": {
+                "default": [
+                    "notosansogham"
+                ]
+            }
+        }
+    ],
+    "Olck": [
+        {
+            "roles": {
+                "default": [
+                    "notosansolchiki"
+                ]
+            }
+        }
+    ],
+    "Orkh": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldturkic"
+                ]
+            }
+        }
+    ],
+    "Orya": [
+        {
+            "roles": {
+                "default": [
+                    "japasansoriya",
+                    "notosansoriya"
+                ]
+            }
+        }
+    ],
+    "Osge": [
+        {
+            "roles": {
+                "default": [
+                    "notosansosage"
+                ]
+            }
+        }
+    ],
+    "Osma": [
+        {
+            "roles": {
+                "default": [
+                    "notosansosmanya"
+                ]
+            }
+        }
+    ],
+    "Ougr": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifolduyghur"
+                ]
+            }
+        }
+    ],
+    "Palm": [
+        {
+            "roles": {
+                "default": [
+                    "notosanspalmyrene"
+                ]
+            }
+        }
+    ],
+    "Pauc": [
+        {
+            "roles": {
+                "default": [
+                    "notosanspaucinhau"
+                ]
+            }
+        }
+    ],
+    "Perm": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldpermic"
+                ]
+            }
+        }
+    ],
+    "Phag": [
+        {
+            "roles": {
+                "default": [
+                    "notosansphagspa"
+                ]
+            }
+        }
+    ],
+    "Phli": [
+        {
+            "roles": {
+                "default": [
+                    "notosansinscriptionalpahlavi"
+                ]
+            }
+        }
+    ],
+    "Phlp": [
+        {
+            "roles": {
+                "default": [
+                    "notosanspsalterpahlavi"
+                ]
+            }
+        }
+    ],
+    "Phnx": [
+        {
+            "roles": {
+                "default": [
+                    "notosansphoenician"
+                ]
+            }
+        }
+    ],
+    "Plrd": [
+        {
+            "roles": {
+                "default": [
+                    "shimenkan",
+                    "notosansmiao",
+                    "shishan"
+                ]
+            }
+        }
+    ],
+    "Prti": [
+        {
+            "roles": {
+                "default": [
+                    "notosansinscriptionalparthian"
+                ]
+            }
+        }
+    ],
+    "Rjng": [
+        {
+            "roles": {
+                "default": [
+                    "notosansrejang"
+                ]
+            }
+        }
+    ],
+    "Rohg": [
+        {
+            "roles": {
+                "default": [
+                    "notosanshanifirohingya"
+                ]
+            }
+        }
+    ],
+    "Runr": [
+        {
+            "roles": {
+                "default": [
+                    "notosansrunic"
+                ]
+            }
+        }
+    ],
+    "Samr": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssamaritan"
+                ]
+            }
+        }
+    ],
+    "Sarb": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldsoutharabian"
+                ]
+            }
+        }
+    ],
+    "Saur": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssaurashtra"
+                ]
+            }
+        }
+    ],
+    "Sgnw": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssignwriting"
+                ]
+            }
+        }
+    ],
+    "Shaw": [
+        {
+            "roles": {
+                "default": [
+                    "notosansshavian"
+                ]
+            }
+        }
+    ],
+    "Shrd": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssharada"
+                ]
+            }
+        }
+    ],
+    "Sidd": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssiddham"
+                ]
+            }
+        }
+    ],
+    "Sind": [
+        {
+            "roles": {
+                "default": [
+                    "notosanskhudawadi"
+                ]
+            }
+        }
+    ],
+    "Sinh": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssinhala",
+                    "notoserifsinhala"
+                ]
+            }
+        }
+    ],
+    "Sogd": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssogdian"
+                ]
+            }
+        }
+    ],
+    "Sogo": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldsogdian"
+                ]
+            }
+        }
+    ],
+    "Sora": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssorasompeng"
+                ]
+            }
+        }
+    ],
+    "Soyo": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssoyombo"
+                ]
+            }
+        }
+    ],
+    "Sund": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssundanese"
+                ]
+            }
+        }
+    ],
+    "Sylo": [
+        {
+            "roles": {
+                "default": [
+                    "surma",
+                    "notosanssylotinagri"
+                ]
+            }
+        }
+    ],
+    "Syrc": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssyriac"
+                ]
+            }
+        }
+    ],
+    "Syrj": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssyriac"
+                ]
+            }
+        }
+    ],
+    "Syrn": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssyriaceastern"
+                ]
+            }
+        }
+    ],
+    "Tagb": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstagbanwa"
+                ]
+            }
+        }
+    ],
+    "Takr": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstakri"
+                ]
+            }
+        }
+    ],
+    "Tale": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstaile"
+                ]
+            }
+        }
+    ],
+    "Talu": [
+        {
+            "roles": {
+                "default": [
+                    "nokyung",
+                    "notosansnewtailue",
+                    "daibannasil"
+                ]
+            }
+        }
+    ],
+    "Taml": [
+        {
+            "roles": {
+                "default": [
+                    "thiruvalluvar",
+                    "notosanstamil",
+                    "notoseriftamil"
+                ]
+            }
+        }
+    ],
+    "Tang": [
+        {
+            "roles": {
+                "default": [
+                    "notoseriftangut"
+                ]
+            }
+        }
+    ],
+    "Tavt": [
+        {
+            "roles": {
+                "default": [
+                    "taiheritagepro",
+                    "notosanstaiviet"
+                ]
+            }
+        }
+    ],
+    "Telu": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstelugu",
+                    "notoseriftelugu"
+                ]
+            }
+        }
+    ],
+    "Tfng": [
+        {
+            "regions": [
+                "MA"
+            ],
+            "roles": {
+                "default": [
+                    "notosanstifinagh"
+                ]
+            }
+        }
+    ],
+    "Tglg": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstagalog"
+                ]
+            }
+        }
+    ],
+    "Thaa": [
+        {
+            "roles": {
+                "default": [
+                    "notosansthaana"
+                ]
+            }
+        }
+    ],
+    "Thai": [
+        {
+            "roles": {
+                "default": [
+                    "thsarabunpsk",
+                    "notosansthai",
+                    "notoserifthai"
+                ]
+            }
+        }
+    ],
+    "Tibt": [
+        {
+            "roles": {
+                "default": [
+                    "notoseriftibetan"
+                ]
+            }
+        }
+    ],
+    "Tirh": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstirhuta"
+                ]
+            }
+        }
+    ],
+    "Tnsa": [
+        {
+            "roles": {
+                "default": [
+                    "notosanstangsa"
+                ]
+            }
+        }
+    ],
+    "Toto": [
+        {
+            "roles": {
+                "default": [
+                    "notoseriftoto"
+                ]
+            }
+        }
+    ],
+    "Ugar": [
+        {
+            "roles": {
+                "default": [
+                    "notosansugaritic"
+                ]
+            }
+        }
+    ],
+    "Vaii": [
+        {
+            "roles": {
+                "default": [
+                    "dukor",
+                    "notosansvai"
+                ]
+            }
+        }
+    ],
+    "Wara": [
+        {
+            "roles": {
+                "default": [
+                    "notosanswarangciti"
+                ]
+            }
+        }
+    ],
+    "Wcho": [
+        {
+            "roles": {
+                "default": [
+                    "notosanswancho"
+                ]
+            }
+        }
+    ],
+    "Xpeo": [
+        {
+            "roles": {
+                "default": [
+                    "notosansoldpersian"
+                ]
+            }
+        }
+    ],
+    "Xsux": [
+        {
+            "roles": {
+                "default": [
+                    "notosanscuneiform"
+                ]
+            }
+        }
+    ],
+    "Yezi": [
+        {
+            "roles": {
+                "default": [
+                    "notoserifyezidi"
+                ]
+            }
+        }
+    ],
+    "Yiii": [
+        {
+            "roles": {
+                "default": [
+                    "nuosusil",
+                    "notosansyi"
+                ]
+            }
+        }
+    ],
+    "Zanb": [
+        {
+            "roles": {
+                "default": [
+                    "notosanszanabazarsquare"
+                ]
+            }
+        }
+    ]
+}

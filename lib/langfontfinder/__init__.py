@@ -46,14 +46,27 @@ class LFF:
 
     def getfamilyresult(self, matchres):
         """Given a rule result, merge with the fonts family information to give a full result."""
-        familyid = matchres["familyid"]
-        family = self.fontmap.get(familyid, {})
-        family.update(matchres)
-        res = {
-            "defaultfamily": [familyid],
-            "apiversion": 0.3,
-            "families": {familyid: family},
-        }
+        allfamilies = set()
+        for r, v in matchres['roles'].items():
+            allfamilies.update(v)
+        res = {'roles': matchres['roles']}
+        defaults = res['roles'].get('default', None)
+        if defaults is None:
+            if len(res['roles']):
+                defaults = res['roles'].items()[0][1]
+            else:
+                defaults = []
+        res['defaultfamily'] = defaults
+        res['apiversion'] = 0.3
+        feats = matchres.get('features', {})
+        if len(allfamilies):
+            res['families'] = {}
+            for f in allfamilies:
+                family = self.fontmap.get(f, {}).copy()
+                feat = feats.get(f, None)
+                if feat is not None:
+                    family['features'] = feat
+                res['families'][f] = family
         return res
 
     def getfamily(self, familyid):
