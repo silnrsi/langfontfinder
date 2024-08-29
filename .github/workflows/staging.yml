@@ -1,7 +1,7 @@
 name: Build and deploy
 on:
   push:
-    branches: [ "main", "release" ]
+    branches: [ "main", "release", "fallback.json" ]
     paths-ignore:
     - kubernetes/**
     - test/**
