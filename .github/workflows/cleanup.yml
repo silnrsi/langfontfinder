@@ -1,7 +1,7 @@
 name: Prune images
 on:
   workflow_run:
-    workflows: [Staging]
+    workflows: [Build and deploy]
     types: [completed]
 
 jobs:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: prune
-      uses: vlaurin/action-ghcr-prune@v0.5.0
+      uses: vlaurin/action-ghcr-prune@v0.6.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         organization: silnrsi
