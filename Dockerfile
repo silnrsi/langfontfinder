@@ -12,10 +12,10 @@ COPY --link lib lib
 COPY --link data data
 # Download langtags module, unzip and place module into lib.
 ADD --link ${langtags_zip} langtags.zip
-RUN python3 -m zipfile -e langtags.zip ./ && mv langtags-${langtags_lib_branch}/lib/langtag lib/
+RUN python3 -m zipfile -e langtags.zip ./ && mv langtags-*/lib/langtag lib/
 # Download source data and unzip for fontrules: SLDR & langtags.json
 ADD --link ${sldr_zip} sldr.zip
-RUN python3 -m zipfile -e sldr.zip ./ && mv sldr-${sldr_branch}/sldr unflat
+RUN python3 -m zipfile -e sldr.zip ./ && mv sldr-*/sldr unflat
 ADD --link ${langtags_json} lib/langtag/
 # Generate fontrules.json
 ENV PYTHONPATH=/src/langfontfinder/lib
