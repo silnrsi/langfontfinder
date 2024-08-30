@@ -2,18 +2,21 @@
 ARG base=tiangolo/uvicorn-gunicorn-fastapi:python3.11-slim
 
 FROM ${base} AS build-fontrules
+ARG langtags_zip=https://github.com/silnrsi/langtags/archive/refs/heads/release.zip
+ARG sldr_zip=https://github.com/silnrsi/sldr/archive/refs/heads/master.zip
+ARG langtags_json=https://ldml.api.sil.org/langtags.json?staging=1
 WORKDIR /src/langfontfinder
 # Bring in selected context.
 COPY --link scripts scripts
 COPY --link lib lib
 COPY --link data data
 # Download langtags module, unzip and place module into lib.
-ADD --link https://github.com/silnrsi/langtags/archive/refs/heads/master.zip langtags.zip
-RUN python3 -m zipfile -e langtags.zip ./ && mv langtags-master/lib/langtag lib/
+ADD --link ${langtags_zip} langtags.zip
+RUN python3 -m zipfile -e langtags.zip ./ && mv langtags-${langtags_lib_branch}/lib/langtag lib/
 # Download source data and unzip for fontrules: SLDR & langtags.json
-ADD --link https://github.com/silnrsi/sldr/archive/refs/heads/master.zip sldr.zip
-RUN python3 -m zipfile -e sldr.zip ./ && mv sldr-master/sldr unflat
-ADD --link https://ldml.api.sil.org/langtags.json lib/langtag/
+ADD --link ${sldr_zip} sldr.zip
+RUN python3 -m zipfile -e sldr.zip ./ && mv sldr-${sldr_branch}/sldr unflat
+ADD --link ${langtags_json} lib/langtag/
 # Generate fontrules.json
 ENV PYTHONPATH=/src/langfontfinder/lib
 RUN <<EOT
