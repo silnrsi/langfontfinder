@@ -284,6 +284,7 @@
             "roles": {
                 "default": [
                     "annapurnasil",
+                    "annapurnanepal",
                     "notosansdevanagari",
                     "notoserifdevanagari"
                 ]
@@ -743,8 +744,13 @@
             "roles": {
                 "default": [
                     "charissil",
+                    "gentiumbookplus",
+                    "gentiumplus",
                     "notosans",
                     "notoserif"
+                ],
+                "literacy": [
+                    "andika"
                 ]
             }
         }
@@ -1466,7 +1472,7 @@
         {
             "roles": {
                 "default": [
-                    "thsarabunpsk",
+                    "sarabun",
                     "notosansthai",
                     "notoserifthai"
                 ]
