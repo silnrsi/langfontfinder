@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: release
-        repository: https://github.com/silnrsi/sldr
+        repository: silnrsi/sldr
         path: testdata
         sparse-checkout: |
           sldr
