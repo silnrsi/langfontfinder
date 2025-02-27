@@ -36,13 +36,12 @@ jobs:
       with:
         ref: release
         repository: silnrsi/sldr
-        path: testdata
         sparse-checkout: |
           sldr
     - name: Run test case
       run: |
         find .
-        test/testlffsldr -s testdata/sldr
+        test/testlffsldr -s sldr/sldr
 
   build:
     needs: test
