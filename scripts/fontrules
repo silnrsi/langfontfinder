@@ -6,9 +6,6 @@ from multiprocessing.pool import Pool
 import xml.etree.ElementTree as et
 
 
-def fontid(s, feat=""):
-    return s + "|" + " ".join(sorted([f for f in feat.split() if not f.endswith("=0")]))
-
 silns = "{urn://www.sil.org/ldml/0.1}"
 
 def procdir(j):
@@ -45,19 +42,17 @@ def procdir(j):
     except SyntaxError:
         return (None, None)
 
-    res = None
+    res = {}
     fallback = None
     for f in l.findall(f"special/{silns}external-resources/{silns}font"):
-        t = f.get("types", "")
-        if t == "":
-            fallback = fontid(f.get("name"), f.get("features", ""))
-        elif "default" in t:
-            res = fontid(f.get("name"), f.get("features", ""))
-            break
-    else:
-        if fallback is not None:
-            res = fallback
-    return (ltag if res is not None else None, res)
+        t = f.get("types", "default")
+        for a in t.split(" "):
+            fid = f.get("name").replace(" ", "").lower()
+            res.setdefault('roles', {}).setdefault(a, []).append(fid)
+            feat = f.get('features', '')
+            if feat:
+                res.setdefault('features', {})[fid] = feat
+    return (ltag if len(res) else None, res)
 
 
 class Classifier:
@@ -91,13 +86,19 @@ class Classifier:
                         if nrules is not None:
                             nrules.append([None, {}])
                     current = rules[0]
+        def stringifyvar(m):
+            return (self._stringify(m[0]), self._stringify(m[1]))
+        def stringifyrule(m):
+            return (m[0], " ".join(sorted(("{}={}".format(k, v) for k, v in m[1].items()))))
+        lastmap = None
+        stringifies = [stringifyrule] * (len(fields)-1) + [stringifyvar]
         for i, a in enumerate(reversed(fields)):
-            childrules = getattr(self, fields[-i] + "s") if i > 0 else None
-            r, m = self._simplify_matches(getattr(self, a + "s"))
+            rules = getattr(self, a+"s")
+            if lastmap is not None:
+                self._apply_map(rules, lastmap)
+            r, m = self._simplify_matches(rules, stringifies[-i-1])
             setattr(self, a + "s", r)
-            if i + 1 < len(fields):
-                self._apply_map(getattr(self, fields[-i - 2] + "s"), m, childrules)
-        self._apply_map(self.variants, {}, None)
+            lastmap = m
         for vm in self.variants:
             vm[0] = self._makeres(vm[0])
             vm[1] = {k: self._makeres(v) for k, v in vm[1].items()}
@@ -123,15 +124,12 @@ class Classifier:
             key["variant"] = "-".join(var)
         return key
 
-    def _simplify_matches(self, matchrules):
+    def _simplify_matches(self, matchrules, stringify):
         cache = {}
         outmap = {}
         res = []
         for i, m in enumerate(matchrules):
-            key = []
-            key = [" ".join(sorted(("{}={}".format(k, v) for k, v in m[1].items())))]
-            key.append(m[0])
-            key = tuple(key)
+            key = stringify(m)
             curri = len(res)
             if key not in cache:
                 cache[key] = curri
@@ -139,21 +137,28 @@ class Classifier:
             outmap[i] = cache[key]
         return (res, outmap)
 
-    def _apply_map(self, matchrules, rulemap, childrules):
+    def _apply_map(self, matchrules, rulemap):
         for i, m in enumerate(matchrules):
             if m[0] is None:
                 scores = {}
                 for k, v in m[1].items():
-                    a = rulemap.get(v, v)
-                    kv = a if childrules is None else childrules[a][0]
-                    s, _ = scores.get(kv, (0, None))
-                    scores[kv] = (s + 1, a)
-                m[0] = max(scores.items(), key=lambda x: (x[1], x[0]))[1][1]
+                    a = rulemap[v]
+                    scores[a] = scores.setdefault(a, 0) + 1
+                m[0] = max(scores.items(), key=lambda x:x[1])[0]
             else:
-                m[0] = rulemap.get(m[0], m[0])
-            m[1] = {k: rulemap.get(v, v) for k, v in m[1].items() if rulemap.get(v, v) != m[0]}
+                m[0] = rulemap.get(m[0])
+            t = {}
+            for k, v in m[1].items():
+                s = rulemap.get(v)
+                if s != m[0]:
+                    t[k] = s
+            m[1] = t
+
+    def _stringify(self, entry):
+        return json.dumps(entry, sort_keys=True)
 
     def _makeres(self, reskey):
+        return reskey
         if reskey is None:
             return None
         family, feats = reskey.split("|")
@@ -213,19 +218,17 @@ ltagmap = {k: v for k, v in ltagmap.items() if v is not None}
 
 if args.fallbacks:
     with open(args.fallbacks, encoding="utf-8") as inf:
-        cr = csv.DictReader(inf)
-        for r in cr:
-            s = r["Code"]
-            if not len(s):
-                continue
-            v = fontid(r["Default Font"], r["Default Features"])
-            if r["Region"]:
-                regs = re.split(r",\s*", r["Region"])
-                for i in regs:
-                    lt = f"und-{s}-{i}"
-                    ltagmap[lt] = v
+        fb = json.load(inf)
+    for s, v in fb.items():
+        for r in v:
+            d = {a: b for a, b in r.items() if a in ('roles', 'features')}
+            # No need for variants, this is script fallback
+            if 'regions' in r:
+                for k in r['regions']:
+                    lt = f"und-{s}-{k}"
+                    ltagmap[lt] = d
             else:
-                ltagmap[f"und-{s}"] = v
+                ltagmap[f"und-{s}"] = d
 
 if not args.quiet:
     print(f"Found {len(ltagmap)} entries")

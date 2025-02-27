@@ -167,7 +167,7 @@ data:
             value: push
             parameter:
               source: payload
-              name: action
+              name: event
         - match:
             type: value
             value: 'refs/heads/{{getenv "SITE_GIT_BRANCH"}}'
