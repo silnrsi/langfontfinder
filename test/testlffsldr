@@ -4,7 +4,7 @@ import os, sys, argparse
 
 try:
     from langfontfinder import LFF
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
     from langfontfinder import LFF
 
