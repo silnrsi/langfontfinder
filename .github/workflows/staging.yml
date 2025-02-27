@@ -15,7 +15,33 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: ${{ (github.ref_name == 'release' || github.event_name == 'repository_dispatch' && github.event.client_payload.release) && 'production' || 'staging' }}
+    steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ vars.LFF_SRC_BRANCH }}
+    - name: Install langtags package and depedencies
+      run: >-
+        pip3 install
+        -r requirements.txt
+        sldr@git+https://github.com/silnrsi/sldrtools
+    - name: Download sldr src
+      uses: actions/checkout@v4
+      with:
+        path: testdata
+        sparse-checkout: |
+          sldr
+    - name: Run test case
+      run: test/testlffsldr -s testdata/sldr
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     environment: ${{ (github.ref_name == 'release' || github.event_name == 'repository_dispatch' && github.event.client_payload.release) && 'production' || 'staging' }}
     permissions:
