@@ -36,6 +36,7 @@ jobs:
       with:
         ref: release
         repository: silnrsi/sldr
+        path: sldr
         sparse-checkout: |
           sldr
     - name: Run test case
