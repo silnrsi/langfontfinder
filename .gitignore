@@ -1,0 +1,6 @@
+.venv
+.env
+.secrets
+/.vscode/**
+__pycache__
+/testdata/sldr

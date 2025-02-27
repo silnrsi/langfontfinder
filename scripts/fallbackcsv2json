@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+
+import argparse, csv, json, re
+
+parser = argparse.ArgumentParser()
+parser.add_argument("infile",help="Input Fallback families CSV")
+parser.add_argument("-o","--outfile",help="Output JSON file")
+parser.add_argument("-f","--families",help="Font families json file")
+args = parser.parse_args()
+
+with open(args.families) as inf:
+    families = json.load(inf)
+
+familymap = {v['family']: k for k, v in families.items()}
+
+scripts = {}
+with open(args.infile, encoding="utf-8") as inf:
+    cr = csv.DictReader(inf)
+    for r in cr:
+        s = r["Code"]
+        if not len(s):
+            continue
+        df = familymap.get(r["Default Font"], '')
+        if not df:
+            continue
+        entry = {}
+        entry.setdefault('roles', {})['default'] = [df]
+        f = r["Default Features"]
+        if f:
+            entry.setdefault('features', {})[df] = f
+        efamilies = entry['roles']['default']
+        for a in ("WSTech primary", "NLCI", "Noto Sans", "Noto Serif", "WSTech secondary"):
+            f = familymap.get(r[a], '')
+            if not f or f in efamilies:
+                continue
+            efamilies.append(f)
+        if r["Region"]:
+            regs = re.split(r",\s*", r["Region"])
+            entry['regions'] = regs
+        scripts.setdefault(s, []).append(entry)
+
+with open(args.outfile, "w", encoding="utf-8") as outf:
+    json.dump(scripts, outf, ensure_ascii=False, indent=4, sort_keys=True)

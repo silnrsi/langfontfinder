@@ -26,8 +26,8 @@ The API can be reached on http://localhost:30080/docs via curl, and the deploy a
 ```bash
 $> curl --request POST \
    -H "Content-Type: application/json" \
-   -H "X-Hub-Signature-256: sha256=d751978d36d12cab18046abb7af941ed73aac2d2a54db449513b3b21e13dd521" \
-   --data '{"action":"push","ref":"refs/heads/main"}' \
+   -H "X-Hub-Signature-256: sha256=9147c05059b9b197e7da10490f0d338690ec2839cbe6068f2bbf5529abe4ee65" \
+   --data '{"event":"push","ref":"refs/heads/main"}' \
    http://localhost:30900/api/deploy
 ```
 This simulates enough of a GitHub webhook push event to pass validation on the responder.
