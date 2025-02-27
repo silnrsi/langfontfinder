@@ -28,7 +28,7 @@ jobs:
         ref: ${{ vars.LFF_SRC_BRANCH }}
     - name: Install langfontfinder package and depedencies
       run: >-
-        pip3 install .
+        pip3 install
         -r requirements.txt
         sldr@git+https://github.com/silnrsi/sldrtools
     - name: Download sldr src
