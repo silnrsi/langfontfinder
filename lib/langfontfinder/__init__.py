@@ -48,7 +48,7 @@ class LFF:
         """Given a rule result, merge with the fonts family information to give a full result."""
         allfamilies = set()
         for r, v in matchres['roles'].items():
-            allfamilies.update([f for f in v if f in self.fontmap]))        # filter to only those we have font records for
+            allfamilies.update([f for f in v if f in self.fontmap])        # filter to only those we have font records for
         res = {'roles': matchres['roles']}
         defaults = res['roles'].get('default', None)
         if defaults is None:
