@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import argparse, json
+
+parser = argparse.ArgumentParser()
+parser.add_argument("infile", help="fallback.json")
+parser.add_argument("-f","--families", required=True, help="families.json to analyse")
+parser.add_argument("-o","--outfile", help="Output updated fallback.json")
+parser.add_argument("-q","--quiet", action="store_true", help="Don't be chatty")
+args = parser.parse_args()
+
+def logprint(s):
+    if not args.quiet:
+        print(s)
+
+with open(args.families) as inf:
+    families = json.load(inf)
+
+osfonts = {}
+for k, v in families.items():
+    if v.get('license', "") != "proprietary":
+        continue
+    if v.get('source', "") != "Microsoft":
+        continue
+    if v.get('status', '') == "deprecated":
+        continue
+    fb = v.get('fallback', None)
+    if fb is None:
+        continue
+    osfonts.setdefault(fb, []).append(k)
+
+with open(args.infile) as inf:
+    fallbacks = json.load(inf)
+
+for k, v in fallbacks.items():
+    if k == "Latn":
+        continue
+    for a in v:
+        for r, l in a.get('roles', {}).items():
+            extras = set()
+            fonts = set(l)
+            for f in list(fonts):
+                finfo = families.get(f, {})
+                if finfo.get('status', '') == 'deprecated':
+                    fb = finfo.get('fallback', None)
+                    if fb is not None:
+                        fonts.add(fb)
+                    fonts.remove(f)
+                    logprint(f"Removed {f} from {k}+{r}, due to deprecation. Fallback to {fb}")
+                    continue
+                if not len(finfo):
+                    fonts.remove(f)
+                    logprint(f"Removed {f} from {k}+{r}, due to missing families entry")
+                    continue
+                if f in osfonts:
+                    extras.update(osfonts[f])
+                    logprint(f"Adding osfonts: {", ".join(osfonts[f])} to {k}+{r} from {f}")
+            l[:] = sorted(fonts | extras, key=lambda s: s if s != l[0] else "0")
+
+if args.outfile:
+    with open(args.outfile, "w") as outf:
+        json.dump(fallbacks, outf, indent=4)

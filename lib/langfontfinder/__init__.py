@@ -35,6 +35,8 @@ class LFF:
 
     def match(self, lng, scr, reg, var):
         """Given broken out lang tag components, return the rule result that matches."""
+        if scr is not None and len(scr) and scr not in self.scrrules[1]:
+            return None         # bail on unknown script
         res = self._getmatch(
             lng, scr, reg, var, self.scrrules[1].get(scr, self.scrrules[0])
         )
@@ -44,14 +46,27 @@ class LFF:
 
     def getfamilyresult(self, matchres):
         """Given a rule result, merge with the fonts family information to give a full result."""
-        familyid = matchres["familyid"]
-        family = self.fontmap.get(familyid, {})
-        family.update(matchres)
-        res = {
-            "defaultfamily": [familyid],
-            "apiversion": 0.3,
-            "families": {familyid: family},
-        }
+        allfamilies = set()
+        for r, v in matchres['roles'].items():
+            allfamilies.update([f for f in v if f in self.fontmap])        # filter to only those we have font records for
+        res = {'roles': matchres['roles']}
+        defaults = res['roles'].get('default', None)
+        if defaults is None:
+            if len(res['roles']):
+                defaults = res['roles'].items()[0][1]
+            else:
+                defaults = []
+        res['defaultfamily'] = defaults
+        res['apiversion'] = 0.3
+        feats = matchres.get('features', {})
+        if len(allfamilies):
+            res['families'] = {}
+            for f in allfamilies:
+                family = self.fontmap.get(f, {}).copy()
+                feat = feats.get(f, None)
+                if feat is not None:
+                    family['features'] = feat
+                res['families'][f] = family
         return res
 
     def getfamily(self, familyid):
