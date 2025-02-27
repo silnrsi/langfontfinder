@@ -40,9 +40,7 @@ jobs:
         sparse-checkout: |
           sldr
     - name: Run test case
-      run: |
-        find .
-        test/testlffsldr -s sldr/sldr
+      run: test/testlffsldr -s sldr/sldr
 
   build:
     needs: test
