@@ -1042,6 +1042,15 @@
             }
         }
     ],
+    "Nshu": [
+        {
+            "roles": {
+                "default": [
+                    "nototraditionalnushu"
+                ]
+            }
+        }
+    ],
     "Ogam": [
         {
             "roles": {
