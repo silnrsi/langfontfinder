@@ -158,6 +158,15 @@
             }
         }
     ],
+    "Bopo": [
+        {
+            "roles": {
+                "default": [
+                    "notoseriftc"
+                ]
+            }
+        }
+    ],
     "Brah": [
         {
             "roles": {
@@ -291,6 +300,7 @@
             "roles": {
                 "default": [
                     "annapurnasil",
+                    "annapurnanepal",
                     "notosansdevanagari",
                     "notoserifdevanagari"
                 ]
