@@ -176,6 +176,15 @@
             }
         }
     ],
+    "Brai": [
+        {
+            "roles": {
+                "default": [
+                    "notosanssymbols2"
+                ]
+            }
+        }
+    ],
     "Bugi": [
         {
             "roles": {
