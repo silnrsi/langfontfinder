@@ -1361,6 +1361,15 @@
             }
         }
     ],
+    "Sunu": [
+        {
+            "roles": {
+                "default": [
+                    "seisunuwar"
+                ]
+            }
+        }
+    ],
     "Sylo": [
         {
             "roles": {
