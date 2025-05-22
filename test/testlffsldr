@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 
-import os, sys, argparse
-
-try:
-    from langfontfinder import LFF
-except (ImportError, ModuleNotFoundError):
-    sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
-    from langfontfinder import LFF
-
+import argparse
+import os
 import xml.etree.ElementTree as et
+from langfontfinder import LFF
 from sldr.ldml import iterate_files
+
 
 datadir = os.getenv('LFFPATH', os.path.join(os.path.dirname(__file__), '..', 'testdata'))
 rulesfile = os.getenv('LFFRULES', os.path.join(datadir, 'fontrules.json'))

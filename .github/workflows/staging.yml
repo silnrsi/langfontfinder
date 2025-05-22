@@ -40,6 +40,8 @@ jobs:
         sparse-checkout: |
           sldr
     - name: Run test case
+      env: 
+        PYTHONPATH: lib
       run: test/testlffsldr -s sldr/sldr
 
   build:
