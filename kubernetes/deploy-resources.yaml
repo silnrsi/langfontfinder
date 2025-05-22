@@ -6,7 +6,6 @@ metadata:
   name: langfontfinder
   namespace: wstech
 spec:
-  type: NodePort
   ports:
   - name: http
     port: 80
