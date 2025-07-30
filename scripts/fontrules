@@ -47,11 +47,16 @@ def procdir(j):
     for f in l.findall(f"special/{silns}external-resources/{silns}font"):
         t = f.get("types", "default")
         for a in t.split(" "):
+            b = a.split("=")
+            s = int(b[1] if len(b) > 1 else 1)
             fid = f.get("name").replace(" ", "").lower()
-            res.setdefault('roles', {}).setdefault(a, []).append(fid)
+            res.setdefault('roles', {}).setdefault(a, []).append((fid, s))
             feat = f.get('features', '')
             if feat:
                 res.setdefault('features', {})[fid] = feat
+    if 'roles' in res:
+        for k, v in res['roles'].items():
+            res['roles'][k] = [f for f,n in sorted(v, key=lambda x:(x[1], x[0]))]
     return (ltag if len(res) else None, res)
 
 
@@ -222,6 +227,8 @@ if args.fallbacks:
     for s, v in fb.items():
         for r in v:
             d = {a: b for a, b in r.items() if a in ('roles', 'features')}
+            # for k, f in d['roles'].items():
+                # d['roles'][k] = [(g, 1) for g in f]
             # No need for variants, this is script fallback
             if 'regions' in r:
                 for k in r['regions']:
