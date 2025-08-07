@@ -12,6 +12,7 @@ except ImportError:
     from langfontfinder import LFF
 
 version = "0.2"
+gitid = "$Id$"
 
 datadir = os.getenv(
     "LFFPATH", os.path.join(os.path.dirname(__file__), "..", "..", "testdata")
@@ -47,7 +48,7 @@ async def family(response:Response, familyid: str = Path(description="Font famil
 
 @lffapp.get("/status")
 async def status():
-    res = {"version": version}
+    res = {"version": version, "gitid": gitid}
     return res
 
 
