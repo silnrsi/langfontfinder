@@ -2,7 +2,6 @@
 
 import sys, os, argparse
 from fastapi import FastAPI, Response, Path
-from fastapi.testclient import TestClient
 import uvicorn
 
 try:
@@ -48,7 +47,11 @@ async def family(response:Response, familyid: str = Path(description="Font famil
 
 @lffapp.get("/status")
 async def status():
-    res = {"version": version, "gitid": gitid.removeprefix("$Id$")}
+    res = {
+        "version": version, 
+        # Use '\x24' instead of '$' here to prevent the git ident attribute from eating the everthing between them.
+        "gitid": gitid.removeprefix("\x24Id: ").removesuffix(" \x24")
+    }
     return res
 
 
