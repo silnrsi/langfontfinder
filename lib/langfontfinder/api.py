@@ -48,7 +48,7 @@ async def family(response:Response, familyid: str = Path(description="Font famil
 
 @lffapp.get("/status")
 async def status():
-    res = {"version": version, "gitid": gitid}
+    res = {"version": version, "gitid": gitid.removeprefix("$Id$")}
     return res
 
 
