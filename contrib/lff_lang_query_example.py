@@ -10,17 +10,23 @@ API usage example:
 from pprint import pprint
 import json
 import requests
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("tag",nargs="?",help="Input language tag")
+args = parser.parse_args()
+
+if args.tag is None:
+    args.tag = input("Pick your langtag (e.g. nod-Lana-TH wsg-Gong-IN shu-Arab-TD - tag-Script-REGION): ")
 
 URL = "https://lff.api.languagetechnology.org/lang/"
-lang = input("Pick your langtag (e.g. nod-Lana-TH wsg-Gong-IN shu-Arab-TD - tag-Script-REGION): ")
-fullURL = URL + lang
-
+fullURL = URL + args.tag
 response = requests.get(fullURL)
 
 if response.status_code == 200:
     data = json.loads(response.text)
+    print("\nLFF API result for langtag: " + args.tag)
     for k, v in data["families"].items():
-        print("\nLFF API result for langtag: " + lang)
         print(f'family: {v["family"]}')
         print(f'version: {v["version"]}')
         print(f'source: {v["source"]}')
@@ -29,22 +35,20 @@ if response.status_code == 200:
         print(f'status: {v["status"]}')
         print(f'download: {v["packageurl"]}')
 
-        print("\nCSS @font-face URLs (filtered for woff2 only)")
+        print("\nCSS @font-face URLs")
 
-    result = {
-        k: f["flourl"]
-        for v in data["families"].values()
-        for k, f in v["files"].items()
-        if k.endswith("woff2")
-        }
-if response.status_code == 404:
+        for a in ("woff2", "woff", "ttf"):
+            result = {
+                n: f.get("flourl", f.get('url', None))
+                for n, f in v.get("files", {}).items()
+                if n.endswith(a)
+                }
+            result = {x: y for x, y in result.items() if y is not None}
+            if len(result):
+                pprint(result)
+                break
+
+else:
     print("Error: HTTP status code", response.status_code)
-    print("\"" + lang + "\"" + " is not a known langtag")
+    print("\"" + args.tag + "\"" + " is not a known langtag")
 
-# examine the headers
-# pprint(response.headers)
-
-try:
-    pprint(result)
-except NameError:
-    print("Sorry, no API result, try another langtag")
