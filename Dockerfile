@@ -4,7 +4,7 @@ ARG base=tiangolo/uvicorn-gunicorn-fastapi:python3.11-slim
 FROM ${base} AS build-fontrules
 ARG langtags_zip=https://github.com/silnrsi/langtags/archive/refs/heads/release.zip
 ARG sldr_zip=https://github.com/silnrsi/sldr/archive/refs/heads/master.zip
-ARG langtags_json=https://ldml.api.sil.org/langtags.json?staging=1
+ARG langtags_json=https://github.com/silnrsi/langtags/releases/latest/download/langtags.json
 WORKDIR /src/langfontfinder
 # Bring in selected context.
 COPY --link scripts scripts
