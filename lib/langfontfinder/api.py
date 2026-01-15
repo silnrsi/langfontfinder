@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys, os, argparse
+import sys, os, time
 from fastapi import FastAPI, Response, Path
 import uvicorn
 
@@ -19,15 +19,24 @@ datadir = os.getenv(
 rulesfile = os.getenv("LFFRULES", os.path.join(datadir, "fontrules.json"))
 familiesfile = os.getenv("LFFFONTS", os.path.join(datadir, "families.json"))
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument('-r','--rules',default=rulesfile,help='fontrules.json')
-# parser.add_argument('-f','--fonts',default=familiesfile,help='families.json')
-# args = parser.parse_args()
-
 ruleset = LFF(rulesfile, familiesfile)
 
-lffapp = FastAPI(version=version)
+__status = {
+    "version": version, 
+    # Use '\x24' instead of '$' here to prevent the git ident attribute from eating the everthing between them.
+    "gitid": gitid.removeprefix("\x24Id: ").removesuffix(" \x24"),
+    "families": len(ruleset.fontmap),
+    "rules": {
+        "generated": time.strftime("%a %d %b %H:%M:%S UTC %Y", time.gmtime(os.stat(rulesfile).st_mtime))
+    },
+    "langtags": { 
+        "date": ruleset.langtags._info['version']['date'],
+        "api": ruleset.langtags._info['version']['api']
+    }
+}
 
+
+lffapp = FastAPI(version=version)
 
 @lffapp.get("/lang/{ltag}", summary="lang/{ltag}", name="lang")
 async def lang(response: Response, ltag: str = Path(description="Language tag")):
@@ -47,13 +56,7 @@ async def family(response:Response, familyid: str = Path(description="Font famil
 
 @lffapp.get("/status")
 async def status():
-    res = {
-        "version": version, 
-        # Use '\x24' instead of '$' here to prevent the git ident attribute from eating the everthing between them.
-        "gitid": gitid.removeprefix("\x24Id: ").removesuffix(" \x24")
-    }
-    return res
-
+    return __status
 
 if __name__ == "__main__":
     uvicorn.run(lffapp)
