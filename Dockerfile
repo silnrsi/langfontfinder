@@ -16,8 +16,7 @@ RUN python3 -m zipfile -e langtags.zip ./ && mv langtags-*/lib/langtag lib/
 # Download source data and unzip for fontrules: SLDR & langtags.json
 ADD --link ${sldr_zip} sldr.zip
 RUN python3 -m zipfile -e sldr.zip ./ && mv sldr-*/sldr unflat
-# ADD --link ${langtags_json} lib/langtag/
-RUN python3 -c "import shutil, urllib.request as u; shutil.copyfileobj(u.urlopen('${langtags_json}'), open('lib/langtag/langtags.json' , 'wb'))"
+ADD --link ${langtags_json} lib/langtag/
 # Generate fontrules.json
 ENV PYTHONPATH=/src/langfontfinder/lib
 RUN <<EOT
