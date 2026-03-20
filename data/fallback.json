@@ -289,8 +289,8 @@
         {
             "roles": {
                 "default": [
-                    "charissil",
-                    "gentiumplus",
+                    "charis",
+                    "gentium",
                     "andika",
                     "notosans",
                     "notoserif"
@@ -449,7 +449,7 @@
         {
             "roles": {
                 "default": [
-                    "gentiumplus"
+                    "gentium"
                 ]
             }
         }
@@ -770,9 +770,9 @@
         {
             "roles": {
                 "default": [
-                    "charissil",
-                    "gentiumbookplus",
-                    "gentiumplus",
+                    "charis",
+                    "gentiumbook",
+                    "gentium",
                     "andika",
                     "notosans",
                     "notoserif"
