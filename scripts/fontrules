@@ -51,6 +51,7 @@ def procdir(j):
             s = int(b[1] if len(b) > 1 else 1)
             fid = f.get("name").replace(" ", "").lower()
             res.setdefault('roles', {}).setdefault(a, []).append((fid, s))
+            res.setdefault('ltag', set()).add(f"{lang}-{script}-{region}")
             feat = f.get('features', '')
             if feat:
                 res.setdefault('features', {})[fid] = feat
@@ -94,7 +95,7 @@ class Classifier:
         def stringifyvar(m):
             return (self._stringify(m[0]), self._stringify(m[1]))
         def stringifyrule(m):
-            return (m[0], " ".join(sorted(("{}={}".format(k, v) for k, v in m[1].items()))))
+            return (m[0], " ".join(sorted(("{}={}".format(k, m[1][k]) for k in m[1].keys() if k != 'ltag'))))
         lastmap = None
         stringifies = [stringifyrule] * (len(fields)-1) + [stringifyvar]
         for i, a in enumerate(reversed(fields)):
@@ -139,6 +140,8 @@ class Classifier:
             if key not in cache:
                 cache[key] = curri
                 res.append(m)
+            elif isinstance(m, dict):
+                res[cache[key]].setdefault('ltag', []).extend(m.get('ltag', []))
             outmap[i] = cache[key]
         return (res, outmap)
 
@@ -160,7 +163,18 @@ class Classifier:
             m[1] = t
 
     def _stringify(self, entry):
-        return json.dumps(entry, sort_keys=True)
+        if isinstance(entry, dict):
+            ec = {}
+            for k, v in entry.items():
+                if isinstance(v, dict):
+                    vc = v.copy()
+                    vc.pop('ltag', None)
+                    ec[k] = vc
+                elif k != 'ltag':
+                    ec[k] = v
+        else:
+            ec = entry
+        return json.dumps(ec, sort_keys=True)
 
     def _makeres(self, reskey):
         return reskey
@@ -184,8 +198,15 @@ class Classifier:
                 },
                 outf,
                 indent=2,
+                cls = SortedSetEncoder
             )
 
+
+class SortedSetEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, set):
+            return sorted(obj)
+        return json.JSONEncoder.default(self, obj)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("indir", help="Directory of files to process")
@@ -233,9 +254,13 @@ if args.fallbacks:
             if 'regions' in r:
                 for k in r['regions']:
                     lt = f"und-{s}-{k}"
-                    ltagmap[lt] = d
+                    dc = d.copy()
+                    dc.setdefault('langtag', []).append(lt)
+                    ltagmap[lt] = dc
             else:
-                ltagmap[f"und-{s}"] = d
+                lt = f"und-{s}"
+                d.setdefault('ltag', set()).add(lt)
+                ltagmap[lt] = d
 
 if not args.quiet:
     print(f"Found {len(ltagmap)} entries")
