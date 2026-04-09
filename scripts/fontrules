@@ -48,7 +48,7 @@ def procdir(j):
         t = f.get("types", "default")
         for a in t.split(" "):
             b = a.split("=")
-            s = int(b[1] if len(b) > 1 else 1)
+            s = int(b[1] if len(b) > 1 else 100)
             fid = f.get("name").replace(" ", "").lower()
             res.setdefault('roles', {}).setdefault(a, []).append((fid, s))
             res.setdefault('ltag', set()).add(f"{lang}-{script}-{region}")
