@@ -680,8 +680,7 @@
         {
             "roles": {
                 "default": [
-                    "khmerbusra",
-                    "khmermondulkiri",
+                    "busra",
                     "notosanskhmer",
                     "notoserifkhmer"
                 ]
