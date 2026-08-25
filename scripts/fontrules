@@ -45,7 +45,7 @@ def procdir(j):
     res = {}
     fallback = None
     for f in l.findall(f"special/{silns}external-resources/{silns}font"):
-        t = f.get("types", "default")
+        t = f.get("types", "default=100")
         for a in t.split(" "):
             b = a.split("=")
             s = int(b[1] if len(b) > 1 else 0)
