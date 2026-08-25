@@ -50,7 +50,7 @@ def procdir(j):
             b = a.split("=")
             s = int(b[1] if len(b) > 1 else 100)
             fid = f.get("name").replace(" ", "").lower()
-            res.setdefault('roles', {}).setdefault(a, []).append((fid, s))
+            res.setdefault('roles', {}).setdefault(b[0], []).append((fid, s))
             res.setdefault('ltag', set()).add(f"{lang}-{script}-{region}")
             feat = f.get('features', '')
             if feat:
