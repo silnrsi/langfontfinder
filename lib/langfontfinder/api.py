@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys, os, time
+import sys, os, time, json
 from fastapi import FastAPI, Response, Path
 import uvicorn
 
@@ -18,8 +18,11 @@ datadir = os.getenv(
 )
 rulesfile = os.getenv("LFFRULES", os.path.join(datadir, "fontrules.json"))
 familiesfile = os.getenv("LFFFONTS", os.path.join(datadir, "families.json"))
+reversefile = os.getenv("LFFREVERSE", os.path.join(datadir, "fontreverse.json"))
 
 ruleset = LFF(rulesfile, familiesfile)
+with open(reversefile, encoding="utf8") as inf:
+    reversedat = json.load(inf)
 
 __status = {
     "version": version, 
@@ -50,6 +53,13 @@ async def lang(response: Response, ltag: str = Path(description="Language tag"))
 async def family(response:Response, familyid: str = Path(description="Font family id")):
     """ Given a familyid returns the font family json object. """
     res = ruleset.getfamily(familyid)
+    if res is None:
+        response.status_code = 404
+    return res
+
+@lffapp.get("/fontlangs/{familyid}", summare="fontlangs/{familyid}", name="fontlang")
+async def fontlang(response:Response, familyid: str = Path(description="Font family id")):
+    res = reversedat.get(family, None)
     if res is None:
         response.status_code = 404
     return res

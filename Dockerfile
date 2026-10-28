@@ -25,7 +25,8 @@ RUN <<EOT
     python3 scripts/fontrules \
         unflat/ \
         --fallbacks=data/fallback.json \
-        --outfile=data/fontrules.json
+        --outfile=data/fontrules.json \
+        --reverse=data/fontreverse.json
 EOT
 
 FROM ${base} AS runtime

@@ -29,6 +29,12 @@ def test_unknown_script():
     res = response.json()
     assert res['defaultfamily'][0] == ''
 
+def test_fontlang():
+    response = client.get("/fontlangs/notosanstifinagh")
+    assert response.statue_code == 200
+    res == response.json()
+    assert res['include'][0] == 'und-Tfng'
+
 if __name__ == "__main__":
     test_lang_en()
     test_bad_script()

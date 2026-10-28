@@ -52,6 +52,7 @@ def procdir(j):
             fid = f.get("name").replace(" ", "").lower()
             res.setdefault('roles', {}).setdefault(b[0], []).append((fid, s))
             res.setdefault('ltag', set()).add(f"{lang}-{script}-{region}")
+            res.setdefault('reverse', []).append(fid)
             feat = f.get('features', '')
             if feat:
                 res.setdefault('features', {})[fid] = feat
@@ -114,9 +115,8 @@ class Classifier:
         appropriately"""
         l = langtag(x)
         key = {
-            k: getattr(l, k)
-            for k in ("lang", "script", "region")
-            if getattr(l, k, None) is not None
+            k: getattr(l, k) for k in ("lang", "script", "region")
+                                if getattr(l, k, None) is not None
         }
         if key.get("lang", "") == "und":
             del key["lang"]
@@ -201,6 +201,37 @@ class Classifier:
                 cls = SortedSetEncoder
             )
 
+    def create_reversals(self, mapdata):
+        scripts = {}
+        fonts = {}
+        res = {}
+        for k, v in mapdata.items():
+            if k is None:
+                continue
+            key = self._splitkey(k)
+            if 'lang' not in key:
+                continue
+            l = key['lang']
+            s = key['script']
+            scripts.setdefault(s, set()).add(k)
+            for f in v.get('reverse', []):
+                fonts.setdefault(f, {}).setdefault(s, set()).add(k)
+        for f, ss in fonts.items():
+            for s, ls in ss.items():
+                ud = f"und-{s}"
+                if ud in ls:
+                    res.setdefault(f, {}).setdefault('include', []).append(ud)
+                    continue
+                if len(ls) > len(scripts[s]) // 2:
+                    excls = scripts[s] - ls
+                    excls.discard(ud)
+                    res.setdefault(f, {}).setdefault('include', []).append(ud)
+                    if len(excls):
+                        res[f].setdefault('exclude', []).extend(sorted(excls))
+                elif len(ls):
+                    res.setdefault(f, {}).setdefault('include', []).extend(sorted(ls))
+        return res
+
 
 class SortedSetEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -212,6 +243,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("indir", help="Directory of files to process")
 parser.add_argument("-f", "--fallbacks", help="fallbacks csv")
 parser.add_argument("-o", "--outfile", default="fontrules.json", help="Output fontrules.json")
+parser.add_argument("-r", "--reverse", default="fontreverse.json", help="Generate reverse mapping json file")
 parser.add_argument("--intermediate", help="Output interim results")
 parser.add_argument("--min", action="store_true", help="Use a minimal tag rather than maximal")
 parser.add_argument("-R", "--resultsort", action="store_true",
@@ -247,7 +279,7 @@ if args.fallbacks:
         fb = json.load(inf)
     for s, v in fb.items():
         for r in v:
-            d = {a: b for a, b in r.items() if a in ('roles', 'features')}
+            d = {a: b for a, b in r.items() if a in ('roles', 'features', 'reverse')}
             # for k, f in d['roles'].items():
                 # d['roles'][k] = [(g, 1) for g in f]
             # No need for variants, this is script fallback
@@ -271,3 +303,9 @@ if args.intermediate:
 c = Classifier(ltagmap)
 c.create_matches(ltagmap)
 c.out_matches(args.outfile)
+
+if args.reverse:
+    r = c.create_reversals(ltagmap)
+    with open(args.reverse, "w", encoding="utf-8") as outf:
+        json.dump(r, outf, indent=2, cls = SortedSetEncoder)
+
