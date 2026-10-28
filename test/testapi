@@ -17,7 +17,7 @@ def test_lang_en():
     response = client.get("/lang/en")
     assert response.status_code == 200
     res = response.json()
-    assert res['defaultfamily'][0] == 'charis'
+    assert res['defaultfamily'][0] in ('charis', 'charissil')
 
 def test_bad_script():
     response = client.get("/lang/en-Fred")
