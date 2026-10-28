@@ -57,7 +57,7 @@ async def family(response:Response, familyid: str = Path(description="Font famil
         response.status_code = 404
     return res
 
-@lffapp.get("/fontlangs/{familyid}", summare="fontlangs/{familyid}", name="fontlang")
+@lffapp.get("/fontlangs/{familyid}", summary="fontlangs/{familyid}", name="fontlang")
 async def fontlang(response:Response, familyid: str = Path(description="Font family id")):
     res = reversedat.get(family, None)
     if res is None:

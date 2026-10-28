@@ -1,0 +1,936 @@
+{
+  "andika": {
+    "include": [
+      "und-Latn",
+      "und-Cyrl"
+    ],
+    "exclude": [
+      "abq-latn-tr",
+      "aeb-latn-tn",
+      "apd-latn-sd",
+      "bal-latn-pk",
+      "bcq-latn-et",
+      "bej-latn-er",
+      "blt-latn-vn",
+      "bsq-latn-lr",
+      "byn-latn-er",
+      "con-latn-ec",
+      "crj-latn-ca",
+      "eka-latn-ng-x-ekajuk",
+      "ff-latn-gh",
+      "ff-latn-gm",
+      "ff-latn-gn",
+      "ff-latn-lr",
+      "ff-latn-mr",
+      "ff-latn-ng",
+      "ff-latn-sl",
+      "fub-latn-cm",
+      "gmv-latn-et",
+      "gof-latn-et",
+      "hi-latn-in",
+      "kby-latn-ne",
+      "kyu-latn-mm",
+      "man-latn-gn",
+      "ms-latn-sg",
+      "mym-latn-et",
+      "shi-latn-ma",
+      "shu-latn-td",
+      "sr-latn-ba",
+      "sr-latn-me",
+      "sr-latn-rs",
+      "sr-latn-xk",
+      "swb-latn-yt",
+      "syl-latn-bd",
+      "tbk-latn-ph",
+      "thv-latn-dz-x-ahaggar",
+      "udi-latn-az",
+      "vai-latn-lr",
+      "wal-latn-et",
+      "az-cyrl-ru",
+      "bs-cyrl-ba",
+      "ess-cyrl-us",
+      "sr-cyrl-ba",
+      "sr-cyrl-me",
+      "sr-cyrl-xk",
+      "tk-cyrl-tm",
+      "uz-cyrl-uz"
+    ]
+  },
+  "charis": {
+    "include": [
+      "und-Latn",
+      "und-Cyrl",
+      "bcq-ethi-et",
+      "und-Adlm"
+    ]
+  },
+  "gentium": {
+    "include": [
+      "und-Latn",
+      "und-Cyrl",
+      "und-Grek"
+    ],
+    "exclude": [
+      "abq-latn-tr",
+      "aeb-latn-tn",
+      "apd-latn-sd",
+      "bal-latn-pk",
+      "bcq-latn-et",
+      "bej-latn-er",
+      "blt-latn-vn",
+      "bsq-latn-lr",
+      "byn-latn-er",
+      "con-latn-ec",
+      "crj-latn-ca",
+      "eka-latn-ng-x-ekajuk",
+      "ff-latn-gh",
+      "ff-latn-gm",
+      "ff-latn-gn",
+      "ff-latn-lr",
+      "ff-latn-mr",
+      "ff-latn-ng",
+      "ff-latn-sl",
+      "fub-latn-cm",
+      "gmv-latn-et",
+      "gof-latn-et",
+      "hi-latn-in",
+      "kby-latn-ne",
+      "kyu-latn-mm",
+      "man-latn-gn",
+      "ms-latn-sg",
+      "mym-latn-et",
+      "shi-latn-ma",
+      "shu-latn-td",
+      "sr-latn-ba",
+      "sr-latn-me",
+      "sr-latn-rs",
+      "sr-latn-xk",
+      "swb-latn-yt",
+      "syl-latn-bd",
+      "tbk-latn-ph",
+      "thv-latn-dz-x-ahaggar",
+      "udi-latn-az",
+      "vai-latn-lr",
+      "wal-latn-et",
+      "az-cyrl-ru",
+      "bs-cyrl-ba",
+      "ess-cyrl-us",
+      "sr-cyrl-ba",
+      "sr-cyrl-me",
+      "sr-cyrl-xk",
+      "tk-cyrl-tm",
+      "uz-cyrl-uz"
+    ]
+  },
+  "notosans": {
+    "include": [
+      "und-Latn",
+      "und-Cyrl",
+      "und-Grek",
+      "und-Adlm"
+    ],
+    "exclude": [
+      "kyu-latn-mm",
+      "swb-latn-yt",
+      "ess-cyrl-us"
+    ]
+  },
+  "notoserif": {
+    "include": [
+      "und-Latn",
+      "und-Cyrl",
+      "und-Grek",
+      "und-Adlm"
+    ],
+    "exclude": [
+      "kyu-latn-mm",
+      "swb-latn-yt",
+      "ess-cyrl-us"
+    ]
+  },
+  "annapurnasil": {
+    "include": [
+      "und-Deva"
+    ]
+  },
+  "awaminastaliq": {
+    "include": [
+      "bal-arab-pk",
+      "bft-arab-pk",
+      "gju-arab-pk",
+      "gwc-arab-pk",
+      "hno-arab-pk",
+      "khw-arab-pk",
+      "kvx-arab-pk",
+      "mvy-arab-pk",
+      "oru-arab-pk",
+      "phl-arab-pk",
+      "scl-arab-pk",
+      "skr-arab-pk",
+      "trw-arab-pk",
+      "ur-arab-pk"
+    ]
+  },
+  "notosanstifinagh": {
+    "include": [
+      "und-Tfng"
+    ],
+    "exclude": [
+      "taq-tfng-ml",
+      "thv-tfng-dz",
+      "tmh-tfng-ne"
+    ]
+  },
+  "abyssinicasil": {
+    "include": [
+      "und-Ethi"
+    ]
+  },
+  "notosansethiopic": {
+    "include": [
+      "und-Ethi"
+    ]
+  },
+  "notoserifethiopic": {
+    "include": [
+      "und-Ethi"
+    ]
+  },
+  "notosanstelugu": {
+    "include": [
+      "und-Telu"
+    ]
+  },
+  "notosansarabic": {
+    "include": [
+      "und-Arab"
+    ],
+    "exclude": [
+      "arq-arab-dz",
+      "ary-arab-ma",
+      "bal-arab-pk",
+      "bft-arab-pk",
+      "bjt-arab-sn",
+      "dje-arab-ne",
+      "dyo-arab-sn",
+      "ff-arab-sn",
+      "fub-arab-cm",
+      "fue-arab-bj",
+      "fuf-arab-gn",
+      "fuv-arab-ng",
+      "gju-arab-pk",
+      "gwc-arab-pk",
+      "ha-arab-ng",
+      "haz-arab-af",
+      "hno-arab-pk",
+      "jbn-arab-ly",
+      "jum-arab-sd",
+      "kby-arab-ne",
+      "khw-arab-pk",
+      "kr-arab-ng",
+      "kvx-arab-pk",
+      "kxp-arab-pk",
+      "man-arab-gn",
+      "mki-arab-pk",
+      "mvy-arab-pk",
+      "oru-arab-pk",
+      "pa-arab-pk",
+      "phl-arab-pk",
+      "phr-arab-pk",
+      "ps-arab-pk",
+      "rif-arab-ma",
+      "sav-arab-sn",
+      "scl-arab-pk",
+      "sd-arab-pk",
+      "skr-arab-pk",
+      "srr-arab-sn",
+      "sus-arab-gn",
+      "trw-arab-pk",
+      "ur-arab-pk",
+      "wo-arab-sn",
+      "yo-arab-ng"
+    ]
+  },
+  "scheherazadenew": {
+    "include": [
+      "und-Arab"
+    ],
+    "exclude": [
+      "bal-arab-pk",
+      "bft-arab-pk",
+      "bjt-arab-sn",
+      "fa-arab-af",
+      "gju-arab-pk",
+      "glk-arab-ir",
+      "gwc-arab-pk",
+      "ha-arab-ng",
+      "haz-arab-af",
+      "hno-arab-pk",
+      "jum-arab-sd",
+      "kby-arab-ne",
+      "khw-arab-pk",
+      "kr-arab-ng",
+      "kvx-arab-pk",
+      "kxp-arab-pk",
+      "mki-arab-pk",
+      "mvy-arab-pk",
+      "oru-arab-pk",
+      "phl-arab-pk",
+      "sav-arab-sn",
+      "scl-arab-pk",
+      "sd-arab-pk",
+      "skr-arab-pk",
+      "trw-arab-pk",
+      "ur-arab-pk"
+    ]
+  },
+  "lateef": {
+    "include": [
+      "bal-arab-pk",
+      "glk-arab-ir",
+      "haz-arab-af",
+      "kxp-arab-pk",
+      "mki-arab-pk",
+      "sd-arab-pk"
+    ]
+  },
+  "notosansgujarati": {
+    "include": [
+      "und-Gujr"
+    ]
+  },
+  "notoserifgujarati": {
+    "include": [
+      "und-Gujr"
+    ]
+  },
+  "notosansolchiki": {
+    "include": [
+      "und-Olck"
+    ]
+  },
+  "notosanssundanese": {
+    "include": [
+      "und-Sund"
+    ]
+  },
+  "annapurnasilnepal": {
+    "include": [
+      "aph-deva-np",
+      "bmj-deva-np",
+      "cdm-deva-np",
+      "dhi-deva-np",
+      "dry-deva-np",
+      "dty-deva-np",
+      "dwz-deva-np",
+      "jml-deva-np",
+      "jul-deva-np",
+      "lbr-deva-np",
+      "lhm-deva-np",
+      "mgp-deva-np",
+      "mjz-deva-np",
+      "scp-deva-np",
+      "syw-deva-np",
+      "tdg-deva-np",
+      "the-deva-np",
+      "thq-deva-np",
+      "ybh-deva-np",
+      "ybi-deva-np",
+      "loy-tibt-np"
+    ]
+  },
+  "notosansdevanagari": {
+    "include": [
+      "bgc-deva-in",
+      "bho-deva-in",
+      "brx-deva-in",
+      "doi-deva-in",
+      "dus-deva-np",
+      "hi-deva-in",
+      "kok-deva-in",
+      "ks-deva-in",
+      "lif-deva-np",
+      "loy-deva-np",
+      "mai-deva-in",
+      "mr-deva-in",
+      "mrr-deva-in",
+      "ne-deva-in",
+      "ne-deva-np",
+      "nwx-deva-np",
+      "raj-deva-in",
+      "sa-deva-in",
+      "sd-deva-in",
+      "suz-deva-np",
+      "taj-deva-np",
+      "xsr-deva-np"
+    ]
+  },
+  "notoserifdevanagari": {
+    "include": [
+      "bgc-deva-in",
+      "bho-deva-in",
+      "brx-deva-in",
+      "doi-deva-in",
+      "dus-deva-np",
+      "hi-deva-in",
+      "kok-deva-in",
+      "ks-deva-in",
+      "lif-deva-np",
+      "loy-deva-np",
+      "mai-deva-in",
+      "mr-deva-in",
+      "mrr-deva-in",
+      "ne-deva-in",
+      "ne-deva-np",
+      "nwx-deva-np",
+      "raj-deva-in",
+      "sa-deva-in",
+      "sd-deva-in",
+      "suz-deva-np",
+      "taj-deva-np",
+      "xsr-deva-np"
+    ]
+  },
+  "harmattan": {
+    "include": [
+      "bjt-arab-sn",
+      "dje-arab-ne",
+      "dyo-arab-sn",
+      "ff-arab-sn",
+      "fub-arab-cm",
+      "fue-arab-bj",
+      "fuf-arab-gn",
+      "fuv-arab-ng",
+      "ha-arab-ng",
+      "jum-arab-sd",
+      "kby-arab-ne",
+      "kr-arab-ng",
+      "man-arab-gn",
+      "sav-arab-sn",
+      "snk-arab-ml",
+      "srr-arab-sn",
+      "sus-arab-gn",
+      "wo-arab-sn",
+      "yo-arab-ng",
+      "ha-latn-ne"
+    ]
+  },
+  "notosansbengali": {
+    "include": [
+      "und-Beng"
+    ],
+    "exclude": [
+      "ccp-beng-in"
+    ]
+  },
+  "notoserifbengali": {
+    "include": [
+      "und-Beng"
+    ]
+  },
+  "notosanslao": {
+    "include": [
+      "und-Laoo"
+    ]
+  },
+  "notoseriflao": {
+    "include": [
+      "und-Laoo"
+    ]
+  },
+  "saysettha": {
+    "include": [
+      "und-Laoo"
+    ]
+  },
+  "notosanssylotinagri": {
+    "include": [
+      "und-Sylo"
+    ]
+  },
+  "surma": {
+    "include": [
+      "und-Sylo"
+    ]
+  },
+  "notosanssinhala": {
+    "include": [
+      "und-Sinh"
+    ]
+  },
+  "notoserifsinhala": {
+    "include": [
+      "und-Sinh"
+    ]
+  },
+  "idiqlat": {
+    "include": [
+      "und-Syrc"
+    ]
+  },
+  "ramsina": {
+    "include": [
+      "und-Syrc"
+    ]
+  },
+  "notosanssyriaceastern": {
+    "include": [
+      "und-Syrc"
+    ]
+  },
+  "notosansmiao": {
+    "include": [
+      "und-Plrd"
+    ]
+  },
+  "shimenkan": {
+    "include": [
+      "und-Plrd"
+    ]
+  },
+  "shimenkanmas": {
+    "include": [
+      "sfm-plrd-cn"
+    ]
+  },
+  "notosansjavanese": {
+    "include": [
+      "und-Java"
+    ]
+  },
+  "notosansmyanmar": {
+    "include": [
+      "my-mymr-mm",
+      "shn-mymr-mm"
+    ]
+  },
+  "notoserifmyanmar": {
+    "include": [
+      "my-mymr-mm",
+      "shn-mymr-mm"
+    ]
+  },
+  "padauk": {
+    "include": [
+      "und-Mymr"
+    ]
+  },
+  "busra": {
+    "include": [
+      "und-Khmr"
+    ],
+    "exclude": [
+      "brb-khmr-kh"
+    ]
+  },
+  "notosansgeorgian": {
+    "include": [
+      "und-Geor"
+    ]
+  },
+  "notoserifgeorgian": {
+    "include": [
+      "und-Geor"
+    ]
+  },
+  "badami": {
+    "include": [
+      "und-Knda"
+    ]
+  },
+  "notosanskannada": {
+    "include": [
+      "und-Knda"
+    ]
+  },
+  "notoserifkannada": {
+    "include": [
+      "und-Knda"
+    ]
+  },
+  "notosanskr": {
+    "include": [
+      "und-Kore"
+    ]
+  },
+  "notoserifkr": {
+    "include": [
+      "und-Kore"
+    ]
+  },
+  "kayphodu": {
+    "include": [
+      "und-Kali"
+    ]
+  },
+  "notosanskayahli": {
+    "include": [
+      "und-Kali"
+    ]
+  },
+  "notosanskhmer": {
+    "include": [
+      "cmo-khmr-kh",
+      "km-khmr-kh"
+    ]
+  },
+  "notoserifkhmer": {
+    "include": [
+      "cmo-khmr-kh",
+      "km-khmr-kh"
+    ]
+  },
+  "daibannasil": {
+    "include": [
+      "und-Talu"
+    ]
+  },
+  "nokyung": {
+    "include": [
+      "und-Talu"
+    ]
+  },
+  "notosansnewtailue": {
+    "include": [
+      "und-Talu"
+    ]
+  },
+  "notoseriftelugu": {
+    "include": [
+      "und-Telu"
+    ],
+    "exclude": [
+      "gau-telu-in"
+    ]
+  },
+  "japasansoriya": {
+    "include": [
+      "und-Orya"
+    ]
+  },
+  "notosansoriya": {
+    "include": [
+      "or-orya-in"
+    ]
+  },
+  "notosansyi": {
+    "include": [
+      "und-Yiii"
+    ]
+  },
+  "nuosusil": {
+    "include": [
+      "und-Yiii"
+    ]
+  },
+  "notosanscanadianaboriginal": {
+    "include": [
+      "und-Cans"
+    ],
+    "exclude": [
+      "nsk-cans-ca"
+    ]
+  },
+  "galatiasil": {
+    "include": [
+      "und-Grek"
+    ]
+  },
+  "notonastaliqurdu": {
+    "include": [
+      "ur-arab-pk"
+    ]
+  },
+  "aboriginalsans": {
+    "include": [
+      "cr-cans-ca"
+    ]
+  },
+  "notosanscherokee": {
+    "include": [
+      "und-Cher"
+    ]
+  },
+  "bjcree": {
+    "include": [
+      "und-Cans"
+    ],
+    "exclude": [
+      "cr-cans-ca",
+      "iu-cans-ca"
+    ]
+  },
+  "notosanschakma": {
+    "include": [
+      "und-Cakm"
+    ]
+  },
+  "charissilcompact": {
+    "include": [
+      "nie-latn-td"
+    ]
+  },
+  "notosanstaitham": {
+    "include": [
+      "und-Lana"
+    ]
+  },
+  "payaplanna": {
+    "include": [
+      "und-Lana"
+    ]
+  },
+  "notosansthai": {
+    "include": [
+      "und-Thai"
+    ]
+  },
+  "notoserifthai": {
+    "include": [
+      "und-Thai"
+    ],
+    "exclude": [
+      "pce-thai-th"
+    ]
+  },
+  "sarabun": {
+    "include": [
+      "und-Thai"
+    ],
+    "exclude": [
+      "pce-thai-th"
+    ]
+  },
+  "notosanstaiviet": {
+    "include": [
+      "und-Tavt"
+    ]
+  },
+  "taiheritagepro": {
+    "include": [
+      "und-Tavt"
+    ]
+  },
+  "notosansbassavah": {
+    "include": [
+      "und-Bass"
+    ]
+  },
+  "mondulkiri": {
+    "include": [
+      "brb-khmr-kh"
+    ]
+  },
+  "notoseriftibetan": {
+    "include": [
+      "und-Tibt"
+    ]
+  },
+  "notosansjp": {
+    "include": [
+      "und-Jpan"
+    ]
+  },
+  "notoserifjp": {
+    "include": [
+      "und-Jpan"
+    ]
+  },
+  "notosanstc": {
+    "include": [
+      "und-Hant"
+    ]
+  },
+  "notoseriftc": {
+    "include": [
+      "und-Hant"
+    ]
+  },
+  "shimenkangsm": {
+    "include": [
+      "ygp-plrd-cn"
+    ]
+  },
+  "shimenkanzonghe": {
+    "include": [
+      "yna-plrd-cn"
+    ]
+  },
+  "salaowu": {
+    "include": [
+      "ywq-plrd-cn"
+    ]
+  },
+  "ezrasil": {
+    "include": [
+      "und-Hebr"
+    ]
+  },
+  "notosanshebrew": {
+    "include": [
+      "und-Hebr"
+    ]
+  },
+  "notoserifhebrew": {
+    "include": [
+      "und-Hebr"
+    ]
+  },
+  "notosanssc": {
+    "include": [
+      "und-Hans"
+    ]
+  },
+  "notoserifsc": {
+    "include": [
+      "und-Hans"
+    ]
+  },
+  "jomolhari": {
+    "include": [
+      "dre-tibt-np"
+    ]
+  },
+  "notosansthaana": {
+    "include": [
+      "und-Thaa"
+    ]
+  },
+  "notosanscoptic": {
+    "include": [
+      "und-Copt"
+    ]
+  },
+  "sophianubian": {
+    "include": [
+      "und-Copt"
+    ]
+  },
+  "notosanstaile": {
+    "include": [
+      "und-Tale"
+    ]
+  },
+  "akatab": {
+    "include": [
+      "taq-tfng-ml",
+      "thv-tfng-dz"
+    ]
+  },
+  "notosanstagbanwa": {
+    "include": [
+      "und-Tagb"
+    ]
+  },
+  "tagmukay": {
+    "include": [
+      "tmh-tfng-ne"
+    ]
+  },
+  "notosanstamil": {
+    "include": [
+      "und-Taml"
+    ]
+  },
+  "notoseriftamil": {
+    "include": [
+      "und-Taml"
+    ]
+  },
+  "thiruvalluvar": {
+    "include": [
+      "und-Taml"
+    ]
+  },
+  "notosansgurmukhi": {
+    "include": [
+      "und-Guru"
+    ]
+  },
+  "notoserifgurmukhi": {
+    "include": [
+      "und-Guru"
+    ]
+  },
+  "notosansmalayalam": {
+    "include": [
+      "und-Mlym"
+    ]
+  },
+  "notoserifmalayalam": {
+    "include": [
+      "und-Mlym"
+    ]
+  },
+  "taogu": {
+    "include": [
+      "lpo-plrd-cn"
+    ]
+  },
+  "lisubosa": {
+    "include": [
+      "und-Lisu"
+    ]
+  },
+  "notosanslisu": {
+    "include": [
+      "und-Lisu"
+    ]
+  },
+  "mingzat": {
+    "include": [
+      "und-Lepc"
+    ]
+  },
+  "notosanslepcha": {
+    "include": [
+      "und-Lepc"
+    ]
+  },
+  "namdhinggo": {
+    "include": [
+      "und-Limb"
+    ]
+  },
+  "notosanslimbu": {
+    "include": [
+      "und-Limb"
+    ]
+  },
+  "notosansmongolian": {
+    "include": [
+      "mn-cyrl-mn"
+    ]
+  },
+  "alkalami": {
+    "include": [
+      "ha-arab-ng",
+      "ha-latn-ne"
+    ]
+  },
+  "notosansarmenian": {
+    "include": [
+      "und-Armn"
+    ]
+  },
+  "notoserifarmenian": {
+    "include": [
+      "und-Armn"
+    ]
+  },
+  "sapushan": {
+    "include": [
+      "hmd-plrd-cn"
+    ]
+  },
+  "dukor": {
+    "include": [
+      "und-Vaii"
+    ]
+  },
+  "notosansvai": {
+    "include": [
+      "und-Vaii"
+    ]
+  }
+}
