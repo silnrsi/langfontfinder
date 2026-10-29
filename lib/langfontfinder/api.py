@@ -10,7 +10,7 @@ except ImportError:
     sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
     from langfontfinder import LFF
 
-version = "0.2"
+version = "0.3"
 gitid = "$Id$"
 
 datadir = os.getenv(
