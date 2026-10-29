@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ (github.ref_name == 'release' || github.event_name == 'repository_dispatch' && github.event.client_payload.release) && 'production' || 'staging' }}
     steps:
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: '3.x'
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         ref: ${{ vars.LFF_SRC_BRANCH }}
     - name: Install langfontfinder package and depedencies
@@ -30,7 +30,7 @@ jobs:
         -r requirements.txt
         sldr@git+https://github.com/silnrsi/sldrtools
     - name: Checkout sldr src
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         ref: release
         repository: silnrsi/sldr
@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ vars.LFF_SRC_BRANCH }}
 
